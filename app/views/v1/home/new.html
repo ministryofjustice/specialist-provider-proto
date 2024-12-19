@@ -1,0 +1,115 @@
+{% extends "layouts/v1.html" %}
+
+{% block content %}
+<h1 class="govuk-heading-xl">Manage your legal help cases</h1>
+
+    <p>This is a page in version: {{ version }}</p>
+
+
+    {%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
+
+    {{ mojSubNavigation({
+      label: 'Sub navigation',
+      items: [{
+        text: 'New',
+        href: 'new.html',
+        active: true
+      }, {
+        text: 'Accepted',
+        href: 'accepted.html'
+      }, {
+        text: 'Closed',
+        href: '#3'
+      }]
+    }) }}
+
+
+{%- from "govuk/components/table/macro.njk" import govukTable -%}
+
+{{ govukTable({
+  attributes: {
+    'data-module': 'moj-sortable-table'
+  },
+  head: [
+    {
+      text: "Name"
+    },
+    {
+      text: "Reference",
+      attributes: {
+        "aria-sort": "none"
+      }
+    },
+    {
+      text: "Area of Law"
+    },
+    {
+      text: "Last modified",
+      attributes: {
+        "aria-sort": "none"
+      },
+      format: "numeric"
+    },
+    {
+      text: "Outcome code"
+    },
+    {
+      text: "Urgent?"
+    }
+  ],
+  rows: [
+    [
+      {
+        href: "#",
+        text: "Mary Flynn"
+      
+      },
+      {
+        text: "P3-4590-3920",
+        attributes: {
+          "data-sort-value": "4590-3920"
+        }
+      },
+      {
+        text: "Discrimination"
+      },
+      {
+        text: "8 days ago",
+        format: "numeric",
+        attributes: {
+          "data-sort-value": "8"
+        }
+      },
+      {
+        text: "ACCPT"
+      },
+      {
+        text: "No"
+      }
+    ]
+  ]
+}) }}
+
+{% from "govuk/components/pagination/macro.njk" import govukPagination %}
+
+{{ govukPagination({
+  next: {
+    href: "#"
+  },
+  items: [
+    {
+      number: 1,
+      current: true,
+      href: "#"
+    },
+    {
+      number: 2,
+      href: "#"
+    },
+    {
+      number: 3,
+      href: "#"
+    }
+  ]
+}) }}
+{% endblock %}
