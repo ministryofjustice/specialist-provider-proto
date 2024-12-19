@@ -1,0 +1,245 @@
+{% extends "layouts/v1.html" %}
+{% block beforeContent %}
+  {{ govukBackLink({
+    href: "../../../home/new.html",
+    text: "Back to all cases"
+  }) }}
+{% endblock %}
+
+  {% block content %}
+
+  <strong class="govuk-tag govuk-!-margin-bottom-2">New</strong>
+
+  <h1 class="govuk-heading-xl ">
+    <span class="govuk-caption-xl ">PC-4950-9422</span>
+    Mary Flynn
+  </h1>
+
+  <h2 class="govuk-heading-m govuk-!-margin-bottom-7">Date recieved: <span class="govuk-body-l">14 January 2025</span></h2>
+
+  <!---Button group (not functioning)-->
+  
+  {% from "govuk/components/button/macro.njk" import govukButton %}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Accept case"
+    }) }}
+  
+    {{ govukButton({
+      text: "Reject case",
+      classes: "govuk-button--secondary"
+    }) }}
+
+    {{ govukButton({
+        text: "Split case",
+        classes: "govuk-button--secondary"
+    }) }}
+
+    {{ govukButton({
+        text: "Close case",
+        classes: "govuk-button--secondary"
+    }) }}
+  </div>
+
+  <!---Subnav-->
+
+  {%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
+
+{{ mojSubNavigation({
+  label: 'Sub navigation',
+  items: [{
+    text: 'Client details',
+    href: '#1',
+    active: true
+  }, {
+    text: 'Scope',
+    href: '#2'
+  }, {
+    text: 'Financial eligibility',
+    href: '#3'
+}, {
+    text: 'Notes',
+    href: '#3'
+}, {
+    text: 'Case history',
+    href: '#3'
+  }]
+}) }}
+
+<h2 class="govuk-heading-m">Client details</h2>
+
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{{ govukSummaryList({
+  card: {
+    title: {
+      text: "About the client"
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Age"
+      },
+      value: {
+        html: "38"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "age"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "NI number"
+      },
+      value: {
+        html: "MA151066C"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "nationality"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Date of Birth"
+      },
+      value: {
+        html: "17 December 1981"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "Date of Birth"
+          }
+        ]
+      }
+    },
+    {
+        key: {
+          text: "Urgent"
+        },
+        value: {
+          html: "Yes"
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "Change",
+              visuallyHiddenText: "Urgent"
+            }
+          ]
+        }
+      }
+
+    
+  ]
+}) }}
+
+{{ govukSummaryList({
+  card: {
+    title: {
+      text: "Contact details"
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Address"
+      },
+      value: {
+        html: " 5 Green Lane,
+        Birmingham,
+        BR0 203"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "whether details are known"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Phone number"
+      },
+      value: {
+        html: "07770 856422"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "relationship to lead tenant"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Adaptions"
+      },
+      value: {
+        html: "No adaptions"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "age"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Media code"
+      },
+      value: {
+        html: "Unable to work because of long-term sickness or disability"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "working situation"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+
+
+<h2 class="govuk-heading-m">Third party contact</h2>
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukButton({
+  text: "Add third party contact",
+  classes: "govuk-button--secondary"
+}) }}
+
+  {% endblock %}
