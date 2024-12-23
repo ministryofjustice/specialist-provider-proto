@@ -19,7 +19,7 @@
 
   <h1 class="govuk-heading-xl ">
     <span class="govuk-caption-xl ">PC-4950-9422</span>
-    Mary Flynn
+    {{ data['fullName'] }}
   </h1>
 
     <!---Date-->
@@ -39,7 +39,7 @@
       <div class="govuk-button-group">
         {{ govukButton({
           text: "Accept case",
-          href: "../../accepted/maryflynn/clientdetails.html"
+          href: "../../accepted/case1/clientdetails.html"
         }) }}
       
         {{ govukButton({
@@ -69,15 +69,15 @@
 
     <ul class="moj-sub-navigation__list">
       <li class="moj-sub-navigation__item">
-        <a class="moj-sub-navigation__link" aria-current="page" href="../maryflynn/clientdetails.html">Client details</a>
+        <a class="moj-sub-navigation__link" aria-current="page" href="../case1/clientdetails.html">Client details</a>
       </li>
   
       <li class="moj-sub-navigation__item">
-        <a class="moj-sub-navigation__link" href="../maryflynn/scope.html">Scope</a>
+        <a class="moj-sub-navigation__link" href="../case1/scope.html">Scope</a>
       </li>
   
       <li class="moj-sub-navigation__item">
-        <a class="moj-sub-navigation__link" href="../maryflynn/financial_eligibility.html">Financial eligibility</a>
+        <a class="moj-sub-navigation__link" href="../case1/financial_eligibility.html">Financial eligibility</a>
       </li>
 
       <li class="moj-sub-navigation__item">
