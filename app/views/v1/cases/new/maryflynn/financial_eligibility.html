@@ -1,0 +1,50 @@
+{% extends "layouts/new_case_v1.html" %}
+
+{% block subnav %}
+
+  {%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
+
+  <nav class="moj-sub-navigation govuk-!-margin-bottom-0" aria-label="Sub navigation">
+
+    <ul class="moj-sub-navigation__list">
+      <li class="moj-sub-navigation__item">
+        <a class="moj-sub-navigation__link" href="../maryflynn/clientdetails.html">Client details</a>
+      </li>
+  
+      <li class="moj-sub-navigation__item">
+        <a class="moj-sub-navigation__link"  href="../maryflynn/scope.html">Scope</a>
+      </li>
+  
+      <li class="moj-sub-navigation__item">
+        <a class="moj-sub-navigation__link" aria-current="page"  href="../maryflynn/financial_eligibility.html">Financial eligibility</a>
+      </li>
+
+      <li class="moj-sub-navigation__item">
+        <a class="moj-sub-navigation__link" href="#3">Notes</a>
+      </li>
+
+      <li class="moj-sub-navigation__item">
+        <a class="moj-sub-navigation__link" href="#3">Case history</a>
+      </li>
+    </ul>
+  
+  </nav>
+
+
+  {% endblock %}
+
+  {% block content %}
+
+<h2 class="govuk-heading-m">Financial Eligibility</h2>
+
+<h3 class="govuk-body-m"> The call operator has provisionally assessed your client to be financially eligible.</h3>
+
+<p class="govuk-body-m"> Review the information entered to confirm the client’s eligibility.</p>
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukButton({
+  text: "Check if your client qualifies for legal aid"
+}) }}
+
+{% endblock %}

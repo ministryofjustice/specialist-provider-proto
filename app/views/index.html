@@ -15,9 +15,20 @@
     {% from "govuk/components/table/macro.njk" import govukTable %}
     
     {% set currentHtml %}
-    <h2 class="govuk-heading-l">Current</h2>
     
-    <p><a href="v1/home/new.html">Version 1</a> - Specialist Provider Interface</p>
+
+    <h3 class="govuk-heading-sm">Version 1. Specialist Provider Interface</h2>
+
+      {{ govukButton({
+        text: "Start now",
+        href: "v1/home/new.html",
+        isStartButton: true
+      }) }}
+    <h4 class="govuk-heading-s">Shortcuts to key views</h2>
+    
+    <p><a href="v1/home/new.html">View all cases</a> </p>
+    <p><a href="v1/cases/new/maryflynn/clientdetails.html">New case</a> </p>
+    <p><a href="v1/cases/accepted/maryflynn/clientdetails.html">Accepted case</a> </p>
     {% endset -%}
     
     {% set archiveHtml %}
