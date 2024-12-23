@@ -1,5 +1,6 @@
 module.exports = {
 
-  // Insert values here
-
+ 
+  'fullName': 'Mary Flynn',
+  'over-18': 'yes'
 }
