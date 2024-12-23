@@ -1,0 +1,29 @@
+{% extends "layouts/v1.html" %}
+
+{% set bodyClasses = "v1" %}
+{% set version = "v1" %}
+
+{% block header %}
+{{ govukHeader({
+  homepageUrl: "#",
+  serviceName: "Manage legal help cases",
+  serviceUrl: "/v1/home/new",
+  navigation: [
+    {
+      href: "#1",
+      text: "Username",
+      active: true
+    },
+    {
+      href: "#2",
+      text: "Sign out"
+    }
+  ]
+}) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" onclick="history.back();" >Back</a>
+{% endblock %}

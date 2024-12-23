@@ -1,0 +1,103 @@
+{% extends "layouts/v1.html" %}
+
+{% set bodyClasses = "v1" %}
+{% set version = "v1" %}
+
+
+{% block beforeContent %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{{ govukBackLink({
+  text: "Back to all cases",
+  href: "../../../home/new.html"
+}) }}
+
+  <div><strong class="govuk-tag govuk-!-margin-bottom-2 govuk-!-margin-top-4">Accepted</strong></div>
+
+  <h1 class="govuk-heading-xl ">
+    <span class="govuk-caption-xl ">PC-4950-9422</span>
+    Mary Flynn
+  </h1>
+
+  <!---Date-->
+
+          {% block date %}
+
+          <h2 class="govuk-heading-m govuk-!-margin-bottom-7">Date recieved: <span class="govuk-body-l">14 January 2025</span></h2>
+
+          {% endblock %}
+
+  <!---Buttons-->
+
+    {% block buttons %}
+
+    {% from "govuk/components/button/macro.njk" import govukButton %}
+
+    {%- from "govuk/components/button/macro.njk" import govukButton %}
+    {%- from "moj/components/button-menu/macro.njk" import mojButtonMenu -%}
+    <div class="moj-button-group moj-button-group--inline govuk-!-static-margin-bottom-6 ">
+     {{ govukButton({"text": "Generate legal help form", "classes": "govuk-button--secondary"}) }}
+    {{ mojButtonMenu({
+      "button": {
+          "text": "Manage cases",
+          "classes": "govuk-button--secondary"
+      },
+      "items": [
+          {
+              "text": "Close case",
+              "href": "#"
+          },
+          {
+              "text": "Reject case",
+              "href": "#"
+          },
+          {
+              "text": "Split case",
+              "href": "#"
+          },
+          {
+            "text": "Leave case feedback",
+            "href": "#"
+        }
+      ]
+  }) }}
+</div>
+    
+{% endblock %}
+
+  <!---Subnav-->
+
+  {% block subnav %}
+
+  {%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
+
+  <nav class="moj-sub-navigation govuk-!-margin-bottom-0" aria-label="Sub navigation">
+
+    <ul class="moj-sub-navigation__list">
+      <li class="moj-sub-navigation__item">
+        <a class="moj-sub-navigation__link" aria-current="page" href="../maryflynn/clientdetails.html">Client details</a>
+      </li>
+  
+      <li class="moj-sub-navigation__item">
+        <a class="moj-sub-navigation__link" href="../maryflynn/scope.html">Scope</a>
+      </li>
+  
+      <li class="moj-sub-navigation__item">
+        <a class="moj-sub-navigation__link" href="../maryflynn/financial_eligibility.html">Financial eligibility</a>
+      </li>
+
+      <li class="moj-sub-navigation__item">
+        <a class="moj-sub-navigation__link" href="#3">Notes</a>
+      </li>
+
+      <li class="moj-sub-navigation__item">
+        <a class="moj-sub-navigation__link" href="#3">Case history</a>
+      </li>
+    </ul>
+  
+  </nav>
+
+
+  {% endblock %}
+{% endblock %}

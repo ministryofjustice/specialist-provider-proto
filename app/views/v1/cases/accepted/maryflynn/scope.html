@@ -1,0 +1,116 @@
+{% extends "layouts/accepted_case_v1.html" %}
+
+
+
+{% block subnav %}
+
+  {%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
+
+  <nav class="moj-sub-navigation govuk-!-margin-bottom-0" aria-label="Sub navigation">
+
+    <ul class="moj-sub-navigation__list">
+      <li class="moj-sub-navigation__item">
+        <a class="moj-sub-navigation__link" href="../maryflynn/clientdetails.html">Client details</a>
+      </li>
+  
+      <li class="moj-sub-navigation__item">
+        <a class="moj-sub-navigation__link"  aria-current="page" href="../maryflynn/scope.html">Scope</a>
+      </li>
+  
+      <li class="moj-sub-navigation__item">
+        <a class="moj-sub-navigation__link" href="../maryflynn/financial_eligibility.html">Financial eligibility</a>
+      </li>
+
+      <li class="moj-sub-navigation__item">
+        <a class="moj-sub-navigation__link" href="#3">Notes</a>
+      </li>
+
+      <li class="moj-sub-navigation__item">
+        <a class="moj-sub-navigation__link" href="#3">Case history</a>
+      </li>
+    </ul>
+  
+  </nav>
+
+
+  {% endblock %}
+
+  {% block content %}
+
+<h2 class="govuk-heading-m">Scope</h2>
+
+<strong class="govuk-tag govuk-tag--green govuk-!-static-margin-bottom-6 ">
+  In scope
+</strong>
+
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{{ govukSummaryList({
+  card: {
+    title: {
+      text: "Scope details"
+    },
+    actions: {
+      items: [
+        {
+          href: "#",
+          text: "Change",
+          visuallyHiddenText: "Change scope"
+        }
+        
+      ]
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Category of law"
+      },
+      value: {
+        html: "Discrimination"
+      }
+    },
+    {
+      key: {
+        text: "Details"
+      },
+      value: {
+        html: "The client has been discriminated against, or they've been treated badly because they complained about discrimination or supported someone else’s discrimination claim
+        It is against the law to discriminate against anyone because of:
+        age
+        gender reassignment
+        being married or in a civil partnership
+        being pregnant or having recently given birth
+        disability
+        race including colour, nationality, ethnic or national origin
+        religion, belief or lack of religion or belief
+        sex
+        sexual orientation"
+      }
+    },
+    {
+      key: {
+        text: "Type of discrimination"
+      },
+      value: {
+        html: "Pregnancy or maternity"
+      }
+    },
+    {
+        key: {
+          text: "Where discrimination occurred"
+        },
+        value: {
+          html: "Yes"
+        }
+      }
+
+    
+  ]
+}) }}
+
+
+
+
+
+  {% endblock %}
