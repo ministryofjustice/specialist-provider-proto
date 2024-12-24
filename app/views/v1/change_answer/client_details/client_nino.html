@@ -1,0 +1,56 @@
+{% extends "layouts/question_page_v1.html" %}
+
+ 
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Your client's National Insurance number
+      </h1>
+
+      <form class="form" action="../../cases/accepted/case1/clientdetails" method="post">
+        
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="national-insurance-number">
+            National Insurance number
+          </label>
+          <input class="govuk-input govuk-input--width-10 govuk-input--extra-letter-spacing" value="{{ data['niNumber'] }}" id="national-insurance-number" name="niNumber" type="text" spellcheck="false" aria-describedby="national-insurance-number-hint">
+        </div>
+
+        <!--Details-->
+
+        <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              If you client  doesn’t know their national insurance number
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <ul class="govuk-list govuk-list--bullet">
+              <li>
+                Look for your National Insurance number on payslips or official letters about tax, pensions or benefits
+                ask for a reminder through the post
+              </li>
+              <li>
+                <a class="govuk-link" href="https://www.gov.uk/guidance/get-your-national-insurance-number-by-post">Ask for a reminder through the post</a>
+              </li>
+            </ul>
+          </div>
+        </details>
+        
+
+        <div class="govuk-button-group">
+            <button type="submit" class="govuk-button" data-module="govuk-button">
+              Save
+            </button>
+            <a class="govuk-link" onclick="history.back();">Cancel</a>
+          </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

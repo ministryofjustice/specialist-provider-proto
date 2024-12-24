@@ -2,5 +2,10 @@ module.exports = {
 
  
   'fullName': 'Mary Flynn',
-  'over-18': 'yes'
+  'birthDay': '06',
+  'birthMonth': 'Jan',
+  'birthYear': ' 1986',
+  'niNumber': 'MA142P755C',
+  'urgent': 'No',
+  'urgentReason':'',
 }

@@ -3,6 +3,11 @@
 {% set bodyClasses = "v1" %}
 {% set version = "v1" %}
 
+{% block stylesheets %}
+  {{ super() }}
+  <link href="/public/sass/additional.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+
 
 {% block beforeContent %}
 
@@ -13,8 +18,28 @@
   href: "../../../home/new.html"
 }) }}
 
+  <!---If urgent show banner-->
+  {% if (data['urgent'] == "Yes") %}
+  <div class="govuk-notification-banner govuk-!-margin-top-2 govuk-!-margin-bottom-2 " role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+    <div class="govuk-notification-banner__header">
+      <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+        Urgent
+      </h2>
+    </div>
+    <div class="govuk-notification-banner__content">
+      <p class="govuk-notification-banner__heading">
+        {{ data['urgentReason'] }}
+      </p>
+    </div>
+  </div>
+  {% endif %}
+
+  <!---Tag-->
+
   <div><strong class="govuk-tag govuk-!-margin-bottom-2 govuk-!-margin-top-4">Accepted</strong></div>
 
+  <!---Name & Case number-->
+  
   <h1 class="govuk-heading-xl ">
     <span class="govuk-caption-xl ">PC-4950-9422</span>
     {{ data['fullName'] }}

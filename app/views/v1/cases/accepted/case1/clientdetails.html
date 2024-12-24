@@ -3,6 +3,8 @@
 
   {% block content %}
 
+
+
 <h2 class="govuk-heading-m">Client details</h2>
 
 {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
@@ -36,12 +38,12 @@
         text: "NI number"
       },
       value: {
-        html: "MA151066C"
+        html: data['niNumber'] 
       },
       actions: {
         items: [
           {
-            href: "#",
+            href: "../../../change_answer/client_details/client_nino.html",
             text: "Change",
             visuallyHiddenText: "nationality"
           }
@@ -53,12 +55,12 @@
         text: "Date of Birth"
       },
       value: {
-        html: "17 December 1981"
+        html: data['birthDay'] + " " +  data['birthMonth']  + " "  + data['birthYear']
       },
       actions: {
         items: [
           {
-            href: "#",
+            href: "../../../change_answer/client_details/client_dob.html",
             text: "Change",
             visuallyHiddenText: "Date of Birth"
           }
@@ -70,12 +72,12 @@
           text: "Urgent"
         },
         value: {
-          html: "Yes"
+          html: data['urgent'] + "<br>" +  data['urgentReason']
         },
         actions: {
           items: [
             {
-              href: "#",
+              href: "../../../change_answer/client_details/client_urgent.html",
               text: "Change",
               visuallyHiddenText: "Urgent"
             }
