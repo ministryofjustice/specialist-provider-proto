@@ -8,4 +8,8 @@ module.exports = {
   'niNumber': 'MA142P755C',
   'urgent': 'No',
   'urgentReason':'',
+  'clientProblem':'Discrimination',
+  'typeOfDiscrimination': 'Direct Discrimination',
+  'basisOfDiscrimination': 'Race',
+  'locationOfDiscrimination': 'Work',
 }

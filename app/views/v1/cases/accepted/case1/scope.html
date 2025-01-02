@@ -64,13 +64,13 @@
             Client problem
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['categoryOfLaw'] }}
+            {{ data['clientProblem'] }}
           </dd>
         </div>
 
         <!--show the following rows only if Discrimination selected-->
 
-        { % if data['categoryOfLaw'] == "Discrimination" % }
+        {% if data['clientProblem'] == "Discrimination" %}
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
@@ -97,7 +97,7 @@
           </dd>
         </div>
 
-        { % endif % }
+        {% endif %}
 
 
       </dl>
