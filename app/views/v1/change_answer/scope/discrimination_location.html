@@ -1,0 +1,79 @@
+{% extends "layouts/question_page_v1.html" %}
+
+ 
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+       Where did the discrimination occur?
+      </h1>
+
+
+      <form class="form" action="../../cases/accepted/case1/scope" method="post">
+        
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+        {{ govukRadios({
+          name: "locationOfDiscrimination",
+          fieldset: {
+            legend: {
+              text: "Select type of discrimination",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          items: [
+            {
+              value: "Work",
+              text: "Work"
+            },
+            {
+              value: "Provision of a service",
+              text: "Provision of a service (eg a meal in a restaurant, access to a shopping mall)"
+            },
+            {
+              value: "At home (in rental accommodation)",
+              text: "At home (in rental accommodation)"
+            },
+            {
+              value: "Exercise of a public function (eg a police officer carrying out a search as part of a criminal investigation)",
+              text: "Exercise of a public function (eg a police officer carrying out a search as part of a criminal investigation)"
+            },
+            {
+              value: "Association or private club (eg a golf club, a private members' club) ",
+              text: "Association or private club (eg a golf club, a private members' club) "
+            },
+            {
+              value: "Education (schools)",
+              text: "Education (schools)"
+            },
+            {
+              value: "Education (higher education or general qualification bodies)",
+              text: "Education (higher education or general qualification bodies)"
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "Other",
+              text: "Other"
+            }
+          ]
+        }) }}
+        
+
+        <div class="govuk-button-group">
+            <button type="submit" class="govuk-button" data-module="govuk-button">
+              Save
+            </button>
+            <a class="govuk-link" onclick="history.back();">Cancel</a>
+          </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
