@@ -1,0 +1,84 @@
+{% extends "layouts/question_page_v1.html" %}
+
+ 
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+       Discrimination
+      </h1>
+
+      
+
+
+        <p class="govuk-body">The client has been discriminated against, or they've been treated badly because they complained about discrimination or supported someone else’s discrimination claim
+        
+          It is against the law to discriminate against anyone because of:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>age</li>
+  <li>gender reassignment</li>
+  <li> being married or in a civil partnership</li>
+  <li> being pregnant or having recently given birth</li>
+  <li> disability</li>
+  <li> race including colour, nationality, ethnic or national origin</li>
+  <li> sex</li>
+  <li> sexual orientation</li>
+</ul>
+
+      <form class="form" action="/{{ version }}/type_of_discrimination_answer" method="post">
+        
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+        {{ govukRadios({
+          name: "typeOfDiscrimination",
+          fieldset: {
+            legend: {
+              text: "Select type of discrimination",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          items: [
+            {
+              value: "Direct Discrimination",
+              text: "Direct discrimination"
+            },
+            {
+              value: "Indirect Discrimination",
+              text: "Indirect discrimination"
+            },
+            {
+              value: "Victimisation",
+              text: "Victimisation due to a discrimination claim"
+            },
+            {
+              value: "Pregnancy or maternity",
+              text: "Pregnancy or maternity"
+            },
+            {
+              value: "Disability or failure to make reasonable adjustments for a disabled perso",
+              text: "Disability or failure to make reasonable adjustments for a disabled person"
+            },
+            {
+              value: "Harrassment",
+              text: "Harassment"
+            }
+          ]
+        }) }}
+        
+
+        <div class="govuk-button-group">
+            <button type="submit" class="govuk-button" data-module="govuk-button">
+              Save
+            </button>
+            <a class="govuk-link" onclick="history.back();">Cancel</a>
+          </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

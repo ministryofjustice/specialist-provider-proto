@@ -39,78 +39,75 @@
 
 <h2 class="govuk-heading-m">Scope</h2>
 
-<strong class="govuk-tag govuk-tag--green govuk-!-static-margin-bottom-6 ">
+<strong class="govuk-tag govuk-tag--green govuk-!-static-margin-bottom-4 ">
   In scope
 </strong>
 
-{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
 
-{{ govukSummaryList({
-  card: {
-    title: {
-      text: "Scope details"
-    },
-    actions: {
-      items: [
-        {
-          href: "#",
-          text: "Change",
-          visuallyHiddenText: "Change scope"
-        }
-        
-      ]
-    }
-  },
-  rows: [
-    {
-      key: {
-        text: "Category of law"
-      },
-      value: {
-        html: "Discrimination"
-      }
-    },
-    {
-      key: {
-        text: "Details"
-      },
-      value: {
-        html: "The client has been discriminated against, or they've been treated badly because they complained about discrimination or supported someone else’s discrimination claim
-        It is against the law to discriminate against anyone because of:
-        age
-        gender reassignment
-        being married or in a civil partnership
-        being pregnant or having recently given birth
-        disability
-        race including colour, nationality, ethnic or national origin
-        religion, belief or lack of religion or belief
-        sex
-        sexual orientation"
-      }
-    },
-    {
-      key: {
-        text: "Type of discrimination"
-      },
-      value: {
-        html: "Pregnancy or maternity"
-      }
-    },
-    {
-        key: {
-          text: "Where discrimination occurred"
-        },
-        value: {
-          html: "Yes"
-        }
-      }
+<h2 class="govuk-heading-s govuk-!-margin-bottom-7">Category of law: <span class="govuk-body-m">Discrimination</span></h2>
 
-    
-  ]
-}) }}
+ <div class="govuk-summary-card">
+    <div class="govuk-summary-card__title-wrapper">
+      <h2 class="govuk-summary-card__title">
+        Scope details
+      </h2>
+      <ul class="govuk-summary-card__actions">
+        <li class="govuk-summary-card__action">
+          <a class="govuk-link" href="../../../change_answer/scope/scope_overview.html">Change<span class="govuk-visually-hidden"> change scope</span></a>
+        </li>
+      </ul>
+    </div>
+    <div class="govuk-summary-card__content">
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Client problem
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['categoryOfLaw'] }}
+          </dd>
+        </div>
 
+        <!--show the following rows only if Discrimination selected-->
+
+        { % if data['categoryOfLaw'] == "Discrimination" % }
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Type of discrimination
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['typeOfDiscrimination'] }}
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Basis of discrimination
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['basisOfDiscrimination'] }}
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Where the discrimination occured
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['locationOfDiscrimination'] }}
+          </dd>
+        </div>
+
+        { % endif % }
+
+
+      </dl>
+    </div>
+  </div>
 
 
 
 
   {% endblock %}
+
+ 
+ 
