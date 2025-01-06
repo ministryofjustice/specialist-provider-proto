@@ -38,3 +38,12 @@ router.post('/basis_of_discrimination_answer', function(request, response) {
     }
 })
 
+router.post('/financial_eligibility_answer', function(request, response) {
+
+    var financiallyEligibile = request.session.data['financiallyEligibile']
+    if (financiallyEligibile  == "yes"){
+        response.redirect('/' + version + '/cases/accepted/case1/financial_eligibility')
+    } else {
+        response.redirect('/' + version + '/cases/accepted/case1/financial_eligibility')
+    }
+})
