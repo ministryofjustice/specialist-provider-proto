@@ -14,7 +14,7 @@ router.post('/category_of_law_answer', function(request, response) {
     if (clientProblem == "Discrimination"){
         response.redirect('/' + version + '/change_answer/scope/discrimination_type')
     } else {
-        response.redirect("/ineligible-response")
+        response.redirect('/' + version + '/change_answer/scope/out_of_scope')
     }
 })
 

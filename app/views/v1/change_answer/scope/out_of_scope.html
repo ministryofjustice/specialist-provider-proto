@@ -1,0 +1,33 @@
+{% extends "layouts/question_page_v1.html" %}
+
+ 
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ data['clientProblem'] }} is out of scope for legal aid
+      </h1>
+
+      <form class="form"  action="../../cases/accepted/case1/scope"  method="post">
+        
+        <p>Please read the following to the client:</p>
+          <p>"Based on the information you have provided the issue you are calling about isn’t something CLA can provide advice on. However we can provide alternative contact details of organisations who may be able to assist you. </p>
+          <P>We can provide helplines, websites or F2F however please be aware that you may have to pay for that service. Do you have any preference on the alternative help we provide today?" </P>
+          <P>Discussion on best options, paid v free, website calls, national services, local services, read from websites etc. Give details of organisations.</P>
+         
+
+        <div class="govuk-button-group">
+            <button type="submit" class="govuk-button" data-module="govuk-button">
+              Continue
+            </button>
+            <a class="govuk-link" onclick="history.back();">Cancel</a>
+          </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
