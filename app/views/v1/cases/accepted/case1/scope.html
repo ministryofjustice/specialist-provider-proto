@@ -39,12 +39,27 @@
 
 <h2 class="govuk-heading-m">Scope</h2>
 
-<strong class="govuk-tag govuk-tag--green govuk-!-static-margin-bottom-4 ">
-  In scope
-</strong>
 
 
-<h2 class="govuk-heading-s govuk-!-margin-bottom-7">Category of law: <span class="govuk-body-m">Discrimination</span></h2>
+
+<h2 class="govuk-heading-s govuk-!-margin-bottom-2">Dermination: 
+  
+  <!--if in scope category-->
+  {% if data['clientProblem'] == "Discrimination" %}
+    <strong class="govuk-tag govuk-tag--green">
+     In scope
+    </strong></h2>
+
+  <!--if out of scope category, currently everything but discrimination-->
+  {% else %}
+    <strong class="govuk-tag govuk-tag--red">
+    Out of scope
+    </strong></h2>
+  {% endif %}
+
+<h2 class="govuk-heading-s govuk-!-margin-bottom-7">Category of law: <span class="govuk-body-m">{{ data['clientProblem'] }} </span></h2>
+
+
 
  <div class="govuk-summary-card">
     <div class="govuk-summary-card__title-wrapper">
@@ -61,7 +76,7 @@
       <dl class="govuk-summary-list">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Client problem
+            Area
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['clientProblem'] }}
@@ -104,7 +119,7 @@
     </div>
   </div>
 
-
+  
 
 
   {% endblock %}

@@ -1,0 +1,647 @@
+{% extends "layouts/question_page_v1.html" %}
+
+
+  {% block content %}
+
+<main class="govuk-main-wrapper" id="main-content" role="main">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-xl ">
+        <span class="govuk-caption-xl ">PC-4950-9422</span>
+        {{ data['fullName'] }}
+      </h1>
+
+      <p>*Guidance on what to do on this page *</p>
+
+      <h2 class="govuk-heading-l govuk-!-margin-top-9">Client details</h2>
+
+      <div class="govuk-summary-card" id="table-client_age">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">Client age</h3><a class="govuk-link govuk-summary-card__actions govuk-!-margin-top-1"
+            aria-label="Change Client age"
+            href="#">Change</a>
+        </div>
+
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key wide">What age is your client?</dt>
+              <dd class="govuk-summary-list__value">18 to 59</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+      <div class="govuk-summary-card" id="table-applicant">
+        <div class="govuk-summary-card__title-wrapper">
+          <h3 class="govuk-summary-card__title">Partner and passporting</h3><a class="govuk-link govuk-summary-card__actions  govuk-!-margin-top-1"
+            aria-label="Change Partner and passporting"
+            href="/about-client/19407fe5-c9ba-4574-855f-8e6442f5ec6c/check?begin_editing=true">Change</a>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key wide">Does your client have a partner?</dt>
+              <dd class="govuk-summary-list__value">Yes</dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key wide">Does your client receive a passporting benefit?</dt>
+              <dd class="govuk-summary-list__value">No</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+      
+      <!--Dependants-->
+      <h2 class="govuk-heading-l govuk-!-margin-top-9">Dependants</h2>
+      <div class="govuk-summary-card" id="table-dependant_details">
+        <div class="govuk-summary-card__title-wrapper">
+          <h3 class="govuk-summary-card__title">Number of dependants</h3><a class="govuk-link govuk-summary-card__actions  govuk-!-margin-top-1"
+            aria-label="Change Number of dependants"
+            href="/about-dependants/19407fe5-c9ba-4574-855f-8e6442f5ec6c/check?begin_editing=true">Change</a>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key wide">Does your client or their partner have any child dependants?</dt>
+              <dd class="govuk-summary-list__value">Yes</dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key wide">How many child dependants are there?</dt>
+              <dd class="govuk-summary-list__value">2</dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key wide">Does your client or their partner have any adult dependants?</dt>
+              <dd class="govuk-summary-list__value">Yes</dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key wide">How many adult dependants are there?</dt>
+              <dd class="govuk-summary-list__value">1</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+      <div class="govuk-summary-card" id="table-dependant_income">
+        <div class="govuk-summary-card__title-wrapper">
+          <h3 class="govuk-summary-card__title">Dependant income</h3><a class="govuk-link govuk-summary-card__actions  govuk-!-margin-top-1"
+            aria-label="Change Dependant income"
+            href="/do-dependants-get-income/19407fe5-c9ba-4574-855f-8e6442f5ec6c/check?begin_editing=true">Provide answer</a>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Do any of the dependants aged 16 or over get regular income?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <strong class="govuk-tag govuk-tag--red">
+                  Requires answer
+                </strong>        
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+<!-- 
+      <div class="govuk-summary-card" id="table-dependant_income_details">
+        <div class="govuk-summary-card__title-wrapper">
+          <h3 class="govuk-summary-card__title">Dependant 1 income</h3><a class="govuk-link govuk-summary-card__actions  govuk-!-margin-top-1"
+            aria-label="Change Dependant income 1 details"
+            href="/dependant-income-details/19407fe5-c9ba-4574-855f-8e6442f5ec6c/check?begin_editing=true#section-1">Change</a>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key wide">When does the dependant normally get this income?</dt>
+              <dd class="govuk-summary-list__value">Every week</dd>
+            </div>
+            <div class="govuk-summary-list__row" id="income">
+              <dt class="govuk-summary-list__key wide">Income</dt>
+              <dd class="govuk-summary-list__value">£50.00</dd>
+            </div>
+          </dl>
+        </div>
+      </div> -->
+
+        <!--Client income-->
+      <h2 class="govuk-heading-l govuk-!-margin-top-9">Client income</h2>
+      <div class="govuk-summary-card" id="table-employment_status">
+        <div class="govuk-summary-card__title-wrapper">
+          <h3 class="govuk-summary-card__title">Employment status</h3><a class="govuk-link govuk-summary-card__actions  govuk-!-margin-top-1"
+            aria-label="Change Employment status"
+            href="/client-employment-status/19407fe5-c9ba-4574-855f-8e6442f5ec6c/check?begin_editing=true">Change</a>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key wide">What is your client's employment status?</dt>
+              <dd class="govuk-summary-list__value">Employed or self-employed</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+      <div class="govuk-summary-card" id="table-income">
+        <div class="govuk-summary-card__title-wrapper">
+          <h3 class="govuk-summary-card__title">Client employment income 1</h3><a
+            class="govuk-link govuk-summary-card__actions  govuk-!-margin-top-1" aria-label="Change Client employment income 1"
+            href="/client-employment-income/19407fe5-c9ba-4574-855f-8e6442f5ec6c/check?begin_editing=true#section-1">Change</a>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key wide">What type of employment income is this?</dt>
+              <dd class="govuk-summary-list__value">A salary or wage</dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key wide">When does your client normally get this income?</dt>
+              <dd class="govuk-summary-list__value">Every week</dd>
+            </div>
+            <div class="govuk-summary-list__row" id="income-before-any-deductions">
+              <dt class="govuk-summary-list__key wide">Income before any deductions</dt>
+              <dd class="govuk-summary-list__value">£1.00</dd>
+            </div>
+            <div class="govuk-summary-list__row" id="income-tax">
+              <dt class="govuk-summary-list__key wide">Income tax</dt>
+              <dd class="govuk-summary-list__value">£0.00</dd>
+            </div>
+            <div class="govuk-summary-list__row" id="national-insurance">
+              <dt class="govuk-summary-list__key wide">National Insurance</dt>
+              <dd class="govuk-summary-list__value">£0.00</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+      <div class="govuk-summary-card" id="table-benefits">
+        <div class="govuk-summary-card__title-wrapper">
+          <h3 class="govuk-summary-card__title">Client benefits</h3>
+         <a class="govuk-link govuk-summary-card__actions  govuk-!-margin-top-1"
+            aria-label="Change Client benefits"
+            href="/does-client-get-benefits/19407fe5-c9ba-4574-855f-8e6442f5ec6c/check?begin_editing=true">Review question</a>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key wide">Does your client get any non-passporting benefits?</dt>
+              <dd class="govuk-summary-list__value">Yes</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+      
+      <div class="govuk-summary-card" id="table-benefit_details">
+        <div class="govuk-summary-card__title-wrapper">
+          <h3 class="govuk-summary-card__title">Client benefit 1 details</h3>
+          <ul class="govuk-summary-card__actions">
+            <strong class="govuk-tag govuk-tag--red">
+              Requires review
+            </strong> 
+            <li class="govuk-summary-card__action">
+              <a class="govuk-link" href="#">Review question<span class="govuk-visually-hidden"> from University of Gloucestershire (University of Gloucestershire)</span></a>
+            </li>
+          </ul>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key wide">Benefit name</dt>
+              <dd class="govuk-summary-list__value">Benefit</dd>
+            </div>
+            <div class="govuk-summary-list__row" id="benefit-amount">
+              <dt class="govuk-summary-list__key wide">Benefit amount</dt>
+              <dd class="govuk-summary-list__value">£1.00</dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key wide">Frequency</dt>
+              <dd class="govuk-summary-list__value">Every week</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+      <div class="govuk-summary-card" id="table-other_income">
+        <div class="govuk-summary-card__title-wrapper">
+          <h3 class="govuk-summary-card__title">Client other income</h3><a class="govuk-link govuk-summary-card__actions  govuk-!-margin-top-1"
+            aria-label="Change Client other income"
+            href="/client-other-income/19407fe5-c9ba-4574-855f-8e6442f5ec6c/check?begin_editing=true">Change</a>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key wide">Does your client get financial help from friends or family?</dt>
+              <dd class="govuk-summary-list__value">
+                <div class="govuk-!-margin-bottom-1">No</div>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key wide">Does your client get maintenance from a former partner?</dt>
+              <dd class="govuk-summary-list__value">
+                <div class="govuk-!-margin-bottom-1">No</div>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key wide">Does your client get income from a property or lodger?</dt>
+              <dd class="govuk-summary-list__value">
+                <div class="govuk-!-margin-bottom-1">No</div>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key wide">Does your client get income from pensions?</dt>
+              <dd class="govuk-summary-list__value">
+                <div class="govuk-!-margin-bottom-1">No</div>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row" id="does-your-client-get-income-from-student-finance">
+              <dt class="govuk-summary-list__key wide">Does your client get income from student finance?</dt>
+              <dd class="govuk-summary-list__value">
+                <div class="govuk-!-margin-bottom-1">No</div>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row" id="does-your-client-get-income-from-other-sources">
+              <dt class="govuk-summary-list__key wide">Does your client get income from other sources?</dt>
+              <dd class="govuk-summary-list__value">
+                <div class="govuk-!-margin-bottom-1">No</div>
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+  <!--Partner income-->
+      <h2 class="govuk-heading-l govuk-!-margin-top-9">Partner income</h2>
+      <div class="govuk-summary-card" id="table-partner_details">
+        <div class="govuk-summary-card__title-wrapper">
+          <h3 class="govuk-summary-card__title">Partner age</h3><a class="govuk-link govuk-summary-card__actions  govuk-!-margin-top-1"
+            aria-label="Change Partner age"
+            href="/about-partner/19407fe5-c9ba-4574-855f-8e6442f5ec6c/check?begin_editing=true">Change</a>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key wide">Is the partner aged 60 or over?</dt>
+              <dd class="govuk-summary-list__value">No</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+      <div class="govuk-summary-card" id="table-partner_employment_status">
+        <div class="govuk-summary-card__title-wrapper">
+          <h3 class="govuk-summary-card__title">Partner employment status</h3><a
+            class="govuk-link govuk-summary-card__actions  govuk-!-margin-top-1" aria-label="Change Partner employment status"
+            href="/partner-employment-status/19407fe5-c9ba-4574-855f-8e6442f5ec6c/check?begin_editing=true">Change</a>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key wide">What is the partner's employment status?</dt>
+              <dd class="govuk-summary-list__value">Employed or self-employed</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+      <div class="govuk-summary-card" id="table-partner_income">
+        <div class="govuk-summary-card__title-wrapper">
+          <h3 class="govuk-summary-card__title">Partner employment income 1</h3><a
+            class="govuk-link govuk-summary-card__actions  govuk-!-margin-top-1" aria-label="Change Partner employment income  1"
+            href="/partner-employment-income/19407fe5-c9ba-4574-855f-8e6442f5ec6c/check?begin_editing=true#section-1">Change</a>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key wide">What type of employment income is this?</dt>
+              <dd class="govuk-summary-list__value">A salary or wage</dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key wide">When does the partner normally get this income?</dt>
+              <dd class="govuk-summary-list__value">Every week</dd>
+            </div>
+            <div class="govuk-summary-list__row" id="income-before-any-deductions">
+              <dt class="govuk-summary-list__key wide">Income before any deductions</dt>
+              <dd class="govuk-summary-list__value">£1.00</dd>
+            </div>
+            <div class="govuk-summary-list__row" id="income-tax">
+              <dt class="govuk-summary-list__key wide">Income tax</dt>
+              <dd class="govuk-summary-list__value">£0.00</dd>
+            </div>
+            <div class="govuk-summary-list__row" id="national-insurance">
+              <dt class="govuk-summary-list__key wide">National Insurance</dt>
+              <dd class="govuk-summary-list__value">£0.00</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+      <div class="govuk-summary-card" id="table-partner_benefits">
+        <div class="govuk-summary-card__title-wrapper">
+          <h3 class="govuk-summary-card__title">Partner benefits</h3><a class="govuk-link govuk-summary-card__actions  govuk-!-margin-top-1"
+            aria-label="Change Partner Benefits"
+            href="/does-partner-get-benefits/19407fe5-c9ba-4574-855f-8e6442f5ec6c/check?begin_editing=true">Change</a>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key wide">Does the partner get any benefits?</dt>
+              <dd class="govuk-summary-list__value">Yes</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+      <div class="govuk-summary-card" id="table-partner_benefit_details">
+        <div class="govuk-summary-card__title-wrapper">
+          <h3 class="govuk-summary-card__title">Partner benefit 1 details</h3><a
+            class="govuk-link govuk-summary-card__actions  govuk-!-margin-top-1" aria-label="Change Partner benefit 1 details"
+            href="/partner-benefit-details/19407fe5-c9ba-4574-855f-8e6442f5ec6c/check?begin_editing=true#section-1">Change</a>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key wide">Benefit name</dt>
+              <dd class="govuk-summary-list__value">Benefit</dd>
+            </div>
+            <div class="govuk-summary-list__row" id="benefit-amount">
+              <dt class="govuk-summary-list__key wide">Benefit amount</dt>
+              <dd class="govuk-summary-list__value">£1.00</dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key wide">Frequency</dt>
+              <dd class="govuk-summary-list__value">Every week</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+      <div class="govuk-summary-card" id="table-partner_other_income">
+        <div class="govuk-summary-card__title-wrapper">
+          <h3 class="govuk-summary-card__title">Partner other income</h3><a class="govuk-link govuk-summary-card__actions  govuk-!-margin-top-1"
+            aria-label="Change Partner other income"
+            href="/partner-other-income/19407fe5-c9ba-4574-855f-8e6442f5ec6c/check?begin_editing=true">Change</a>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key wide">Does the partner get financial help from friends or family?</dt>
+              <dd class="govuk-summary-list__value">
+                <div class="govuk-!-margin-bottom-1">No</div>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key wide">Does the partner get maintenance from a former partner?</dt>
+              <dd class="govuk-summary-list__value">
+                <div class="govuk-!-margin-bottom-1">No</div>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key wide">Does the partner get income from a property or lodger?</dt>
+              <dd class="govuk-summary-list__value">
+                <div class="govuk-!-margin-bottom-1">No</div>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key wide">Does the partner get income from pensions?</dt>
+              <dd class="govuk-summary-list__value">
+                <div class="govuk-!-margin-bottom-1">No</div>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row" id="does-the-partner-get-income-from-student-finance">
+              <dt class="govuk-summary-list__key wide">Does the partner get income from student finance?</dt>
+              <dd class="govuk-summary-list__value">
+                <div class="govuk-!-margin-bottom-1">No</div>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row" id="does-the-partner-get-income-from-other-sources">
+              <dt class="govuk-summary-list__key wide">Does the partner get income from other sources?</dt>
+              <dd class="govuk-summary-list__value">
+                <div class="govuk-!-margin-bottom-1">No</div>
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+        <!--Outgoings-->
+      <h2 class="govuk-heading-l govuk-!-margin-top-9">Outgoings</h2>
+      <div class="govuk-summary-card" id="table-outgoings">
+        <div class="govuk-summary-card__title-wrapper">
+          <h3 class="govuk-summary-card__title">Client outgoings and deductions</h3><a
+            class="govuk-link govuk-summary-card__actions  govuk-!-margin-top-1" aria-label="Change Client outgoings and deductions"
+            href="/client-outgoings/19407fe5-c9ba-4574-855f-8e6442f5ec6c/check?begin_editing=true">Change</a>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key wide">Does your client pay maintenance to a former partner?</dt>
+              <dd class="govuk-summary-list__value">
+                <div class="govuk-!-margin-bottom-1">No</div>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key wide">Does your client make payments toward legal aid for a criminal
+                case?</dt>
+              <dd class="govuk-summary-list__value">
+                <div class="govuk-!-margin-bottom-1">No</div>
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+      <div class="govuk-summary-card" id="table-partner_outgoings">
+        <div class="govuk-summary-card__title-wrapper">
+          <h3 class="govuk-summary-card__title">Partner outgoings and deductions</h3><a
+            class="govuk-link govuk-summary-card__actions  govuk-!-margin-top-1" aria-label="Change Partner outgoings and deductions"
+            href="/partner-outgoings/19407fe5-c9ba-4574-855f-8e6442f5ec6c/check?begin_editing=true">Change</a>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key wide">Does the partner pay maintenance to a former partner?</dt>
+              <dd class="govuk-summary-list__value">
+                <div class="govuk-!-margin-bottom-1">No</div>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key wide">Does the partner make payments toward legal aid for a criminal
+                case?</dt>
+              <dd class="govuk-summary-list__value">
+                <div class="govuk-!-margin-bottom-1">No</div>
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+        <!--Housing and Property-->
+      <h2 class="govuk-heading-l govuk-!-margin-top-9">Housing and property</h2>
+      <div class="govuk-summary-card" id="table-property">
+        <div class="govuk-summary-card__title-wrapper">
+          <h3 class="govuk-summary-card__title">Home client usually lives in</h3><a
+            class="govuk-link govuk-summary-card__actions  govuk-!-margin-top-1" aria-label="Change Home client lives in"
+            href="/property-ownership/19407fe5-c9ba-4574-855f-8e6442f5ec6c/check?begin_editing=true">Change</a>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key wide">Does your client or their partner own the home the client lives
+                in?</dt>
+              <dd class="govuk-summary-list__value">Yes, owned outright</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+      <div class="govuk-summary-card" id="table-property_entry">
+        <div class="govuk-summary-card__title-wrapper">
+          <h3 class="govuk-summary-card__title">Home client owns and usually lives in details</h3><a
+            class="govuk-link govuk-summary-card__actions  govuk-!-margin-top-1" aria-label="Change Home client lives in details"
+            href="/home-client-lives-in/19407fe5-c9ba-4574-855f-8e6442f5ec6c/check?begin_editing=true">Change</a>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row" id="estimated-value">
+              <dt class="govuk-summary-list__key wide">Estimated value</dt>
+              <dd class="govuk-summary-list__value">£1.00</dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key wide">Percentage share owned</dt>
+              <dd class="govuk-summary-list__value">1%</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+      <div class="govuk-summary-card" id="table-additional_property">
+        <div class="govuk-summary-card__title-wrapper">
+          <h3 class="govuk-summary-card__title">Client other property</h3><a class="govuk-link govuk-summary-card__actions  govuk-!-margin-top-1"
+            aria-label="Change Client other property"
+            href="/does-client-own-other-property-holiday-home-land/19407fe5-c9ba-4574-855f-8e6442f5ec6c/check?begin_editing=true">Change</a>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key wide">Does your client own any other property, a holiday home or land?
+              </dt>
+              <dd class="govuk-summary-list__value">Yes, with a mortgage or loan</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+      <div class="govuk-summary-card" id="table-additional_property_details">
+        <div class="govuk-summary-card__title-wrapper">
+          <h3 class="govuk-summary-card__title">Client other property 1 details</h3><a
+            class="govuk-link govuk-summary-card__actions  govuk-!-margin-top-1" aria-label="Change client other property 1 details"
+            href="/client-other-property-holiday-home-land-details/19407fe5-c9ba-4574-855f-8e6442f5ec6c/check?begin_editing=true#section-1">Change</a>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row" id="how-much-is-the-property-holiday-home-or-land-worth">
+              <dt class="govuk-summary-list__key wide">How much is the property, holiday home or land worth?</dt>
+              <dd class="govuk-summary-list__value">£1.00</dd>
+            </div>
+            <div class="govuk-summary-list__row" id="value-of-outstanding-mortgage">
+              <dt class="govuk-summary-list__key wide">Value of outstanding mortgage</dt>
+              <dd class="govuk-summary-list__value">£1.00</dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key wide">What percentage does your client own?</dt>
+              <dd class="govuk-summary-list__value">1%</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+      <div class="govuk-summary-card" id="table-partner_additional_property">
+        <div class="govuk-summary-card__title-wrapper">
+          <h3 class="govuk-summary-card__title">Partner other property</h3><a class="govuk-link govuk-summary-card__actions  govuk-!-margin-top-1"
+            aria-label="Change Partner other property"
+            href="/does-partner-own-other-property-holiday-home-land/19407fe5-c9ba-4574-855f-8e6442f5ec6c/check?begin_editing=true">Change</a>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key wide">Does the partner own any other property, a holiday home or land?
+              </dt>
+              <dd class="govuk-summary-list__value">Yes, with a mortgage or loan</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+      <div class="govuk-summary-card" id="table-partner_additional_property_details">
+        <div class="govuk-summary-card__title-wrapper">
+          <h3 class="govuk-summary-card__title">Partner other property 1 details</h3><a
+            class="govuk-link govuk-summary-card__actions  govuk-!-margin-top-1" aria-label="Change Partner other property 1 details"
+            href="/partner-other-property-holiday-home-land-details/19407fe5-c9ba-4574-855f-8e6442f5ec6c/check?begin_editing=true#section-1">Change</a>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row" id="how-much-is-the-property-holiday-home-or-land-worth">
+              <dt class="govuk-summary-list__key wide">How much is the property, holiday home or land worth?</dt>
+              <dd class="govuk-summary-list__value">£1.00</dd>
+            </div>
+            <div class="govuk-summary-list__row" id="value-of-outstanding-mortgage">
+              <dt class="govuk-summary-list__key wide">Value of outstanding mortgage</dt>
+              <dd class="govuk-summary-list__value">£1.00</dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key wide">What percentage does the partner own?</dt>
+              <dd class="govuk-summary-list__value">1%</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+        <!--Assets-->
+      <h2 class="govuk-heading-l govuk-!-margin-top-9">Assets</h2>
+      <div class="govuk-summary-card" id="table-assets">
+        <div class="govuk-summary-card__title-wrapper">
+          <h3 class="govuk-summary-card__title">Client assets</h3><a class="govuk-link govuk-summary-card__actions  govuk-!-margin-top-1"
+            aria-label="Change Client assets"
+            href="/client-assets/19407fe5-c9ba-4574-855f-8e6442f5ec6c/check?begin_editing=true">Change</a>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row" id="money-in-bank-account-1">
+              <dt class="govuk-summary-list__key wide">Money in bank account 1</dt>
+              <dd class="govuk-summary-list__value">£0.00</dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key wide">Does your client have any investments?</dt>
+              <dd class="govuk-summary-list__value">No</dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key wide">Does your client have valuable items worth £500 or more?</dt>
+              <dd class="govuk-summary-list__value">No</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+      <div class="govuk-summary-card" id="table-partner_assets">
+        <div class="govuk-summary-card__title-wrapper">
+          <h3 class="govuk-summary-card__title">Partner assets</h3><a class="govuk-link govuk-summary-card__actions  govuk-!-margin-top-1"
+            aria-label="Change Partner assets"
+            href="/partner-assets/19407fe5-c9ba-4574-855f-8e6442f5ec6c/check?begin_editing=true">Change</a>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row" id="money-in-bank-account-1">
+              <dt class="govuk-summary-list__key wide">Money in bank account 1</dt>
+              <dd class="govuk-summary-list__value">£0.00</dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key wide">Does the partner have any investments?</dt>
+              <dd class="govuk-summary-list__value">No</dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key wide">Does the partner have valuable items worth £500 or more?</dt>
+              <dd class="govuk-summary-list__value">No</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+      <form class="form" action="../../cases/accepted/case1/financial_eligibility_eligible" method="post">
+      <div class="govuk-button-group">
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          Submit eligibility check
+        </button>
+        <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          Save and come back later
+        </button>
+      </div>
+    </div>
+  </div>
+</main>
+ 
+
+  {% endblock %}

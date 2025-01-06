@@ -1,0 +1,676 @@
+{% extends "layouts/accepted_case_v1.html" %}
+
+
+
+{% block subnav %}
+
+  {%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
+
+  <nav class="moj-sub-navigation govuk-!-margin-bottom-0" aria-label="Sub navigation">
+
+    <ul class="moj-sub-navigation__list">
+      <li class="moj-sub-navigation__item">
+        <a class="moj-sub-navigation__link" href="../case1/clientdetails.html">Client details</a>
+      </li>
+  
+      <li class="moj-sub-navigation__item">
+        <a class="moj-sub-navigation__link"  href="../case1/scope.html">Scope</a>
+      </li>
+  
+      <li class="moj-sub-navigation__item">
+        <a class="moj-sub-navigation__link" aria-current="page"  href="../case1/financial_eligibility.html">Financial eligibility</a>
+      </li>
+
+      <li class="moj-sub-navigation__item">
+        <a class="moj-sub-navigation__link" href="#3">Notes</a>
+      </li>
+
+      <li class="moj-sub-navigation__item">
+        <a class="moj-sub-navigation__link" href="#3">Case history</a>
+      </li>
+    </ul>
+  
+  </nav>
+
+
+  {% endblock %}
+
+  {% block content %}
+
+<h2 class="govuk-heading-m">Financial Eligibility</h2>
+
+
+<main class="govuk-main-wrapper" id="main-content" role="main">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <!--Result panel-->
+      <div
+        class="govuk-panel panel-blue-white-text govuk-panel--confirmation govuk-!-text-align-left govuk-!-margin-bottom-9">
+        <div class="govuk-panel__body">
+          <h1 class="govuk-heading-l" style="color:white;">Your client qualifies for civil legal aid, for controlled work and family
+            mediation</h1>
+          <p style="color:white;" >Your client qualifies financially for civil legal aid based on the information you
+            entered. Before you (or a provider of advice or services funded by legal aid) proceed with your client’s
+            case, it must also be within scope for legal aid and satisfy the relevant merits criteria set out in the
+            relevant legislation and guidance.</p>
+          <p class="govuk-body" style="color:white;">These calculations were made in line with the latest version of the Lord Chancellor's
+            Guidance on Determining Financial Eligibility for Controlled Work.</p>
+          <h2 class="govuk-heading-m " style="color:white;">Legal aid is not always free</h2>
+          <p class="govuk-body" style="color:white;">In some circumstances, your client may be asked to repay the legal costs of their case,
+            for example from money or assets kept or gained as a result of legal aid if the statutory charge arises.</p>
+        </div>
+      </div>
+
+      <h2 class="govuk-heading-m">Your client's key eligibility totals</h2>
+      <div class="summary-box-holder govuk-!-margin-bottom-5">
+        <div class="summary-box summary-box-eligible">
+          <p class="govuk-body-l summary-list-subheader govuk-!-margin-bottom-0">Gross monthly income</p>
+          <h3 class="govuk-heading-l govuk-!-margin-bottom-2 govuk-!-margin-top-0">£17.32</h3>
+          <p class="govuk-body govuk-!-margin-top-3">Your client’s total is below the gross monthly income upper limit
+            (£2,657). <a class="summary-box-link" aria-label="See Income calculation"
+              href="#income-calculation-section">See calculation.</a></p>
+        </div>
+        <div class="summary-box summary-box-eligible">
+          <p class="govuk-body-l summary-list-subheader govuk-!-margin-bottom-0">Disposable monthly income</p>
+          <h3 class="govuk-heading-l govuk-!-margin-bottom-2 govuk-!-margin-top-0">-£297.55</h3>
+          <p class="govuk-body govuk-!-margin-top-3">Your client’s total is below the disposable monthly income upper
+            limit (£733). <a class="summary-box-link" aria-label="See Outgoings calculation"
+              href="#outgoings-calculation-section">See calculation.</a></p>
+        </div>
+        <div class="summary-box summary-box-eligible">
+          <p class="govuk-body-l summary-list-subheader govuk-!-margin-bottom-0">Disposable capital</p>
+          <h3 class="govuk-heading-l govuk-!-margin-bottom-2 govuk-!-margin-top-0">£0.00</h3>
+          <p class="govuk-body govuk-!-margin-top-3">Your client’s total is below the disposable capital upper limit
+            (£3,000). <a class="summary-box-link" aria-label="See Capital calculation"
+              href="#capital-calculation-section">See calculation.</a></p>
+        </div>
+      </div>
+      <form class="form" action="{{ version }}/../../../../change_answer/financial_eligibility/CCQ_option1_tags" method="post">
+
+        {% from "govuk/components/button/macro.njk" import govukButton %}
+        
+        {{ govukButton({
+          text: "Edit financial eligibility"
+        }) }}
+        
+
+      <h2 class="govuk-heading-m">How we calculated whether your client is financially eligible for civil controlled
+        legal aid work</h2>
+      <div class="govuk-accordion" data-module="govuk-accordion" data-govuk-accordion-init="">
+        <div class="govuk-accordion__controls"><button type="button" class="govuk-accordion__show-all"
+            aria-expanded="false"><span
+              class="govuk-accordion-nav__chevron govuk-accordion-nav__chevron--down"></span><span
+              class="govuk-accordion__show-all-text">Show all sections</span></button></div>
+        <div id="relevant-legislation-and-guidance-section" class="govuk-accordion__section">
+          <div class="govuk-accordion__section-header">
+            <h2 class="govuk-accordion__section-heading">
+
+              <button type="button" aria-controls="relevant-legislation-and-guidance-content"
+                class="govuk-accordion__section-button" aria-expanded="false"
+                aria-label="Relevant legislation and guidance , Show this section"><span
+                  class="govuk-accordion__section-heading-text" id="relevant-legislation-and-guidance"><span
+                    class="govuk-accordion__section-heading-text-focus">Relevant legislation and
+                    guidance</span></span><span class="govuk-visually-hidden govuk-accordion__section-heading-divider">,
+                </span><span class="govuk-accordion__section-toggle" data-nosnippet=""><span
+                    class="govuk-accordion__section-toggle-focus"><span
+                      class="govuk-accordion-nav__chevron govuk-accordion-nav__chevron--down"></span><span
+                      class="govuk-accordion__section-toggle-text">Show</span></span></span></button>
+            </h2>
+          </div>
+          <div id="relevant-legislation-and-guidance-content" class="govuk-accordion__section-content"
+            hidden="until-found">
+            <p class="govuk-body">This calculation was made using the rules for controlled work in <a
+                href="/documents/legislation_CLAR_2013?assessment_code=4af0a739-32a6-4e83-8f85-151d60f66404&amp;referrer=results_show"
+                target="_blank" rel="noreferrer noopener">The Civil Legal Aid (Financial Resources and Payment for
+                Services) Regulations 2013 (opens in new tab)</a> and the <a
+                href="/documents/legislation_ammendments?assessment_code=4af0a739-32a6-4e83-8f85-151d60f66404&amp;referrer=results_show"
+                target="_blank" rel="noreferrer noopener"
+                aria-label="Link opens a search page which includes a list of amendments to The Civil Legal Aid (Financial Resources and Payment for Services) Regulations 2013 (opens in new tab)">amendments
+                to these Regulations (opens in new tab)</a>.</p>
+            <p class="govuk-body">Guidance on determining financial eligibility for controlled work and family mediation
+              can be found in the <a
+                href="/documents/lc_guidance_controlled?assessment_code=4af0a739-32a6-4e83-8f85-151d60f66404&amp;referrer=results_show"
+                target="_blank" rel="noreferrer noopener">guide to determining controlled work (PDF, 940KB)</a>.</p>
+          </div>
+        </div>
+        <div id="upper-limits-section" class="govuk-accordion__section">
+          <div class="govuk-accordion__section-header">
+            <h2 class="govuk-accordion__section-heading">
+
+              <button type="button" aria-controls="upper-limits-content" class="govuk-accordion__section-button"
+                aria-expanded="false" aria-label="Upper limits , Show this section"><span
+                  class="govuk-accordion__section-heading-text" id="upper-limits"><span
+                    class="govuk-accordion__section-heading-text-focus">Upper limits</span></span><span
+                  class="govuk-visually-hidden govuk-accordion__section-heading-divider">, </span><span
+                  class="govuk-accordion__section-toggle" data-nosnippet=""><span
+                    class="govuk-accordion__section-toggle-focus"><span
+                      class="govuk-accordion-nav__chevron govuk-accordion-nav__chevron--down"></span><span
+                      class="govuk-accordion__section-toggle-text">Show</span></span></span></button>
+            </h2>
+          </div>
+          <div id="upper-limits-content" class="govuk-accordion__section-content" hidden="until-found">
+            <p class="govuk-body">We’ve used the information you provided to compare your client’s income and outgoings.
+              This allows us to calculate their monthly disposable income.</p>
+            <h3 class="govuk-heading-m">Limits</h3>
+            <p class="govuk-body">For some outgoings, you may see figures that differ from what you entered. This is
+              because some outgoing amounts are capped or disregarded in certain situations. For example:</p>
+            <p class="govuk-body">Housing costs are capped at £545 per month if your client is single and does not have
+              any dependants (<a
+                href="/documents/legislation_CLAR_2013_housing?assessment_code=4af0a739-32a6-4e83-8f85-151d60f66404&amp;referrer=results_show"
+                target="_blank" rel="noreferrer noopener">Regulation 28(7) of the Civil Legal Aid (Financial Resources
+                and Payment for Services) Regulations 2013 (opens in new tab)</a>).</p>
+            <p class="govuk-body">The upper limits are:</p>
+            <table class="govuk-table">
+              <caption class="govuk-table__caption govuk-table__caption--m">Gross income limits</caption>
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header govuk-!-width-one-half" scope="col">Number of child dependants</th>
+                  <th class="govuk-table__header" scope="col">Gross monthly income limit</th>
+                </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__header">0 to 4</td>
+                  <td class="govuk-table__cell">£2,657</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__header">5</td>
+                  <td class="govuk-table__cell">£2,879</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__header">6</td>
+                  <td class="govuk-table__cell">£3,101</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__header">7</td>
+                  <td class="govuk-table__cell">£3,323</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__header">8 or more</td>
+                  <td class="govuk-table__cell">Add £222 to above figure for each additional child</td>
+                </tr>
+              </tbody>
+            </table>
+            <table class="govuk-table">
+              <caption class="govuk-table__caption govuk-table__caption--m">Disposable income and Capital limits
+              </caption>
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header govuk-!-width-one-half" scope="col"></th>
+                  <th class="govuk-table__header" scope="col">Upper limit</th>
+                </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__header">Disposable monthly income</td>
+                  <td class="govuk-table__cell">£733</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__header">Capital</td>
+                  <td class="govuk-table__cell">£3,000</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      
+        <div id="income-calculation-section" class="govuk-accordion__section">
+          <div class="govuk-accordion__section-header">
+            <h2 class="govuk-accordion__section-heading">
+
+              <button type="button" aria-controls="income-calculation-content" class="govuk-accordion__section-button"
+                aria-expanded="false" aria-label="Income calculation , Show this section"><span
+                  class="govuk-accordion__section-heading-text" id="income-calculation"><span
+                    class="govuk-accordion__section-heading-text-focus">Income calculation</span></span><span
+                  class="govuk-visually-hidden govuk-accordion__section-heading-divider">, </span><span
+                  class="govuk-accordion__section-toggle" data-nosnippet=""><span
+                    class="govuk-accordion__section-toggle-focus"><span
+                      class="govuk-accordion-nav__chevron govuk-accordion-nav__chevron--down"></span><span
+                      class="govuk-accordion__section-toggle-text">Show</span></span></span></button>
+            </h2>
+          </div>
+          <div id="income-calculation-content" class="govuk-accordion__section-content" hidden="until-found">
+            <h2 class="govuk-heading-m ">Client's monthly income</h2>
+            <p class="govuk-body ">All figures have been converted into a monthly amount.</p>
+            <table class="govuk-table">
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">Employment income<div
+                      class="govuk-hint govuk-!-margin-top-1 govuk-!-margin-bottom-0"></div>
+                  </th>
+                  <td class="govuk-table__cell govuk-!-text-align-right">£4.33</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">Benefits received<div
+                      class="govuk-hint govuk-!-margin-top-1 govuk-!-margin-bottom-0">This does not include Housing
+                      Benefit</div>
+                  </th>
+                  <td class="govuk-table__cell govuk-!-text-align-right">£4.33</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">Financial help from friends and family<div
+                      class="govuk-hint govuk-!-margin-top-1 govuk-!-margin-bottom-0"></div>
+                  </th>
+                  <td class="govuk-table__cell govuk-!-text-align-right">£0.00</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">Maintenance payments from a former partner<div
+                      class="govuk-hint govuk-!-margin-top-1 govuk-!-margin-bottom-0"></div>
+                  </th>
+                  <td class="govuk-table__cell govuk-!-text-align-right">£0.00</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">Income from a property or lodger<div
+                      class="govuk-hint govuk-!-margin-top-1 govuk-!-margin-bottom-0"></div>
+                  </th>
+                  <td class="govuk-table__cell govuk-!-text-align-right">£0.00</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">Pensions<div
+                      class="govuk-hint govuk-!-margin-top-1 govuk-!-margin-bottom-0"></div>
+                  </th>
+                  <td class="govuk-table__cell govuk-!-text-align-right">£0.00</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">Student finance<div
+                      class="govuk-hint govuk-!-margin-top-1 govuk-!-margin-bottom-0"></div>
+                  </th>
+                  <td class="govuk-table__cell govuk-!-text-align-right">£0.00</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">Other sources<div
+                      class="govuk-hint govuk-!-margin-top-1 govuk-!-margin-bottom-0"></div>
+                  </th>
+                  <td class="govuk-table__cell govuk-!-text-align-right">£0.00</td>
+                </tr>
+              </tbody>
+            </table>
+            <h2 class="govuk-heading-m ">Partner's monthly income</h2>
+            <p class="govuk-body ">All figures have been converted into a monthly amount.</p>
+            <table class="govuk-table">
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">Employment income<div
+                      class="govuk-hint govuk-!-margin-top-1 govuk-!-margin-bottom-0"></div>
+                  </th>
+                  <td class="govuk-table__cell govuk-!-text-align-right">£4.33</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">Benefits received<div
+                      class="govuk-hint govuk-!-margin-top-1 govuk-!-margin-bottom-0">This does not include Housing
+                      Benefit</div>
+                  </th>
+                  <td class="govuk-table__cell govuk-!-text-align-right">£4.33</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">Financial help from friends and family<div
+                      class="govuk-hint govuk-!-margin-top-1 govuk-!-margin-bottom-0"></div>
+                  </th>
+                  <td class="govuk-table__cell govuk-!-text-align-right">£0.00</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">Maintenance payments from a former partner<div
+                      class="govuk-hint govuk-!-margin-top-1 govuk-!-margin-bottom-0"></div>
+                  </th>
+                  <td class="govuk-table__cell govuk-!-text-align-right">£0.00</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">Income from a property or lodger<div
+                      class="govuk-hint govuk-!-margin-top-1 govuk-!-margin-bottom-0"></div>
+                  </th>
+                  <td class="govuk-table__cell govuk-!-text-align-right">£0.00</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">Pensions<div
+                      class="govuk-hint govuk-!-margin-top-1 govuk-!-margin-bottom-0"></div>
+                  </th>
+                  <td class="govuk-table__cell govuk-!-text-align-right">£0.00</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">Student finance<div
+                      class="govuk-hint govuk-!-margin-top-1 govuk-!-margin-bottom-0"></div>
+                  </th>
+                  <td class="govuk-table__cell govuk-!-text-align-right">£0.00</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">Other sources<div
+                      class="govuk-hint govuk-!-margin-top-1 govuk-!-margin-bottom-0"></div>
+                  </th>
+                  <td class="govuk-table__cell govuk-!-text-align-right">£0.00</td>
+                </tr>
+              </tbody>
+            </table>
+            <h2 class="govuk-heading-m govuk-heading-m">Total</h2>
+            <table class="govuk-table">
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row solid-top-border">
+                  <th class="govuk-table__header" scope="row">Total client and partner monthly income</th>
+                  <td class="govuk-table__cell govuk-!-text-align-right govuk-!-font-weight-bold">£17.32</td>
+                </tr>
+                <tr class="govuk-table__row solid-bottom-border">
+                  <th class="govuk-table__header govuk-!-font-weight-regular" scope="row">Monthly income upper limit
+                  </th>
+                  <td class="govuk-table__cell govuk-!-text-align-right">£2,657.00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div id="outgoings-calculation-section" class="govuk-accordion__section">
+          <div class="govuk-accordion__section-header">
+            <h2 class="govuk-accordion__section-heading">
+
+              <button type="button" aria-controls="outgoings-calculation-content"
+                class="govuk-accordion__section-button" aria-expanded="false"
+                aria-label="Outgoings calculation , Show this section"><span
+                  class="govuk-accordion__section-heading-text" id="outgoings-calculation"><span
+                    class="govuk-accordion__section-heading-text-focus">Outgoings calculation</span></span><span
+                  class="govuk-visually-hidden govuk-accordion__section-heading-divider">, </span><span
+                  class="govuk-accordion__section-toggle" data-nosnippet=""><span
+                    class="govuk-accordion__section-toggle-focus"><span
+                      class="govuk-accordion-nav__chevron govuk-accordion-nav__chevron--down"></span><span
+                      class="govuk-accordion__section-toggle-text">Show</span></span></span></button>
+            </h2>
+          </div>
+          <div id="outgoings-calculation-content" class="govuk-accordion__section-content" hidden="until-found">
+            <h2 class="govuk-heading-m ">Client's monthly outgoings</h2>
+            <p class="govuk-body ">All figures have been converted into a monthly amount.</p>
+            <table class="govuk-table">
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">Maintenance payments to a former partner<div
+                      class="govuk-hint govuk-!-margin-top-1 govuk-!-margin-bottom-0"></div>
+                  </th>
+                  <td class="govuk-table__cell govuk-!-text-align-right">£0.00</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">Payments towards legal aid in a criminal case<div
+                      class="govuk-hint govuk-!-margin-top-1 govuk-!-margin-bottom-0"></div>
+                  </th>
+                  <td class="govuk-table__cell govuk-!-text-align-right">£0.00</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">Income tax<div
+                      class="govuk-hint govuk-!-margin-top-1 govuk-!-margin-bottom-0"></div>
+                  </th>
+                  <td class="govuk-table__cell govuk-!-text-align-right">£0.00</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">National Insurance<div
+                      class="govuk-hint govuk-!-margin-top-1 govuk-!-margin-bottom-0"></div>
+                  </th>
+                  <td class="govuk-table__cell govuk-!-text-align-right">£0.00</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">Employment expenses<div
+                      class="govuk-hint govuk-!-margin-top-1 govuk-!-margin-bottom-0">A fixed allowance if your client
+                      gets a salary or wage</div>
+                  </th>
+                  <td class="govuk-table__cell govuk-!-text-align-right">£45.00</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">Partner allowance<div
+                      class="govuk-hint govuk-!-margin-top-1 govuk-!-margin-bottom-0">A fixed allowance if your client
+                      has a partner</div>
+                  </th>
+                  <td class="govuk-table__cell govuk-!-text-align-right">£224.87</td>
+                </tr>
+              </tbody>
+            </table>
+            <h2 class="govuk-heading-m ">Partner's monthly outgoings</h2>
+            <p class="govuk-body ">All figures have been converted into a monthly amount.</p>
+            <table class="govuk-table">
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">Maintenance payments to a former partner<div
+                      class="govuk-hint govuk-!-margin-top-1 govuk-!-margin-bottom-0"></div>
+                  </th>
+                  <td class="govuk-table__cell govuk-!-text-align-right">£0.00</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">Payments towards legal aid in a criminal case<div
+                      class="govuk-hint govuk-!-margin-top-1 govuk-!-margin-bottom-0"></div>
+                  </th>
+                  <td class="govuk-table__cell govuk-!-text-align-right">£0.00</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">Income tax<div
+                      class="govuk-hint govuk-!-margin-top-1 govuk-!-margin-bottom-0"></div>
+                  </th>
+                  <td class="govuk-table__cell govuk-!-text-align-right">£0.00</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">National Insurance<div
+                      class="govuk-hint govuk-!-margin-top-1 govuk-!-margin-bottom-0"></div>
+                  </th>
+                  <td class="govuk-table__cell govuk-!-text-align-right">£0.00</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">Employment expenses<div
+                      class="govuk-hint govuk-!-margin-top-1 govuk-!-margin-bottom-0">A fixed allowance if the partner
+                      gets a salary or wage</div>
+                  </th>
+                  <td class="govuk-table__cell govuk-!-text-align-right">£45.00</td>
+                </tr>
+              </tbody>
+            </table>
+            <h2 class="govuk-heading-m ">Household monthly outgoings</h2>
+            <p class="govuk-body ">All figures have been converted into a monthly amount.</p>
+            <table class="govuk-table">
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">Housing payments<div
+                      class="govuk-hint govuk-!-margin-top-1 govuk-!-margin-bottom-0">Housing costs minus any Housing
+                      Benefit payments the household gets</div>
+                  </th>
+                  <td class="govuk-table__cell govuk-!-text-align-right">£0.00</td>
+                </tr>
+              </tbody>
+            </table>
+            <h2 class="govuk-heading-m ">Total</h2>
+            <table class="govuk-table">
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row solid-top-border">
+                  <th class="govuk-table__header" scope="row">Total client and partner monthly outgoings</th>
+                  <td class="govuk-table__cell govuk-!-text-align-right govuk-!-font-weight-bold">£314.87</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">Assessed disposable monthly income<div
+                      class="govuk-hint govuk-!-margin-top-1 govuk-!-margin-bottom-0">Total monthly income minus total
+                      monthly outgoings</div>
+                  </th>
+                  <td class="govuk-table__cell govuk-!-text-align-right govuk-!-font-weight-bold">-£297.55</td>
+                </tr>
+                <tr class="govuk-table__row solid-bottom-border">
+                  <th class="govuk-table__header govuk-!-font-weight-regular" scope="row">Disposable monthly income
+                    upper limit</th>
+                  <td class="govuk-table__cell govuk-!-text-align-right">£733.00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div id="capital-calculation-section" class="govuk-accordion__section">
+          <div class="govuk-accordion__section-header">
+            <h2 class="govuk-accordion__section-heading">
+
+              <button type="button" aria-controls="capital-calculation-content" class="govuk-accordion__section-button"
+                aria-expanded="false" aria-label="Capital calculation , Show this section"><span
+                  class="govuk-accordion__section-heading-text" id="capital-calculation"><span
+                    class="govuk-accordion__section-heading-text-focus">Capital calculation</span></span><span
+                  class="govuk-visually-hidden govuk-accordion__section-heading-divider">, </span><span
+                  class="govuk-accordion__section-toggle" data-nosnippet=""><span
+                    class="govuk-accordion__section-toggle-focus"><span
+                      class="govuk-accordion-nav__chevron govuk-accordion-nav__chevron--down"></span><span
+                      class="govuk-accordion__section-toggle-text">Show</span></span></span></button>
+            </h2>
+          </div>
+          <div id="capital-calculation-content" class="govuk-accordion__section-content" hidden="until-found">
+            <p>The calculations below assess the value of any property the client and their partner own.</p>
+            <p class="govuk-!-margin-bottom-8">The assessed values are used to calculate the total disposable capital
+              for your client and their partner.</p>
+            <h2 class="govuk-heading-m ">Home client lives in</h2>
+            <table class="govuk-table">
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">Estimated value<div
+                      class="govuk-hint govuk-!-margin-top-1 govuk-!-margin-bottom-0"></div>
+                  </th>
+                  <td class="govuk-table__cell govuk-!-text-align-right">£1.00</td>
+                </tr>
+                <tr class="govuk-table__row solid-top-border">
+                  <th class="govuk-table__header" scope="row">1% share of home equity</th>
+                  <td class="govuk-table__cell govuk-!-text-align-right">£0.01</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">Disregards<div
+                      class="govuk-hint govuk-!-margin-top-1 govuk-!-margin-bottom-0">Applied to the home equity and
+                      capped at £100,000</div>
+                  </th>
+                  <td class="govuk-table__cell govuk-!-text-align-right">-£0.01</td>
+                </tr>
+                <tr class="govuk-table__row solid-top-border">
+                  <th class="govuk-table__header" scope="row">Assessed value</th>
+                  <td class="govuk-table__cell govuk-!-text-align-right govuk-!-font-weight-bold">£0.00</td>
+                </tr>
+              </tbody>
+            </table>
+            <h2 class="govuk-heading-m ">Client other property 1</h2>
+            <table class="govuk-table">
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">Value<div
+                      class="govuk-hint govuk-!-margin-top-1 govuk-!-margin-bottom-0"></div>
+                  </th>
+                  <td class="govuk-table__cell govuk-!-text-align-right">£1.00</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">Outstanding mortgage<div
+                      class="govuk-hint govuk-!-margin-top-1 govuk-!-margin-bottom-0"></div>
+                  </th>
+                  <td class="govuk-table__cell govuk-!-text-align-right">-£1.00</td>
+                </tr>
+                <tr class="govuk-table__row solid-top-border">
+                  <th class="govuk-table__header" scope="row">Assessed value<div
+                      class="govuk-hint govuk-!-margin-top-1 govuk-!-margin-bottom-0">Client’s 1% share of home equity
+                    </div>
+                  </th>
+                  <td class="govuk-table__cell govuk-!-text-align-right govuk-!-font-weight-bold">£0.00</td>
+                </tr>
+              </tbody>
+            </table>
+            <h2 class="govuk-heading-m ">Partner other property 1</h2>
+            <table class="govuk-table">
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">Value<div
+                      class="govuk-hint govuk-!-margin-top-1 govuk-!-margin-bottom-0"></div>
+                  </th>
+                  <td class="govuk-table__cell govuk-!-text-align-right">£1.00</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">Outstanding mortgage<div
+                      class="govuk-hint govuk-!-margin-top-1 govuk-!-margin-bottom-0"></div>
+                  </th>
+                  <td class="govuk-table__cell govuk-!-text-align-right">-£1.00</td>
+                </tr>
+                <tr class="govuk-table__row solid-top-border">
+                  <th class="govuk-table__header" scope="row">Assessed value<div
+                      class="govuk-hint govuk-!-margin-top-1 govuk-!-margin-bottom-0">Partner’s 1% share of home equity
+                    </div>
+                  </th>
+                  <td class="govuk-table__cell govuk-!-text-align-right govuk-!-font-weight-bold">£0.00</td>
+                </tr>
+              </tbody>
+            </table>
+            <h2 class="govuk-heading-m ">Client's disposable capital</h2>
+            <table class="govuk-table">
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">Assessed property value<div
+                      class="govuk-hint govuk-!-margin-top-1 govuk-!-margin-bottom-0">Total of home client lives in and
+                      any additional property</div>
+                  </th>
+                  <td class="govuk-table__cell govuk-!-text-align-right">£0.00</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">Money in bank accounts<div
+                      class="govuk-hint govuk-!-margin-top-1 govuk-!-margin-bottom-0"></div>
+                  </th>
+                  <td class="govuk-table__cell govuk-!-text-align-right">£0.00</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">Investments and valuables<div
+                      class="govuk-hint govuk-!-margin-top-1 govuk-!-margin-bottom-0"></div>
+                  </th>
+                  <td class="govuk-table__cell govuk-!-text-align-right">£0.00</td>
+                </tr>
+                <tr class="govuk-table__row solid-top-border">
+                  <th class="govuk-table__header" scope="row">Total capital<div
+                      class="govuk-hint govuk-!-margin-top-1 govuk-!-margin-bottom-0"></div>
+                  </th>
+                  <td class="govuk-table__cell govuk-!-text-align-right">£0.00</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">Disputed asset disregard<div
+                      class="govuk-hint govuk-!-margin-top-1 govuk-!-margin-bottom-0">Equal to the assessed value of all
+                      assets marked as disputed and capped at £100,000</div>
+                  </th>
+                  <td class="govuk-table__cell govuk-!-text-align-right">£0.00</td>
+                </tr>
+                <tr class="govuk-table__row solid-top-border">
+                  <th class="govuk-table__header" scope="row">Disposable capital</th>
+                  <td class="govuk-table__cell govuk-!-text-align-right govuk-!-font-weight-bold">£0.00</td>
+                </tr>
+              </tbody>
+            </table>
+            <h2 class="govuk-heading-m ">Partner's disposable capital</h2>
+            <table class="govuk-table">
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">Assessed property value<div
+                      class="govuk-hint govuk-!-margin-top-1 govuk-!-margin-bottom-0"></div>
+                  </th>
+                  <td class="govuk-table__cell govuk-!-text-align-right">£0.00</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">Money in bank accounts<div
+                      class="govuk-hint govuk-!-margin-top-1 govuk-!-margin-bottom-0"></div>
+                  </th>
+                  <td class="govuk-table__cell govuk-!-text-align-right">£0.00</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header" scope="row">Investments and valuables<div
+                      class="govuk-hint govuk-!-margin-top-1 govuk-!-margin-bottom-0"></div>
+                  </th>
+                  <td class="govuk-table__cell govuk-!-text-align-right">£0.00</td>
+                </tr>
+                <tr class="govuk-table__row solid-top-border">
+                  <th class="govuk-table__header" scope="row">Disposable capital</th>
+                  <td class="govuk-table__cell govuk-!-text-align-right govuk-!-font-weight-bold">£0.00</td>
+                </tr>
+              </tbody>
+            </table>
+            <h2 class="govuk-heading-m ">Total</h2>
+            <table class="govuk-table">
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row solid-top-border">
+                  <th class="govuk-table__header" scope="row">Total assessed disposable capital</th>
+                  <td class="govuk-table__cell govuk-!-text-align-right govuk-!-font-weight-bold">£0.00</td>
+                </tr>
+                <tr class="govuk-table__row solid-bottom-border">
+                  <th class="govuk-table__header govuk-!-font-weight-regular" scope="row">Disposable capital upper limit
+                  </th>
+                  <td class="govuk-table__cell govuk-!-text-align-right">£3,000.00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+{% endblock %}
