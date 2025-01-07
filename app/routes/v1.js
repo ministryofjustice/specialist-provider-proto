@@ -42,8 +42,8 @@ router.post('/financial_eligibility_answer', function(request, response) {
 
     var financiallyEligibile = request.session.data['financiallyEligibile']
     if (financiallyEligibile  == "yes"){
-        response.redirect('/' + version + '/cases/accepted/case1/financial_eligibility')
+        response.redirect('/' + version + '/cases/accepted/case1/financial_eligibility_b')
     } else {
-        response.redirect('/' + version + '/cases/accepted/case1/financial_eligibility')
+        response.redirect('/' + version + '/cases/accepted/case1/financial_eligibility_b')
     }
 })

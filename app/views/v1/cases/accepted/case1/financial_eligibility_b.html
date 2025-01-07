@@ -18,7 +18,7 @@
       </li>
   
       <li class="moj-sub-navigation__item">
-        <a class="moj-sub-navigation__link" aria-current="page"  href="../case1/financial_eligibility.html">Financial eligibility</a>
+        <a class="moj-sub-navigation__link" aria-current="page"  href="../case1/financial_eligibility_b.html">Financial eligibility</a>
       </li>
 
       <li class="moj-sub-navigation__item">
@@ -43,7 +43,7 @@
 
 <!--if eligiblity not started-->
 
-  {% if data['financiallyEligibile'] == "no" %}
+{% if data['financiallyEligibile'] == "no" %}
 
 
 <h3 class="govuk-body-m"> The call operator has provisionally assessed your client to be financially eligible.</h3>
@@ -60,29 +60,29 @@
 
 {% else %}
 
+
 <!--if eligible-->
+
+
+<h2 class="govuk-heading-s govuk-!-margin-bottom-2">Dermination: 
+  
+
+
+    <strong class="govuk-tag govuk-tag--green">
+     Eligible
+    </strong></h2>
+
+ 
+
+<h2 class="govuk-heading-s govuk-!-margin-bottom-0">Contribution: <span class="govuk-body-m">No contribution </span></h2>
+
+
 
 
 <main class="govuk-main-wrapper" id="main-content" role="main">
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
-      <!--Result panel-->
-      <div
-        class="govuk-panel panel-blue-white-text govuk-panel--confirmation govuk-!-text-align-left govuk-!-margin-bottom-9">
-        <div class="govuk-panel__body">
-          <h1 class="govuk-heading-l" style="color:white;">Your client qualifies for civil legal aid, for controlled work and family
-            mediation</h1>
-          <p style="color:white;" >Your client qualifies financially for civil legal aid based on the information you
-            entered. Before you (or a provider of advice or services funded by legal aid) proceed with your client’s
-            case, it must also be within scope for legal aid and satisfy the relevant merits criteria set out in the
-            relevant legislation and guidance.</p>
-          <p class="govuk-body" style="color:white;">These calculations were made in line with the latest version of the Lord Chancellor's
-            Guidance on Determining Financial Eligibility for Controlled Work.</p>
-          <h2 class="govuk-heading-m " style="color:white;">Legal aid is not always free</h2>
-          <p class="govuk-body" style="color:white;">In some circumstances, your client may be asked to repay the legal costs of their case,
-            for example from money or assets kept or gained as a result of legal aid if the statutory charge arises.</p>
-        </div>
-      </div>
+      
 
       <h2 class="govuk-heading-m">Your client's key eligibility totals</h2>
       <div class="summary-box-holder govuk-!-margin-bottom-5">
