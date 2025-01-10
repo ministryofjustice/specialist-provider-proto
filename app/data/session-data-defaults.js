@@ -16,4 +16,5 @@ module.exports = {
   'locationOfDiscrimination': 'Work',
 
   'financiallyEligibile':'no',
+  'addNote':'none',
 }
