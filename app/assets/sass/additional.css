@@ -32,3 +32,15 @@
 #hidden{
     background-color:red;
 }
+
+.moj-button-menu__toggle-button{
+    background-color:#f3f2f1;
+    color: #000;
+    box-shadow: 0 2px 0 rgb(145.8, 145.2, 144.6);
+}
+
+.moj-button-menu__item{
+    margin-bottom: 1px!important;
+    width: 100%;
+    text-align: left;
+}

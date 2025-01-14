@@ -47,3 +47,19 @@ router.post('/financial_eligibility_answer', function(request, response) {
         response.redirect('/' + version + '/cases/accepted/case1/financial_eligibility_b')
     }
 })
+
+
+router.post('/close-case', function(request, response) {
+
+response.redirect('/' + version + '/home/closed')
+
+})
+
+router.get('/home/closed', function(request, response) {
+
+    if (request.session.data['close-case']){
+        delete request.session.data['close-case']
+      }
+      response.render('/' + version + '/home/closed')
+})
+

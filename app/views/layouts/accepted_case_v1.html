@@ -60,33 +60,37 @@
     {% from "govuk/components/button/macro.njk" import govukButton %}
 
     {%- from "govuk/components/button/macro.njk" import govukButton %}
-    {%- from "moj/components/button-menu/macro.njk" import mojButtonMenu -%}
+    
     <div class="moj-button-group moj-button-group--inline govuk-!-static-margin-bottom-6 ">
+
      {{ govukButton({"text": "Generate legal help form", "classes": "govuk-button--secondary"}) }}
-    {{ mojButtonMenu({
-      "button": {
-          "text": "Manage cases",
-          "classes": "govuk-button--secondary"
-      },
-      "items": [
-          {
-              "text": "Close case",
-              "href": "#"
-          },
-          {
-              "text": "Reject case",
-              "href": "#"
-          },
-          {
-              "text": "Split case",
-              "href": "#"
-          },
-          {
-            "text": "Leave case feedback",
-            "href": "#"
-        }
-      ]
-  }) }}
+
+     <div class="moj-button-menu" data-module="moj-button-menu" data-button-text="Manage cases">
+
+      <form  action="/{{ version }}/close-case" method="post">
+        <input type="hidden" name="close-case" value="001">
+      <button type="submit" class="govuk-button moj-button-menu__item govuk-button--secondary" data-module="govuk-button">
+        Close case
+      </button>
+       </form>
+
+       <form  action="#" method="post">
+      <button type="submit" class="govuk-button moj-button-menu__item govuk-button--secondary" data-module="govuk-button">
+        Reject case
+      </button>
+    </form>
+    
+      <button type="submit" class="govuk-button moj-button-menu__item govuk-button--secondary" data-module="govuk-button">
+        Split case
+      </button>
+
+      <button type="submit" class="govuk-button moj-button-menu__item govuk-button--secondary" data-module="govuk-button">
+        Leave case feedback
+      </button>
+    
+    </div>
+    
+   
 </div>
     
 {% endblock %}
