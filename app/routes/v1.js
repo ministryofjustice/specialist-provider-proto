@@ -50,10 +50,22 @@ router.post('/financial_eligibility_answer', function(request, response) {
 
 
 router.post('/close-case', function(request, response) {
-
 response.redirect('/' + version + '/home/closed')
-
 })
+
+router.post('/reject-case', function(request, response) {
+    response.redirect('/' + version + '/case_actions/reject_case_reason')
+})
+
+router.post('/reject_case_reason', function(request, response) {
+    response.redirect('/' + version + '/case_actions/reject_case_feedback')
+})
+
+router.post('/reject_case_feedback', function(request, response) {
+    response.redirect('/' + version + '/home/new')
+})
+    
+    
 
 router.get('/home/closed', function(request, response) {
 

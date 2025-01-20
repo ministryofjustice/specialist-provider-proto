@@ -1,0 +1,82 @@
+{% extends "layouts/question_page_v1.html" %}
+
+ 
+{% block content %}
+
+
+
+<h1 class="govuk-heading-xl ">
+    <span class="govuk-caption-xl ">{{ data['fullName'] }}</span>
+   Reject case
+  </h1>
+
+  {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+  name: "rejectionReason",
+  fieldset: {
+    legend: {
+      text: "Reason for rejection?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  items: [
+    {
+      value: "Out of scope",
+      text: "Out of Scope",
+      hint: {
+        text: "MIS-OOS"
+      }
+    },
+    {
+      value: "Means test isn't correct",
+      text: "Means test isn't correct",
+      hint: {
+        text: "MIS-MEANS"
+      }
+    },
+    {
+      value: "Conflict of interest",
+      text: "Conflict of interest",
+      hint: {
+        text: "COI"
+      }
+    },
+    {
+      value: "wrong provider",
+      text: "Assigned to wrong specialist or another specialist is dealing with client",
+      hint: {
+        text: "MIS"
+      }
+    }
+  ]
+}) }}
+
+
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+{{ govukTextarea({
+  name: "rejectionReasonNote",
+  id: "more-detail",
+  classes: "govuk-!-width-two-thirds",
+  label: {
+    text: "Add note"
+  }
+}) }}
+
+<form class="form" action="/{{ version }}/reject_case_reason" method="post">
+
+
+<div class="govuk-button-group">
+    <button type="submit" class="govuk-button" data-module="govuk-button">
+      Continue
+    </button>
+    <a class="govuk-link" onclick="history.back();">Cancel</a>
+  </div>
+
+</form>
+
+
+
+{% endblock %}

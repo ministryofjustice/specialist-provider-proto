@@ -38,7 +38,7 @@
 <h2 class="govuk-heading-m">Financial Eligibility</h2>
 
 
-<!--if eligiblity not started-->
+<!--if financial eligiblity not started-->
 
 {% if data['financiallyEligibile'] == "no" %}
 
@@ -51,7 +51,7 @@
 <form class="form" action="{{ version }}/../../../../change_answer/financial_eligibility/CCQ_option1_tags" method="post">
 
   <button type="submit" class="govuk-button" data-module="govuk-button">
-    Save and continue
+    Check financial eligibility
   </button>
 </form>
 

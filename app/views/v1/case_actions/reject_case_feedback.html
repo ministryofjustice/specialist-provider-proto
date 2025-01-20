@@ -1,0 +1,110 @@
+{% extends "layouts/question_page_v1.html" %}
+
+ 
+{% block content %}
+
+
+
+
+
+  {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+  name: "rejectionReason",
+  fieldset: {
+    legend: {
+      text: "Leave feedback? (optional)",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  items: [
+    {
+      value: "Advisor conduct",
+      text: "Advisor conduct"
+    },
+    {
+      value: "Access problems",
+      text: "Access problems"
+    },
+    {
+      value: "Already receiving/received advice",
+      text: "Already receiving/received advice"
+    },
+    {
+      value: "Category of law is incorrect",
+      text: "Category of law is incorrect"
+    },
+    {
+      value: "Delay in advising (lack of follow up information)",
+      text: "Delay in advising (lack of follow up information)"
+    },
+    {
+      value: "Delay in advising (other)",
+      text: "Delay in advising (other)"
+    },
+    {
+      value: "Incorrect eligibility calculation",
+      text: "Incorrect eligibility calculation"
+    },
+    {
+      value: "Incorrect diagnosis (out of scope)",
+      text: "Incorrect diagnosis (out of scope)"
+    },
+    {
+      value: "Incorrect transferring of call (provider)",
+      text: "Incorrect transferring of call (provider)"
+    },
+    {
+      value: "Incorrect transferring of call (front/back)",
+      text: "Incorrect transferring of call (front/back)"
+    },
+    {
+      value: "Incorrect/ missing contact details or DOB",
+      text: "Incorrect/ missing contact details or DOB"
+    },
+    {
+      value: "Other data entry errors",
+      text: "Other data entry errors"
+    },
+    {
+      value: "System error",
+      text: "System error"
+    },
+    {
+      value: "wrong provider",
+      text: "Other",
+      hint: {
+        text: "MIS"
+      }
+    }
+  ]
+}) }}
+
+
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+{{ govukTextarea({
+  name: "rejectionReasonNote",
+  id: "more-detail",
+  classes: "govuk-!-width-two-thirds",
+  label: {
+    text: "Add note"
+  }
+}) }}
+
+<form class="form" action="/{{ version }}/reject_case_feedback" method="post">
+
+
+<div class="govuk-button-group">
+    <button type="submit" class="govuk-button" data-module="govuk-button">
+      Continue
+    </button>
+    <a class="govuk-link" onclick="history.back();">Cancel</a>
+  </div>
+
+</form>
+
+
+
+{% endblock %}
