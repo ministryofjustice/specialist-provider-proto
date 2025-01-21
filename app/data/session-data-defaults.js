@@ -1,5 +1,11 @@
 module.exports = {
 
+  'caseReference': '',
+  'dateRecieved':'',
+  'dateClosed':'',
+  'lastModified':'',
+  'caseStatus':'',
+
  
   'fullName': 'Mary Flynn',
   'birthDay': '06',
@@ -8,6 +14,30 @@ module.exports = {
   'niNumber': 'MA142P755C',
   'urgent': 'No',
   'urgentReason':'',
+
+  'addressLine1':'',
+  'addressLine2':'',
+  'country':'',
+  'town':'',
+  'postcode':'',
+  
+  'phoneNumber':'',
+  'accessNeeds':'',
+  'language':'',
+  'clientVunerable':'No',
+  'clientAdditionalInfo':'',
+
+  'thirdParty':'No',
+  'thirdPartyAddressline1':'',
+  'thirdPartyAddressline2':'',
+  'thirdPartyCountry':'',
+  'thirdPartyTown':'',
+  'thirdPostcode':'',
+  'thirdRelationshipToClient':'',
+  'thirdPartyPhoneNumber':'',
+  'thirdPartyPassphrase':'',
+  'thirdPartyAdviserSpokenToClient':'',
+  'thirdPartyResearch':'',
 
 
   'clientProblem':'Discrimination',
