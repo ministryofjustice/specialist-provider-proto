@@ -1,0 +1,248 @@
+{% extends "layouts/question_page_v1.html" %}
+
+ 
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+       Add a third party contact
+      </h1>
+
+      <form class="form" action="../../cases/accepted/case1/clientdetails" method="post">
+
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+
+        <!-- Hidden input to trigger if statement and show third party contact summary card on client details page-->
+
+        <input type="hidden" name="thirdParty" value="Yes">
+
+        <!-- Name-->
+
+        {{ govukInput({
+          label: {
+            text: "Full name",
+            classes: "govuk-label--m"
+          },
+          value: data['thirdPartyName'] ,
+          name: "thirdPartyName"
+        }) }}
+
+        <!--Email Address-->
+
+        {{ govukInput({
+          label: {
+            text: "Email address (optional)",
+            classes: "govuk-label--m"
+          },
+          value: data['thirdPartyEmail'] ,
+          name: "thirdPartyEmail"
+        }) }}
+
+        <!-- Contact number-->
+
+        {{ govukInput({
+          label: {
+            text: "Contact number (optional)",
+            classes: "govuk-label--m"
+          },
+          name: "thirdPartyPhoneNumber",
+          classes: "govuk-!-width-one-third",
+          value: data['thirdPartyPhoneNumber'] 
+        }) }}
+
+        <!-- Address-->
+
+        {% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+        
+        {% call govukFieldset({
+          legend: {
+            text: "Address (optional)",
+            classes: "govuk-fieldset__legend--m"
+          }
+        }) %}
+        
+          {{ govukInput({
+            label: {
+              text: "Address line 1"
+            },
+            id: "address-line-1",
+            name: "thirdPartyAddressLine1",
+            value: data['thirdPartyAddressLine1'],
+            autocomplete: "address-line1"
+          }) }}
+        
+          {{ govukInput({
+            label: {
+              text: "Address line 2 (optional)"
+            },
+            id: "address-line-2",
+            name: "thirdPartyAddressLine2",
+            value: data['thirdPartyAddressLine2'],
+            autocomplete: "address-line2"
+          }) }}
+        
+          {{ govukInput({
+            label: {
+              text: "Town or city"
+            },
+            classes: "govuk-!-width-two-thirds",
+            id: "address-town",
+            name: "thirdPartyTown",
+            value: data['thirdPartyTown'],
+            autocomplete: "address-level2"
+          }) }}
+        
+          {{ govukInput({
+            label: {
+              text: "County (optional)"
+            },
+            classes: "govuk-!-width-two-thirds",
+            id: "address-county",
+            value: data['thirdPartyCounty'],
+            name: "thirdPartyCounty"
+          }) }}
+        
+          {{ govukInput({
+            label: {
+              text: "Postcode"
+            },
+            classes: "govuk-input--width-10",
+            id: "address-postcode",
+            name: "thirdPartyPostcode",
+            value: data['thirdPartyPostcode'],
+            autocomplete: "postal-code"
+          }) }}
+        
+        {% endcall %}
+        
+        <!--Relatationship to client-->
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+        
+
+          {{ govukRadios({
+          name: "thirdPartyRelationshipToClient",
+          value: data['thirdPartyRelationshipToClient'],
+          fieldset: {
+            legend: {
+              text: "Relationship to client",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "Parent or Guardian",
+              text: "Parent or Guardian"
+            },
+            {
+              value: "Family member of friend",
+              text: "Family member of friend"
+            },
+            {
+              value: "Professional",
+              text: "Professional"
+            },
+            {
+              value: "Legal adviser",
+              text: "Legal adviser"
+            },
+            {
+              value: "Other",
+              text: "Other"
+            }
+          ]
+        }) }}
+
+        <!-- Passphrase -->
+        
+        {{ govukInput({
+          label: {
+            text: "Passphrase",
+            classes: "govuk-label--m"
+          },
+          name: "thirdPartyPassphrase",
+          value: data['thirdPartyPassphrase']
+        }) }}
+
+        <!--Advisor spoken to client?-->
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+        
+
+          {{ govukRadios({
+          name: "thirdPartySpokenToClient",
+          value: data['thirdPartySpokenToClient'],
+          fieldset: {
+            legend: {
+              text: "Advisor spoken to client?",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes"
+            },
+            {
+              value: "No, child or patient",
+              text: "No, child or patient"
+            },
+            {
+              value: "No, subject to power of attorney",
+              text: "No, subject to power of attorney"
+            },
+            {
+              value: "No, cannot communicate via the telephone due to disability",
+              text: "No, cannot communicate via the telephone due to disability"
+            },
+            {
+              value: "No, cannot communicate via the telephone, due to a language requirement",
+              text: "No, cannot communicate via the telephone, due to a language requirement"
+            },
+            {
+              value: "No, other",
+              text: "No, other"
+            }
+          ]
+        }) }}
+
+        <!--Contactable for research?-->
+
+          {{ govukRadios({
+          name: "thirdPartyResearch",
+          value: data['thirdPartyResearch'],
+          fieldset: {
+            legend: {
+              text: "Third party is contactable for research?",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes"
+            },
+            {
+              value: "No",
+              text: "No"
+            }
+          ]
+        }) }}
+
+       <!--Submit form-->
+
+        <div class="govuk-button-group">
+            <button type="submit" class="govuk-button" data-module="govuk-button">
+              Save
+            </button>
+            <a class="govuk-link" onclick="history.back();">Cancel</a>
+          </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

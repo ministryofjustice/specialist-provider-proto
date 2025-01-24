@@ -62,9 +62,8 @@ router.post('/reject_case_reason', function(request, response) {
 })
 
 router.post('/reject_case_feedback', function(request, response) {
-    response.redirect('/' + version + '/home/new')
+    response.redirect('/' + version + '/home/closed')
 })
-    
     
 
 router.get('/home/closed', function(request, response) {
@@ -75,3 +74,18 @@ router.get('/home/closed', function(request, response) {
       response.render('/' + version + '/home/closed')
 })
 
+router.get('/home/closed', function(request, response) {
+
+    if (request.session.data['reject-case']){
+        delete request.session.data['reject-case']
+      }
+      response.render('/' + version + '/home/closed')
+})
+
+router.get('/cases/accepted/case1/clientdetails.html', function(request, response) {
+
+    if (request.session.data['thirdParty']){
+        delete request.session.data['thirdParty']
+      }
+      response.render('/' + version + '/cases/accepted/case1/clientdetails.html')
+})

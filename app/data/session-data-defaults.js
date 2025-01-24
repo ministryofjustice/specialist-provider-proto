@@ -32,11 +32,11 @@ module.exports = {
   'thirdPartyAddressline2':'',
   'thirdPartyCountry':'',
   'thirdPartyTown':'',
-  'thirdPostcode':'',
-  'thirdRelationshipToClient':'',
+  'thirdPartyPostcode':'',
+  'thirdPartyRelationshipToClient':'',
   'thirdPartyPhoneNumber':'',
   'thirdPartyPassphrase':'',
-  'thirdPartyAdviserSpokenToClient':'',
+  'thirdPartySpokenToClient':'',
   'thirdPartyResearch':'',
 
 

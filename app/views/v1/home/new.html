@@ -1,14 +1,13 @@
 {% extends "layouts/v1.html" %}
 
-{% block beforeContent %}
-
-{% endblock %}
-
 {% block content %}
+
+<!--Heading-->
+
 <h1 class="govuk-heading-xl">Manage your legal help cases</h1>
 
     
-
+<!--Subnav-->
 
     {%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
 
@@ -27,6 +26,8 @@
       }]
     }) }}
 
+<!--Case table - this might need to be changed to nunjucks for the JSON data work? 
+I did it in html as I couldn't figure out how to disable to sortabibility of certain columns in nunjucks-->
 
     <table class="govuk-table" data-module="moj-sortable-table">
 
@@ -90,7 +91,7 @@
     </table>
     
 
-
+<!--Pagination-->
 
 {% from "govuk/components/pagination/macro.njk" import govukPagination %}
 
