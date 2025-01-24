@@ -49,7 +49,7 @@
 
     {% block date %}
 
-     <h2 class="govuk-heading-m govuk-!-margin-bottom-7">Date recieved: <span class="govuk-body-l">14 January 2025</span></h2>
+     <h2 class="govuk-heading-m govuk-!-margin-bottom-7">Date received: <span class="govuk-body-l">14 January 2025</span></h2>
 
      {% endblock %}
 
@@ -65,7 +65,7 @@
 
      {{ govukButton({"text": "Generate legal help form", "classes": "govuk-button--secondary"}) }}
 
-     <div class="moj-button-menu" data-module="moj-button-menu" data-button-text="Manage cases">
+     <div class="moj-button-menu" data-module="moj-button-menu" data-button-text="Manage case">
 
       <form  action="/{{ version }}/close-case" method="post">
         <input type="hidden" name="close-case" value="001">
