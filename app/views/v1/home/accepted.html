@@ -1,8 +1,10 @@
 {% extends "layouts/v1.html" %}
 
 {% block content %}
+
 <h1 class="govuk-heading-xl">Manage your legal help cases</h1>
 
+<!--Subnav-->
 
     {%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
 
@@ -21,6 +23,7 @@
       }]
     }) }}
 
+<!--Case table - this might need to be changed to nunjucks?-->
 
     <table class="govuk-table" data-module="moj-sortable-table">
 
@@ -81,6 +84,7 @@
       </tbody>
     </table>
     
+<!--Pagination-->
 
     {% from "govuk/components/pagination/macro.njk" import govukPagination %}
 

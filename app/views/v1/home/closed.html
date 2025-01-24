@@ -2,6 +2,8 @@
 
 {% block content %}
 
+<!--If clase is closed this show banner-->
+
 {% if data['close-case'] %}
 <div class="govuk-notification-banner govuk-notification-banner--success  govuk-!-margin-bottom-6" role="alert"  aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
   <div class="govuk-notification-banner__header">
@@ -17,10 +19,29 @@
 </div>
 {% endif %}
 
+<!--If clase is rejected show this banner-->
 
+{% if data['reject-case'] %}
+<div class="govuk-notification-banner govuk-notification-banner--success  govuk-!-margin-bottom-6" role="alert"  aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__header">
+    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+      Success
+    </h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+    <p class="govuk-notification-banner__heading">
+      Case for {{ data['fullName'] }} rejected 
+    </p>
+  </div>
+</div>
+{% endif %}
+
+<!--Header-->
 
 <h1 class="govuk-heading-xl">Manage your legal help cases</h1>
 
+
+<!--Subnav-->
 
     {%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
 
@@ -39,6 +60,7 @@
       }]
     }) }}
 
+<!--Case table - this might need to be changed to nunjucks?-->
 
     <table class="govuk-table" data-module="moj-sortable-table">
 
@@ -94,8 +116,10 @@
     
       </tbody>
     </table>
-    
 
+
+<!--Pagination-->
+    
     {% from "govuk/components/pagination/macro.njk" import govukPagination %}
 
     {{ govukPagination({
@@ -118,4 +142,6 @@
         }
       ]
     }) }}
-    {% endblock %}
+
+
+{% endblock %}
