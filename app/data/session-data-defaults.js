@@ -45,6 +45,6 @@ module.exports = {
   'basisOfDiscrimination': 'Race',
   'locationOfDiscrimination': 'Work',
 
-  'financiallyEligibile':'no',
+  'financiallyEligibile':'No',
   'addNote':'none',
 }
