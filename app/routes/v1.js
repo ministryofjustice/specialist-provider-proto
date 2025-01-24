@@ -7,6 +7,7 @@ router.get('/test1', function(request, response) {
     response.send('test1')
 })
 
+//Scope (Discrimination) Routes
 
 router.post('/category_of_law_answer', function(request, response) {
 
@@ -38,6 +39,9 @@ router.post('/basis_of_discrimination_answer', function(request, response) {
     }
 })
 
+//Financial eligibility routes
+
+
 router.post('/financial_eligibility_answer', function(request, response) {
 
     var financiallyEligibile = request.session.data['financiallyEligibile']
@@ -49,9 +53,7 @@ router.post('/financial_eligibility_answer', function(request, response) {
 })
 
 
-router.post('/close-case', function(request, response) {
-response.redirect('/' + version + '/home/closed')
-})
+//Rejection flow routes
 
 router.post('/reject-case', function(request, response) {
     response.redirect('/' + version + '/case_actions/reject_case_reason')
@@ -61,10 +63,12 @@ router.post('/reject_case_reason', function(request, response) {
     response.redirect('/' + version + '/case_actions/reject_case_feedback')
 })
 
-router.post('/reject_case_feedback', function(request, response) {
+
+// close case notification
+
+router.post('/close-case', function(request, response) {
     response.redirect('/' + version + '/home/closed')
-})
-    
+    })
 
 router.get('/home/closed', function(request, response) {
 
@@ -72,6 +76,12 @@ router.get('/home/closed', function(request, response) {
         delete request.session.data['close-case']
       }
       response.render('/' + version + '/home/closed')
+})
+
+// reject case notification
+
+router.post('/reject_case_feedback', function(request, response) {
+    response.redirect('/' + version + '/home/closed')
 })
 
 router.get('/home/closed', function(request, response) {
@@ -82,10 +92,3 @@ router.get('/home/closed', function(request, response) {
       response.render('/' + version + '/home/closed')
 })
 
-router.get('/cases/accepted/case1/clientdetails.html', function(request, response) {
-
-    if (request.session.data['thirdParty']){
-        delete request.session.data['thirdParty']
-      }
-      response.render('/' + version + '/cases/accepted/case1/clientdetails.html')
-})
