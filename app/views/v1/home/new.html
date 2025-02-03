@@ -1,10 +1,49 @@
 {% extends "layouts/v1.html" %}
 
+<!--Service navigation-->
+{% block header %}
+
+{{ govukHeader({
+  homepageUrl: "#",
+  serviceName: "Manage legal help cases",
+  serviceUrl: "/v1/home/new",
+  classes: "govuk-header--full-width-border",
+  navigation: [
+    {
+      href: "#1",
+      text: "Username",
+      active: true
+    },
+    {
+      href: "#2",
+      text: "Sign out"
+    }
+  ]
+}) }}
+
+
+{{ govukServiceNavigation({
+  navigation: [
+    {
+      href: "/v1/home/new",
+      text: "Your cases",
+      active: true
+    },
+    {
+      href: "/v1/home/search",
+      text: "Search"
+    }
+  ]
+}) }}
+  {% endblock %}
+
+
+
 {% block content %}
 
 <!--Heading-->
 
-<h1 class="govuk-heading-xl">Manage your legal help cases</h1>
+<h1 class="govuk-heading-xl">Your legal help cases</h1>
 
     
 <!--Subnav-->
