@@ -1,0 +1,132 @@
+{% extends "layouts/accepted_case_v1.html" %}
+
+{% set bodyClasses = "v1" %}
+{% set version = "v1" %}
+
+{% block stylesheets %}
+  {{ super() }}
+  <link href="/public/sass/additional.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+
+ {% block subnav %}
+
+  {%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
+
+  <nav class="moj-sub-navigation govuk-!-margin-bottom-0" aria-label="Sub navigation">
+
+    <ul class="moj-sub-navigation__list">
+      <li class="moj-sub-navigation__item">
+        <a class="moj-sub-navigation__link" href="../case1/clientdetails.html">Client details</a>
+      </li>
+  
+      <li class="moj-sub-navigation__item">
+        <a class="moj-sub-navigation__link" aria-current="page" href="../case1/scope.html">Scope</a>
+      </li>
+  
+      <li class="moj-sub-navigation__item">
+        <a class="moj-sub-navigation__link"  href="../case1/financial_eligibility_b.html">Financial eligibility</a>
+      </li>
+
+      <li class="moj-sub-navigation__item">
+        <a class="moj-sub-navigation__link"  href="../case1/case_timeline.html">Notes</a>
+      </li>
+    </ul>
+    </ul>
+  
+  </nav>
+ {% endblock %}
+
+
+
+  {% block content %}
+
+<h2 class="govuk-heading-m">Scope</h2>
+
+
+
+
+<h2 class="govuk-heading-s govuk-!-margin-bottom-2">Dermination: 
+  
+  <!--if in scope category-->
+  {% if data['clientProblem'] == "Discrimination" %}
+    <strong class="govuk-tag govuk-tag--green">
+     In scope
+    </strong></h2>
+
+  <!--if out of scope category, currently everything but discrimination-->
+  {% else %}
+    <strong class="govuk-tag govuk-tag--red">
+    Out of scope
+    </strong></h2>
+  {% endif %}
+
+<h2 class="govuk-heading-s govuk-!-margin-bottom-7">Category of law: <span class="govuk-body-m">{{ data['clientProblem'] }} </span></h2>
+
+
+
+ <div class="govuk-summary-card">
+    <div class="govuk-summary-card__title-wrapper">
+      <h2 class="govuk-summary-card__title">
+        Scope details
+      </h2>
+      <ul class="govuk-summary-card__actions">
+        <li class="govuk-summary-card__action">
+          <a class="govuk-link" href="../../../change_answer/scope/scope_overview.html">Change<span class="govuk-visually-hidden"> change scope</span></a>
+        </li>
+      </ul>
+    </div>
+    <div class="govuk-summary-card__content">
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Area
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['clientProblem'] }}
+          </dd>
+        </div>
+
+        <!--show the following rows only if Discrimination selected-->
+
+        {% if data['clientProblem'] == "Discrimination" %}
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Type of discrimination
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['typeOfDiscrimination'] }}
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Basis of discrimination
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['basisOfDiscrimination'] }}
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Where the discrimination occured
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['locationOfDiscrimination'] }}
+          </dd>
+        </div>
+
+        {% endif %}
+
+
+      </dl>
+    </div>
+  </div>
+
+  
+
+
+  {% endblock %}
+
+ 
+ 

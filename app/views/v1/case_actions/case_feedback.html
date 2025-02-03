@@ -4,7 +4,7 @@
 {% block content %}
 
 
-
+<!--Feedback radios-->
 
 
   {% from "govuk/components/radios/macro.njk" import govukRadios %}
@@ -79,6 +79,8 @@
 }) }}
 
 
+<!--Text area-->
+
 {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
 
 {{ govukTextarea({
@@ -90,17 +92,18 @@
   }
 }) }}
 
+
+<!--Buttons-->
+
+
 <form class="form" action="/{{ version }}/cases/accepted/case1/clientdetails" method="post">
-
-
-<div class="govuk-button-group">
-  <input type="hidden" name="reject-case" value="001">
-    <button type="submit" class="govuk-button" data-module="govuk-button">
-      Continue
-    </button>
-    <a class="govuk-link" onclick="history.back();">Cancel</a>
-  </div>
-
+  <div class="govuk-button-group">
+    <input type="hidden" name="reject-case" value="001">
+      <button type="submit" class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+      <a class="govuk-link" onclick="history.back();">Cancel</a>
+    </div>
 </form>
 
 

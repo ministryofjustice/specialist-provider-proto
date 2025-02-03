@@ -4,7 +4,7 @@
 
 {% block tag %}
 
-  <div><strong class="govuk-tag govuk-!-margin-bottom-2 govuk-!-margin-top-4">New</strong></div>
+  <div><strong class="govuk-tag govuk-!-margin-bottom-2 govuk-!-margin-top-4">Closed</strong></div>
 
 {% endblock %}
 
@@ -39,34 +39,19 @@
 
 {% endblock %}
 
-<!---Override menu to show all buttons-->
+<!---Override menu to show reopen button-->
 
 {% block buttons %}
 
     {% from "govuk/components/button/macro.njk" import govukButton %}
 
-      <div class="govuk-button-group">
-        {{ govukButton({
-          text: "Accept case",
-          href: "../../accepted/case1/clientdetails.html"
-        }) }}
-      
-        {{ govukButton({
-          text: "Reject case",
-          classes: "govuk-button--secondary"
-        }) }}
 
-        {{ govukButton({
-            text: "Split case",
-            classes: "govuk-button--secondary"
-        }) }}
+    {{ govukButton({
+      text: "Reopen case",
+      classes: "govuk-button--primary"
+  }) }}
 
-        {{ govukButton({
-            text: "Close case",
-            classes: "govuk-button--secondary"
-        }) }}
 
         
-      </div>
-
 {% endblock %}
+

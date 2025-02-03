@@ -36,7 +36,11 @@
 
   <!---Accepted Tag-->
 
+  {% block tag %}
+
   <div><strong class="govuk-tag govuk-!-margin-bottom-2 govuk-!-margin-top-4">Accepted</strong></div>
+
+  {% endblock %}
 
   <!---Name & Case number-->
   
@@ -51,15 +55,13 @@
 
      <h2 class="govuk-heading-m govuk-!-margin-bottom-7">Date received: <span class="govuk-body-l">14 January 2025</span></h2>
 
-     {% endblock %}
+    {% endblock %}
 
   <!---Button menu-->
 
     {% block buttons %}
 
     {% from "govuk/components/button/macro.njk" import govukButton %}
-
-    {%- from "govuk/components/button/macro.njk" import govukButton %}
     
     <div class="moj-button-group moj-button-group--inline govuk-!-static-margin-bottom-6 ">
 
@@ -67,35 +69,33 @@
 
      <div class="moj-button-menu" data-module="moj-button-menu" data-button-text="Manage case">
 
-      <form  action="/{{ version }}/close-case" method="post">
-        <input type="hidden" name="close-case" value="001">
-      <button type="submit" class="govuk-button moj-button-menu__item govuk-button--secondary" data-module="govuk-button">
-        Close case
-      </button>
-       </form>
+        <form  action="/{{ version }}/close-case" method="post">
+          <input type="hidden" name="close-case" value="001">
+        <button type="submit" class="govuk-button moj-button-menu__item govuk-button--secondary" data-module="govuk-button">
+          Close case
+        </button>
+        </form>
 
-      <form  action="/{{ version }}/reject-case" method="post">
-      <button type="submit" class="govuk-button moj-button-menu__item govuk-button--secondary" data-module="govuk-button">
-        Reject case
-      </button>
-    </form>
-    
-      <button type="submit" class="govuk-button moj-button-menu__item govuk-button--secondary" data-module="govuk-button">
-        Split case
-      </button>
+        <form  action="/{{ version }}/reject-case" method="post">
+        <button type="submit" class="govuk-button moj-button-menu__item govuk-button--secondary" data-module="govuk-button">
+          Reject case
+        </button>
+        </form>
+      
+        <button type="submit" class="govuk-button moj-button-menu__item govuk-button--secondary" data-module="govuk-button">
+          Split case
+        </button>
 
-      <form  action="/{{ version }}/feedback-case" method="post">
-      <button type="submit"  class="govuk-button moj-button-menu__item govuk-button--secondary" data-module="govuk-button">
-        Leave case feedback
-      </button>
-    </form>
-    
+        <form  action="/{{ version }}/feedback-case" method="post">
+        <button type="submit"  class="govuk-button moj-button-menu__item govuk-button--secondary" data-module="govuk-button">
+          Leave case feedback
+        </button>
+        </form>
+      
+      </div>
     </div>
-    
-   
-</div>
-    
-{% endblock %}
+        
+    {% endblock %}
 
   <!---Subnav-->
 
@@ -128,4 +128,5 @@
 
 
   {% endblock %}
+
 {% endblock %}
