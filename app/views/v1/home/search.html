@@ -1,6 +1,7 @@
 {% extends "layouts/v1.html" %}
 
 
+
 {% block header %}
 
 {{ govukHeader({
@@ -80,8 +81,6 @@
         <input class="govuk-input" id="filterSearch" name="filterSearch" type="search" aria-describedby="search-hint" aria-description="Search will filter the table of users">
 
       </div>
-
-
       
 
       <div id="filters" class="govuk-date-input">
@@ -100,14 +99,108 @@
         </div>
 
       <div class="govuk-button-group">
-        <button type="submit" class="govuk-button" data-module="govuk-button" id="searchButton">
+        <button type="submit" class="govuk-button" data-module="govuk-button" onclick="search()" id="searchButton">
           Search
         </button>
 
-        <a class="govuk-link" href="crm-assess-search">Clear all</a>
+        <a class="govuk-link" href="#" onclick="clearsearch()">Clear all</a>
       </div>
             
     </div>
+    </div>
 
+ <!--Search results table-->  
+
+    <div style="display:none" id="resultsTable">
+      
+    <h3 class="govuk-heading-m">2 search results</h3>
+
+      <table class="govuk-table" data-module="moj-sortable-table">
+
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+      
+            <th scope="col" class="govuk-table__header">Name</th>
+      
+            <th scope="col" class="govuk-table__header">Reference</th>
+      
+            <th scope="col" class="govuk-table__header" >Area of law</th>
+      
+            <th scope="col" class="govuk-table__header" aria-sort="none">Urgent</th>
+  
+            <th scope="col" class="govuk-table__header">Outcome code</th>
+  
+            <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">Last modified</th>
+  
+  
+          </tr>
+        </thead>
+      
+        <tbody class="govuk-table__body">
+      
+          <tr class="govuk-table__row">
+      
+            <td class="govuk-table__cell"><a href="../cases/accepted/case1/clientdetails.html">{{ data['fullName'] }}</a></td>
+      
+            <td class="govuk-table__cell">PC-4643-3623</td>
+      
+            <td class="govuk-table__cell">Discrimination</td>
+      
+            <td class="govuk-table__cell" data-sort-value="0">No</td>
+  
+            <td class="govuk-table__cell">SPOP</td>
+  
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="8">8 days ago</td>
+      
+          </tr>
+  
+          <tr class="govuk-table__row">
+      
+            <td class="govuk-table__cell"><a href="#">Maya Garcia</a></td>
+      
+            <td class="govuk-table__cell">PC-2521-2984</td>
+      
+            <td class="govuk-table__cell">Discrimination</td>
+      
+            <td class="govuk-table__cell" data-sort-value="0">No</td>
+  
+            <td class="govuk-table__cell">CLSP</td>
+  
+            <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="8">8 days ago</td>
+      
+          </tr>
+      
+      
+        </tbody>
+      </table>
+      
+    </div>
+
+<!--on click of search button show results table-->
+
+    <script>
+      function search() {
+        var x = document.getElementById("resultsTable");
+        if (x.style.display === "none") {
+          x.style.display = "block";
+        } else {
+          x.style.display = "block";
+        }
+      }
+      </script>
+
+ <!--on click clear link hide results table-->
+
+
+    <script>
+      function clearsearch() {
+        var x = document.getElementById("resultsTable");
+        if (x.style.display === "block") {
+          x.style.display = "none";
+        } else {
+          x.style.display = "none";
+        }
+      }
+      </script>
 
 {% endblock %}
