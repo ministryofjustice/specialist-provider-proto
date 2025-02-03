@@ -92,3 +92,6 @@ router.get('/home/closed', function(request, response) {
       response.render('/' + version + '/home/closed')
 })
 
+router.post('/feedback-case', function(request, response) {
+    response.redirect('/' + version + '/case_actions/case_feedback')
+})

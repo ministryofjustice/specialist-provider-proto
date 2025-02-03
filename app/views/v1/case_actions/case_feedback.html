@@ -10,10 +10,10 @@
   {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
 {{ govukRadios({
-  name: "rejectionReason",
+  name: "caseFeedbackReason",
   fieldset: {
     legend: {
-      text: "Leave feedback? (optional)",
+      text: "Leave case feedback",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--l"
     }
@@ -82,7 +82,7 @@
 {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
 
 {{ govukTextarea({
-  name: "rejectionReasonNote",
+  name: "caseFeedback",
   id: "more-detail",
   classes: "govuk-!-width-two-thirds",
   label: {
@@ -90,7 +90,7 @@
   }
 }) }}
 
-<form class="form" action="/{{ version }}/reject_case_feedback" method="post">
+<form class="form" action="/{{ version }}/cases/accepted/case1/clientdetails" method="post">
 
 
 <div class="govuk-button-group">
@@ -102,7 +102,6 @@
   </div>
 
 </form>
-
 
 
 {% endblock %}
