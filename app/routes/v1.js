@@ -110,3 +110,18 @@ router.get('/cases/accepted/case1/clientdetails', function(request, response) {
       }
       response.render('/' + version + '/cases/accepted/case1/clientdetails')
 })
+
+//split case notification
+
+router.post('/split_case', function(request, response) {
+    response.redirect('/' + version + '/home/new')
+})
+
+router.get('/home/new', function(request, response) {
+
+    if (request.session.data['split-case']){
+        delete request.session.data['split-case']
+      }
+      response.render('/' + version + '/home/new')
+})
+
