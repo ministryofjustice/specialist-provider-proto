@@ -18,9 +18,9 @@
   href: "../../../home/new.html"
 }) }}
 
-  <!---If urgent show banner-->
+  <!---If urgent show this banner-->
   {% if (data['urgent'] == "Yes") %}
-  <div class="govuk-notification-banner govuk-!-margin-top-2 govuk-!-margin-bottom-2 " role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+  <div class="urgent govuk-notification-banner govuk-!-margin-top-2 govuk-!-margin-bottom-2 " role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
     <div class="govuk-notification-banner__header">
       <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
         Urgent
@@ -33,6 +33,23 @@
     </div>
   </div>
   {% endif %}
+
+  <!--If clase is reopened show this show banner-->
+
+{% if data['reopen-case'] %}
+<div class="govuk-notification-banner govuk-notification-banner--success  govuk-!-margin-bottom-6" role="alert"  aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__header">
+    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+      Success
+    </h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+    <p class="govuk-notification-banner__heading">
+      Case for {{ data['fullName'] }} reopened successfully
+    </p>
+  </div>
+</div>
+{% endif %}
 
   <!---Accepted Tag-->
 

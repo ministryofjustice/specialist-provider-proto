@@ -1,0 +1,41 @@
+{% extends "layouts/question_page_v1.html" %}
+
+ 
+{% block content %}
+
+
+
+<h1 class="govuk-heading-xl ">
+    <span class="govuk-caption-xl ">{{ data['fullName'] }}</span>
+   Reopen case
+  </h1>
+
+
+<!--Text area -->
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+{{ govukTextarea({
+  name: "reopenReason",
+  id: "more-detail",
+  classes: "govuk-!-width-two-thirds",
+  label: {
+    text: "Reason for reopening case"
+  }
+}) }}
+
+<form class="form" action="/{{ version }}/reopen_case" method="post">
+
+
+<div class="govuk-button-group">
+  <input type="hidden" name="reopen-case" value="001">
+    <button type="submit" class="govuk-button" data-module="govuk-button">
+      Continue
+    </button>
+    <a class="govuk-link" onclick="history.back();">Cancel</a>
+  </div>
+
+</form>
+
+
+
+{% endblock %}
