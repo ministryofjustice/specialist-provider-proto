@@ -41,6 +41,24 @@
 
 {% block content %}
 
+ <!--If clase is reopened show this show banner-->
+
+ {% if data['split-case'] %}
+ <div class="govuk-notification-banner govuk-notification-banner--success  govuk-!-margin-bottom-6" role="alert"  aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+   <div class="govuk-notification-banner__header">
+     <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+       Success
+     </h2>
+   </div>
+   <div class="govuk-notification-banner__content">
+     <p class="govuk-notification-banner__heading">
+       Case for {{ data['fullName'] }} split successfully
+     </p>
+   </div>
+ </div>
+ {% endif %}
+ 
+
 <!--Heading-->
 
 <h1 class="govuk-heading-xl">Your legal help cases</h1>

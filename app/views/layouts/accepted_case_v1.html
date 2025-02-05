@@ -99,9 +99,11 @@
         </button>
         </form>
       
-        <button type="submit" class="govuk-button moj-button-menu__item govuk-button--secondary" data-module="govuk-button">
+        <form action="{{ version }}/../../../../case_actions/split_areaOfLaw" method="post">
+        <button type="submit"  class="govuk-button moj-button-menu__item govuk-button--secondary" data-module="govuk-button">
           Split case
         </button>
+       </form>
 
         <form  action="/{{ version }}/feedback-case" method="post">
         <button type="submit"  class="govuk-button moj-button-menu__item govuk-button--secondary" data-module="govuk-button">

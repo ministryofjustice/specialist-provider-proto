@@ -1,0 +1,69 @@
+{% extends "layouts/question_page_v1.html" %}
+
+ 
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      <h1 class="govuk-heading-xl ">
+        <span class="govuk-caption-xl ">{{ data['fullName'] }}</span>
+       Split case
+      </h1>
+    
+
+      <form class="form" action="/{{ version }}/split_case" method="post">
+
+        <!--radios-->
+        
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+        
+        {{ govukRadios({
+          name: "splitAreaOfLaw",
+          fieldset: {
+            legend: {
+              text: "Who should the new case be assigned to?",
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          items: [
+            {
+              value: "[Provider name]",
+              text: "[Provider name]"
+            },
+            {
+              value: "To operator for reassignment",
+              text: "To operator for reassignment"
+            }
+          ]
+        }) }}
+
+        <!--text area-->
+
+        {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+        {{ govukTextarea({
+          name: "moreDetail",
+          id: "more-detail",
+          label: {
+            text: "Additional information (optional)",
+            classes: "govuk-fieldset__legend--s"
+          }
+        }) }}
+        
+
+        <div class="govuk-button-group">
+          <input type="hidden" name="split-case" value="001">
+            <button type="submit" class="govuk-button" data-module="govuk-button">
+              Continue
+            </button>
+            <a class="govuk-link" onclick="history.back();">Cancel</a>
+          </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

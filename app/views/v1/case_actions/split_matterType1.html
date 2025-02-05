@@ -1,0 +1,61 @@
+{% extends "layouts/question_page_v1.html" %}
+
+ 
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      <h1 class="govuk-heading-xl ">
+        <span class="govuk-caption-xl ">{{ data['fullName'] }}</span>
+       Split case
+      </h1>
+    
+
+      <form class="form" action="split_matterType2" method="post">
+        
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+        {{ govukRadios({
+          name: "splitAreaOfLaw",
+          fieldset: {
+            legend: {
+              text: "Select matter type 1",
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          items: [
+            {
+              value: "ESEN - Special educational needs and/or children unable to attend school",
+              text: "ESEN - Special educational needs and/or children unable to attend school"
+            },
+            {
+              value: "EEQU - Contravention of Equality 2010 (non-Disability Discrimination)",
+              text: "EEQU - Contravention of Equality 2010 (non-Disability Discrimination)"
+            },
+            {
+              value: "EDDA - Disability discrimination at nursery, school, college or LEA",
+              text: "EDDA - Disability discrimination at nursery, school, college or LEA"
+            },
+            {
+              value: "EDOT - Other",
+              text: "EDOT - Other"
+            }
+          ]
+        }) }}
+        
+
+        <div class="govuk-button-group">
+            <button type="submit" class="govuk-button" data-module="govuk-button">
+              Continue
+            </button>
+            <a class="govuk-link" onclick="history.back();">Cancel</a>
+          </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
