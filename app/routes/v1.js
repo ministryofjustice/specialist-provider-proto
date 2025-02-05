@@ -95,3 +95,18 @@ router.get('/home/closed', function(request, response) {
 router.post('/feedback-case', function(request, response) {
     response.redirect('/' + version + '/case_actions/case_feedback')
 })
+
+//reopen case notification
+
+
+router.post('/reopen_case', function(request, response) {
+    response.redirect('/' + version + '/cases/accepted/case1/clientdetails')
+})
+
+router.get('/cases/accepted/case1/clientdetails', function(request, response) {
+
+    if (request.session.data['reopen-case']){
+        delete request.session.data['reopen-case']
+      }
+      response.render('/' + version + '/cases/accepted/case1/clientdetails')
+})

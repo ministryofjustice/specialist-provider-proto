@@ -46,13 +46,17 @@
 
     {% from "govuk/components/button/macro.njk" import govukButton %}
 
-
-    {{ govukButton({
-      text: "Reopen case",
-      classes: "govuk-button--primary"
-  }) }}
-
-
+    <div class="govuk-button-group">
+      {{ govukButton({
+        text: "Reopen case",
+        href: "../../../case_actions/reopen_case"
+      }) }}
+  
+      {{ govukButton({
+        text: "Generate legal help form",
+        classes: "govuk-button--secondary"
+      }) }}
+    </div>
         
 {% endblock %}
 
