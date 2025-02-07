@@ -70,6 +70,23 @@
       }
     },
     {
+      key: {
+        text: "Media code"
+      },
+      value: {
+        html: "Don't know"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "working situation"
+          }
+        ]
+      }
+    },
+    {
         key: {
           text: "Urgent"
         },
@@ -85,13 +102,31 @@
             }
           ]
         }
+      },
+      
+    {
+      key: {
+        text: "Client is vulnerable"
+      },
+      value: {
+        html: data['clientVulnerable'] + "<br>" +  data['clientVulnerableReason']
+      },
+      actions: {
+        items: [
+          {
+            href: "../../../change_answer/contact_details/client_vulnerable.html",
+            text: "Change",
+            visuallyHiddenText: "Client is vulnerable"
+          }
+        ]
       }
+    }
 
     
   ]
 }) }}
 
-<!--Contact details-->
+<!--Contact-->
 
 {{ govukSummaryList({
   card: {
@@ -124,48 +159,31 @@
         text: "Phone number"
       },
       value: {
-        html: "07770 856422"
+        html: data['phoneNumber'] 
       },
       actions: {
         items: [
           {
-            href: "#",
+            href:  "../../../change_answer/contact_details/client_phonenumber.html",
             text: "Change",
-            visuallyHiddenText: "relationship to lead tenant"
+            visuallyHiddenText: "change phone number"
           }
         ]
       }
     },
     {
       key: {
-        text: "Adaptions"
+        text: "Accommodations"
       },
       value: {
-        html: "No adaptions"
+        html: data['accessNeeds'] 
       },
       actions: {
         items: [
           {
-            href: "#",
+            href: "../../../change_answer/contact_details/client_accomodations.html",
             text: "Change",
             visuallyHiddenText: "age"
-          }
-        ]
-      }
-    },
-    {
-      key: {
-        text: "Media code"
-      },
-      value: {
-        html: "Don't know"
-      },
-      actions: {
-        items: [
-          {
-            href: "#",
-            text: "Change",
-            visuallyHiddenText: "working situation"
           }
         ]
       }
@@ -192,46 +210,12 @@
         text: "Additional information"
       },
       value: {
-        html: "Free text"
+        html: data['clientAdditionalInfo'] 
       },
       actions: {
         items: [
           {
-            href: "#",
-            text: "Change",
-            visuallyHiddenText: "working situation"
-          }
-        ]
-      }
-    },
-    {
-      key: {
-        text: "Client is vulnerable"
-      },
-      value: {
-        html: "No"
-      },
-      actions: {
-        items: [
-          {
-            href: "#",
-            text: "Change",
-            visuallyHiddenText: "working situation"
-          }
-        ]
-      }
-    },
-    {
-      key: {
-        text: "Contactable for research"
-      },
-      value: {
-        html: "No"
-      },
-      actions: {
-        items: [
-          {
-            href: "#",
+            href: "../../../change_answer/contact_details/client_additionalinformation.html",
             text: "Change",
             visuallyHiddenText: "working situation"
           }

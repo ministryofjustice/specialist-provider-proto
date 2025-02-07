@@ -1,0 +1,70 @@
+{% extends "layouts/question_page_v1.html" %}
+
+ 
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      <form class="form" action="../../cases/accepted/case1/clientdetails" method="post">
+        
+        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+        {{ govukCheckboxes({
+          name: "accessNeeds",
+          fieldset: {
+            legend: {
+              text: "Your client's accessibility needs",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "Select all accommodations that apply"
+          },
+          items: [
+            {
+              value: "BSL - Webcam",
+              text: "BSL - Webcam"
+            },
+            {
+              value: "Minicom",
+              text: "Minicom"
+            },
+            {
+              value: "Text relay",
+              text: "Text relay"
+            },
+            {
+              value: "Skype",
+              text: "Skype"
+            },
+            {
+              value: "Callback preference",
+              text: "Callback preference"
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "No accomodations  required",
+              text: "No accomodations required",
+              behaviour: "exclusive"
+            }
+          ]
+        }) }}
+
+        <div class="govuk-button-group">
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+            Save
+          </button>
+          <a class="govuk-link" onclick="history.back();">Cancel</a>
+        </div>
+
+
+    </div>
+  </div>
+
+{% endblock %}
+
