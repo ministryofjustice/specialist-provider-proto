@@ -8,7 +8,7 @@
     <div class="govuk-grid-column-full">
       <h1 class="govuk-heading-xl ">
         <span class="govuk-caption-xl ">PC-4950-9422</span>
-        {{ data['fullName'] }}
+        {{ data[caseSelected]['fullName'] }}
       </h1>
 
       <p>*Guidance on what to do on this page *</p>
@@ -634,24 +634,24 @@
       <form  class="form" action="/{{ version }}/financial_eligibility_answer" method="post">
       {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
-<div class="govuk-form-group">
-  <fieldset class="govuk-fieldset">
-    <div hidden="hidden" class="govuk-radios" data-module="govuk-radios">
-      <div class="govuk-radios__item">
-        <input class="govuk-radios__input" checked="checked" id="whereDoYouLive" name="financiallyEligibile" type="radio" value="Yes">
-        <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
-          yes
-        </label>
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <div hidden="hidden" class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" checked="checked" id="whereDoYouLive" name="financiallyEligibile" type="radio" value="Yes">
+              <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
+                yes
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="whereDoYouLive-2" name="financiallyEligibile" type="radio" value="No">
+              <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
+                no
+              </label>
+            </div>
+          </div>
+        </fieldset>
       </div>
-      <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="whereDoYouLive-2" name="financiallyEligibile" type="radio" value="No">
-        <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
-          no
-        </label>
-      </div>
-    </div>
-  </fieldset>
-</div>
       
       <div class="govuk-button-group">
         <button type="submit" class="govuk-button" data-module="govuk-button">
@@ -662,7 +662,7 @@
         </button>
       </div>
 
-    </form>
+      </form>
     </div>
   </div>
 </main>

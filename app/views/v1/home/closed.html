@@ -50,7 +50,7 @@
   </div>
   <div class="govuk-notification-banner__content">
     <p class="govuk-notification-banner__heading">
-      Case for {{ data['fullName'] }}  closed 
+      Case for {{ data[caseSelected]['fullName'] }}  closed 
     </p>
   </div>
 </div>
@@ -67,7 +67,7 @@
   </div>
   <div class="govuk-notification-banner__content">
     <p class="govuk-notification-banner__heading">
-      Case for {{ data['fullName'] }} rejected 
+      Case for {{ data[caseSelected]['fullName'] }} rejected 
     </p>
   </div>
 </div>
@@ -100,57 +100,27 @@
 <!--Case table - this might need to be changed to nunjucks?-->
 
     <table class="govuk-table" data-module="moj-sortable-table">
-
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
-    
           <th scope="col" class="govuk-table__header">Name</th>
-    
           <th scope="col" class="govuk-table__header">Reference</th>
-    
           <th scope="col" class="govuk-table__header" >Area of law</th>
-
-
           <th scope="col" class="govuk-table__header">Outcome code</th>
-
           <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">Date closed</th>
-
-
         </tr>
       </thead>
-    
       <tbody class="govuk-table__body">
-    
-        <tr class="govuk-table__row">
-    
-          <td class="govuk-table__cell"><a  href="../cases/closed/case1/clientdetails.html">Trystan Flores</a></td>
-    
-          <td class="govuk-table__cell">PC-4643-3623</td>
-    
-          <td class="govuk-table__cell">Discrimination</td>
-    
-
-          <td class="govuk-table__cell">SPOP</td>
-
-          <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="8">23 Dec 2024</td>
-    
-        </tr>
-
-        <tr class="govuk-table__row">
-    
-          <td class="govuk-table__cell"><a href="#">Maya Garcia</a></td>
-    
-          <td class="govuk-table__cell">PC-2521-2984</td>
-    
-          <td class="govuk-table__cell">Discrimination</td>
-
-          <td class="govuk-table__cell">CLSP</td>
-
-          <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="8">20 Dec 2024</td>
-    
-        </tr>
-    
-    
+        {% for case, value in data %}
+          {% if value.caselistOutcomeCode == "CLSP" %}
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="../cases/closed/case1/clientdetails.html" id="{{value.id}}">{{value.fullName}}</a></td>
+              <td class="govuk-table__cell">{{value.caseReference}}</td>
+              <td class="govuk-table__cell">{{value.clientProblem}}</td>
+              <td class="govuk-table__cell" data-sort-value={{value.caselistOutcomeCode}}>{{ value.caselistOutcomeCode }}</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value={{value.caselistClosed}}>{{value.caselistClosed}}</td>
+            </tr>
+          {% endif %} 
+        {% endfor %}
       </tbody>
     </table>
 

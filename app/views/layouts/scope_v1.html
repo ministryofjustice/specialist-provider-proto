@@ -49,7 +49,7 @@
 <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Dermination: 
   
   <!--if in scope category-->
-  {% if data['clientProblem'] == "Discrimination" %}
+  {% if data[caseSelected]['clientProblem'] == "Discrimination" %}
     <strong class="govuk-tag govuk-tag--green">
      In scope
     </strong></h2>
@@ -61,7 +61,7 @@
     </strong></h2>
   {% endif %}
 
-<h2 class="govuk-heading-s govuk-!-margin-bottom-7">Category of law: <span class="govuk-body-m">{{ data['clientProblem'] }} </span></h2>
+<h2 class="govuk-heading-s govuk-!-margin-bottom-7">Category of law: <span class="govuk-body-m">{{ data[caseSelected]['clientProblem'] }} </span></h2>
 
 
 
@@ -83,20 +83,20 @@
             Area
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['clientProblem'] }}
+            {{ data[caseSelected]['clientProblem'] }}
           </dd>
         </div>
 
         <!--show the following rows only if Discrimination selected-->
 
-        {% if data['clientProblem'] == "Discrimination" %}
+        {% if data[caseSelected]['clientProblem'] == "Discrimination" %}
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Type of discrimination
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['typeOfDiscrimination'] }}
+            {{ data[caseSelected]['typeOfDiscrimination'] }}
           </dd>
         </div>
         <div class="govuk-summary-list__row">
@@ -104,7 +104,7 @@
             Basis of discrimination
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['basisOfDiscrimination'] }}
+            {{ data[caseSelected]['basisOfDiscrimination'] }}
           </dd>
         </div>
         <div class="govuk-summary-list__row">
@@ -112,7 +112,7 @@
             Where the discrimination occured
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['locationOfDiscrimination'] }}
+            {{ data[caseSelected]['locationOfDiscrimination'] }}
           </dd>
         </div>
 

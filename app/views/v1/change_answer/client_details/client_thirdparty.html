@@ -25,7 +25,7 @@
             text: "Full name",
             classes: "govuk-label--m"
           },
-          value: data['thirdPartyName'] ,
+          value: data[caseSelected]['thirdPartyName'] ,
           name: "thirdPartyName"
         }) }}
 
@@ -36,7 +36,7 @@
             text: "Email address (optional)",
             classes: "govuk-label--m"
           },
-          value: data['thirdPartyEmail'] ,
+          value: data[caseSelected]['thirdPartyEmail'] ,
           name: "thirdPartyEmail"
         }) }}
 
@@ -49,7 +49,7 @@
           },
           name: "thirdPartyPhoneNumber",
           classes: "govuk-!-width-one-third",
-          value: data['thirdPartyPhoneNumber'] 
+          value: data[caseSelected]['thirdPartyPhoneNumber'] 
         }) }}
 
         <!-- Address-->
@@ -69,7 +69,7 @@
             },
             id: "address-line-1",
             name: "thirdPartyAddressLine1",
-            value: data['thirdPartyAddressLine1'],
+            value: data[caseSelected]['thirdPartyAddressLine1'],
             autocomplete: "address-line1"
           }) }}
         
@@ -79,7 +79,7 @@
             },
             id: "address-line-2",
             name: "thirdPartyAddressLine2",
-            value: data['thirdPartyAddressLine2'],
+            value: data[caseSelected]['thirdPartyAddressLine2'],
             autocomplete: "address-line2"
           }) }}
         
@@ -90,7 +90,7 @@
             classes: "govuk-!-width-two-thirds",
             id: "address-town",
             name: "thirdPartyTown",
-            value: data['thirdPartyTown'],
+            value: data[caseSelected]['thirdPartyTown'],
             autocomplete: "address-level2"
           }) }}
         
@@ -100,7 +100,7 @@
             },
             classes: "govuk-!-width-two-thirds",
             id: "address-county",
-            value: data['thirdPartyCounty'],
+            value: data[caseSelected]['thirdPartyCounty'],
             name: "thirdPartyCounty"
           }) }}
         
@@ -111,7 +111,7 @@
             classes: "govuk-input--width-10",
             id: "address-postcode",
             name: "thirdPartyPostcode",
-            value: data['thirdPartyPostcode'],
+            value: data[caseSelected]['thirdPartyPostcode'],
             autocomplete: "postal-code"
           }) }}
         
@@ -124,7 +124,7 @@
 
           {{ govukRadios({
           name: "thirdPartyRelationshipToClient",
-          value: data['thirdPartyRelationshipToClient'],
+          value: data[caseSelected]['thirdPartyRelationshipToClient'],
           fieldset: {
             legend: {
               text: "Relationship to client",
@@ -163,7 +163,7 @@
             classes: "govuk-label--m"
           },
           name: "thirdPartyPassphrase",
-          value: data['thirdPartyPassphrase']
+          value: data[caseSelected]['thirdPartyPassphrase']
         }) }}
 
         <!--Advisor spoken to client?-->
@@ -173,7 +173,7 @@
 
           {{ govukRadios({
           name: "thirdPartySpokenToClient",
-          value: data['thirdPartySpokenToClient'],
+          value: data[caseSelected]['thirdPartySpokenToClient'],
           fieldset: {
             legend: {
               text: "Advisor spoken to client?",
@@ -212,7 +212,7 @@
 
           {{ govukRadios({
           name: "thirdPartyResearch",
-          value: data['thirdPartyResearch'],
+          value: data[caseSelected]['thirdPartyResearch'],
           fieldset: {
             legend: {
               text: "Third party is contactable for research?",

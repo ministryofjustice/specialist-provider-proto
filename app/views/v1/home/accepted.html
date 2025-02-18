@@ -64,61 +64,33 @@
 <!--Case table - this might need to be changed to nunjucks?-->
 
     <table class="govuk-table" data-module="moj-sortable-table">
-
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
-    
           <th scope="col" class="govuk-table__header">Name</th>
-    
           <th scope="col" class="govuk-table__header">Reference</th>
-    
           <th scope="col" class="govuk-table__header" >Area of law</th>
-    
           <th scope="col" class="govuk-table__header" aria-sort="none">Urgent</th>
-
           <th scope="col" class="govuk-table__header">Outcome code</th>
-
           <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">Last modified</th>
-
-
         </tr>
       </thead>
-    
       <tbody class="govuk-table__body">
-    
-        <tr class="govuk-table__row">
-    
-          <td class="govuk-table__cell"><a href="../cases/accepted/case1/clientdetails.html">{{ data['fullName'] }}</a></td>
-    
-          <td class="govuk-table__cell">PC-4643-3623</td>
-    
-          <td class="govuk-table__cell">Discrimination</td>
-    
-          <td class="govuk-table__cell" data-sort-value="0">No</td>
-
-          <td class="govuk-table__cell">SPOP</td>
-
-          <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="8">8 days ago</td>
-    
-        </tr>
-
-        <tr class="govuk-table__row">
-    
-          <td class="govuk-table__cell"><a href="#">Maya Garcia</a></td>
-    
-          <td class="govuk-table__cell">PC-2521-2984</td>
-    
-          <td class="govuk-table__cell">Discrimination</td>
-    
-          <td class="govuk-table__cell" data-sort-value="0">No</td>
-
-          <td class="govuk-table__cell">CLSP</td>
-
-          <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="8">8 days ago</td>
-    
-        </tr>
-    
-    
+        {% for case, value in data %}
+          {% if (value.id == "2") or (value.id == "0") %}
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="../cases/accepted/case1/clientdetails.html" id="{{value.id}}">{{value.fullName}}</a></td>
+              <td class="govuk-table__cell">{{value.caseReference}}</td>
+              <td class="govuk-table__cell">{{value.clientProblem}}</td>
+              {% if value.urgent == "Yes" %}
+                <td class="govuk-table__cell" data-sort-value={{value.urgent}}><strong class="govuk-tag govuk-tag--red">Urgent</strong></td>
+              {% else%}
+                <td class="govuk-table__cell" data-sort-value={{value.urgent}}>{{value.urgent}}</td>
+              {% endif %}
+              <td class="govuk-table__cell" data-sort-value={{value.caselistOutcomeCode}}>{{ value.caselistOutcomeCode }}</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value={{value.caselistRecieved}}>{{value.caselistRecieved}}</td>
+            </tr>
+          {% endif %} 
+        {% endfor %}
       </tbody>
     </table>
     
