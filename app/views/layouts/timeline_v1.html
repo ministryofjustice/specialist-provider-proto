@@ -59,7 +59,7 @@
   <!--If addNote=none then no note shows -->
   <tbody class="govuk-table__body">
 
-    {% if data['addNote'] == "none" %}
+    {% if data[caseSelected]['addNote'] == "none" %}
 
     <p> </p>
 
@@ -70,7 +70,7 @@
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">26 Jun 2025 <br>03:23</td>
       <td class="govuk-table__cell">New user</td>
-      <td class="govuk-table__cell"><strong>Note added</strong><br>{{ data['addNote'] }}</td>
+      <td class="govuk-table__cell"><strong>Note added</strong><br>{{ data[caseSelected]['addNote'] }}</td>
     </tr>
 
     {% endif %}

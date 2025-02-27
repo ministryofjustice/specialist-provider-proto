@@ -23,7 +23,7 @@
                   <label class="govuk-label govuk-date-input__label" for="birth-day">
                     Day
                   </label>
-                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="birth-day" name="birthDay" type="text" inputmode="numeric" value="{{ data['birthDay'] }}">
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="birth-day" name="birthDay" type="text" inputmode="numeric" value="{{ data[caseSelected]['birthDay'] }}">
                 </div>
               </div>
               <div class="govuk-date-input__item">
@@ -31,7 +31,7 @@
                   <label class="govuk-label govuk-date-input__label" for="birth-month">
                     Month
                   </label>
-                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="birth-month" name="birthMonth" type="text" inputmode="numeric" value="{{ data['birthMonth'] }}">
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="birth-month" name="birthMonth" type="text" inputmode="numeric" value="{{ data[caseSelected]['birthMonth'] }}">
                 </div>
               </div>
               <div class="govuk-date-input__item">
@@ -39,7 +39,7 @@
                   <label class="govuk-label govuk-date-input__label" for="birth-year">
                     Year
                   </label>
-                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="birthYear" type="text" inputmode="numeric" value="{{ data['birthYear'] }}">
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="birthYear" type="text" inputmode="numeric" value="{{ data[caseSelected]['birthYear'] }}">
                 </div>
               </div>
             </div>

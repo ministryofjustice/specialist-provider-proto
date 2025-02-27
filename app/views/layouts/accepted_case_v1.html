@@ -19,7 +19,7 @@
 }) }}
 
   <!---If urgent show this banner-->
-  {% if (data['urgent'] == "Yes") %}
+  {% if (data[caseSelected]['urgent'] == "Yes") %}
   <div class="urgent govuk-notification-banner govuk-!-margin-top-2 govuk-!-margin-bottom-2 " role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
     <div class="govuk-notification-banner__header">
       <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
@@ -28,7 +28,7 @@
     </div>
     <div class="govuk-notification-banner__content">
       <p class="govuk-notification-banner__heading">
-        {{ data['urgentReason'] }}
+        {{ data[caseSelected]['urgentReason'] }}
       </p>
     </div>
   </div>
@@ -36,7 +36,7 @@
 
   <!--If clase is reopened show this show banner-->
 
-{% if data['reopen-case'] %}
+{% if data[caseSelected]['reopen-case'] %}
 <div class="govuk-notification-banner govuk-notification-banner--success  govuk-!-margin-bottom-6" role="alert"  aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
   <div class="govuk-notification-banner__header">
     <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
@@ -45,7 +45,7 @@
   </div>
   <div class="govuk-notification-banner__content">
     <p class="govuk-notification-banner__heading">
-      Case for {{ data['fullName'] }} reopened successfully
+      Case for {{ data[caseSelected]['fullName'] }} reopened successfully
     </p>
   </div>
 </div>
@@ -62,15 +62,15 @@
   <!---Name & Case number-->
   
   <h1 class="govuk-heading-xl ">
-    <span class="govuk-caption-xl ">PC-4950-9422</span>
-    {{ data['fullName'] }}
+    <span class="govuk-caption-xl ">{{ data[caseSelected]['caseReference'] }}</span>
+    {{ data[caseSelected]['fullName'] }}
   </h1>
 
   <!---Date-->
 
     {% block date %}
 
-     <h2 class="govuk-heading-m govuk-!-margin-bottom-7">Date received: <span class="govuk-body-l">14 January 2025</span></h2>
+     <h2 class="govuk-heading-m govuk-!-margin-bottom-7">Date received: <span class="govuk-body-l">{{ data[caseSelected]['dateRecieved'] }}</span></h2>
 
     {% endblock %}
 
