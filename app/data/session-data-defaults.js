@@ -59,7 +59,7 @@ module.exports = [
     'birthYear': '1988',
     'niNumber': 'JM1424556X',
     'urgent': '',
-    'urgentReason': 'Deadline for to submit claim 17 Jan',
+    'urgentReason': '',
     'addressLine1': '5 Green Lane',
     'addressLine2': 'Outskirts',
     'country': 'United Kingdom',
