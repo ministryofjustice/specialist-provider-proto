@@ -104,25 +104,7 @@
         ]
       }
     },
-    {
-        key: {
-          text: "Urgent"
-        },
-        value: {
-          html: urgentHtml
-        },
-        actions: {
-          items: [
-            {
-              classes: "change",
-              href: "../../../change_answer/client_details/client_urgent.html",
-              text: "Change",
-              visuallyHiddenText: "Urgent"
-            }
-          ]
-        }
-      },
-      
+
     {
       key: {
         text: "Client is vulnerable"
@@ -146,7 +128,33 @@
   ]
 }) }}
 
+    <!-- {
+        key: {
+          text: "Urgent"
+        },
+        value: {
+          html: urgentHtml
+        },
+        actions: {
+          items: [
+            {
+              classes: "change",
+              href: "../../../change_answer/client_details/client_urgent.html",
+              text: "Change",
+              visuallyHiddenText: "Urgent"
+            }
+          ]
+        }
+      }, -->
+      
+
 <!--Contact-->
+{% if data[caseSelected]['warning'] == "Yes" %}
+{{ govukWarningText({
+  text: "Do not say the call is from Civil Legal Advice",
+  iconFallbackText: "Warning"
+}) }}
+{% endif %}
 
 {{ govukSummaryList({
   card: {
@@ -160,7 +168,7 @@
         text: "Address"
       },
       value: {
-        html: data[caseSelected]['addressLine1'] + ', ' + data[caseSelected]['addressLine2'] + ', '+ data[caseSelected]['town'] + ', ' + data[caseSelected]['postcode']
+        html: data[caseSelected]['addressLine1'] + ', <br> ' + data[caseSelected]['addressLine2'] + ', <br>'+ data[caseSelected]['town'] + ', <br>' + data[caseSelected]['postcode']
       },
       actions: {
         items: [
@@ -193,7 +201,7 @@
     },
     {
       key: {
-        text: "Accommodations"
+        text: "Accessibility"
       },
       value: {
         html: data[caseSelected]['accessNeeds'] 
@@ -209,6 +217,7 @@
         ]
       }
     },
+    
     {
       key: {
         text: "Language"
