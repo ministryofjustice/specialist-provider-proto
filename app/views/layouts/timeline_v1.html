@@ -30,7 +30,7 @@
       </li>
 
       <li class="moj-sub-navigation__item">
-        <a class="moj-sub-navigation__link" aria-current="page"   href="../case1/case_timeline.html">Notes</a>
+        <a class="moj-sub-navigation__link" aria-current="page"   href="../case1/case_timeline.html">Notes and history</a>
       </li>
     </ul>
     </ul>
@@ -43,6 +43,25 @@
   {% block content %}
 
 <h2 class="govuk-heading-m">Case  notes</h2>
+
+
+
+<form class="form" action="#" method="post">
+
+  <div class="govuk-form-group">
+    <!-- <h1 class="govuk-label-wrapper">
+      <label class="govuk-label govuk-label--l" for="more-detail">
+        Case notes
+      </label>
+    </h1> -->
+    <textarea class="govuk-textarea govuk-!-width-two-thirds" id="more-detail" name="addNote" rows="5" aria-describedby="more-detail-hint"></textarea>
+  </div>
+  
+  <button type="submit" class="govuk-button" data-module="govuk-button">
+    Add note
+  </button>
+  
+  </form>
 
 
 <table class="govuk-table">
@@ -73,11 +92,11 @@
 
     {% endif %}
    
-    <tr class="govuk-table__row">
+    <!-- <tr class="govuk-table__row">
       <td class="govuk-table__cell">13 Jun 2025 <br>03:23</td>
       <td class="govuk-table__cell">[Specialist provider name]</td>
       <td class="govuk-table__cell"><strong>Case closed</strong><br><strong class="govuk-tag govuk-tag--blue govuk-!-margin-top-1"> CLSP </strong></td>
-    </tr>
+    </tr> -->
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">7 Jun 2025 <br>01:43pm</td>
       <td class="govuk-table__cell">[Specialist provider name]</td>
@@ -211,23 +230,6 @@ OR adv intro via email and WP via Adobe Sign - cl happy with this.
   </tbody>
 </table>
 
-
-<form class="form" action="#" method="post">
-
-<div class="govuk-form-group">
-  <h1 class="govuk-label-wrapper">
-    <label class="govuk-label govuk-label--l" for="more-detail">
-      Add note 
-    </label>
-  </h1>
-  <textarea class="govuk-textarea govuk-!-width-two-thirds" id="more-detail" name="addNote" rows="5" aria-describedby="more-detail-hint"></textarea>
-</div>
-
-<button type="submit" class="govuk-button" data-module="govuk-button">
-  Save note
-</button>
-
-</form>
 
 
 {% from "govuk/components/pagination/macro.njk" import govukPagination %}

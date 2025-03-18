@@ -66,11 +66,12 @@
     {{ data[caseSelected]['fullName'] }}
   </h1>
 
-  <!---Date-->
+  <!---Date and entitlement-->
 
     {% block date %}
 
-     <h2 class="govuk-heading-m govuk-!-margin-bottom-7">Date received: <span class="govuk-body-l">{{ data[caseSelected]['dateRecieved'] }}</span></h2>
+     <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Date received: <span class="govuk-body-l">{{ data[caseSelected]['dateRecieved'] }}</span></h2>
+     <h2 class="govuk-heading-m govuk-!-margin-bottom-7">Entitlement number: <span class="govuk-body-l">3000742</span></h2>
 
     {% endblock %}
 
@@ -138,7 +139,7 @@
       </li>
 
       <li class="moj-sub-navigation__item">
-        <a class="moj-sub-navigation__link"  href="../case1/case_timeline.html">Notes</a>
+        <a class="moj-sub-navigation__link"  href="../case1/case_timeline.html">Notes and history</a>
       </li>
     </ul>
     </ul>
