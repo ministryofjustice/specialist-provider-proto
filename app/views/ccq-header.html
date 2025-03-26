@@ -1,0 +1,42 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Home" %}
+
+
+{% block header%}
+
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+{% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
+
+{{ govukHeader({
+  classes: "govuk-header--full-width-border"
+}) }}
+{{ govukServiceNavigation({
+  serviceName: "Check if your client qualifies for legal aid",
+  serviceUrl: "#"
+}) }}
+
+<div class="govuk-width-container">
+  <div class="govuk-phase-banner">
+    <p class="govuk-phase-banner__content">
+      <strong class="govuk-tag govuk-phase-banner__content__tag">
+        Beta
+      </strong>
+      <span class="govuk-phase-banner__text">
+        This is a new service. Help us improve it and <a class="govuk-link" href="#">give your feedback (opens in new tab)</a>.
+      </span>
+    </p>
+  </div>
+  </div>
+  
+
+{% endblock %}
+
+
+
+
+{% block content %}
+
+
+<main class="govuk-main-wrapper" id="main-content" role="main"><div class="govuk-grid-row"><div class="govuk-grid-column-two-thirds"><h1 class="govuk-heading-xl">Check if your client qualifies for legal aid</h1><p class="govuk-body">This service tells you if your client is likely to get civil legal aid, based on their financial situation.</p><p class="govuk-body">It does not assess the scope or merits of the case.</p><p class="govuk-body">It normally takes about 5 minutes to complete.</p><h2 class="govuk-heading-s">Controlled work and family mediation</h2><p class="govuk-body">If your client is eligible, you can download a controlled work form with your answers included.</p><h2 class="govuk-heading-s">Certificated and licensed work</h2><p class="govuk-body">We will tell you if your client is likely to be eligible. Submit an application with supporting evidence to get a full decision.</p><h2 class="govuk-heading-m">Before you start</h2><p class="govuk-body"><a class="govuk-link govuk-body-m" href="/documents/means_testing_guidance?referrer=start_index">Read the civil legal aid: means testing guidance</a> to find out if you need to do a means test and whether your client is in scope.</p><p class="govuk-body">To do the check, you'll need information from your client (and their partner) about their:</p><ul class="govuk-list govuk-list--bullet"><li>income, including any benefits they claim</li><li>outgoings, like housing costs, maintenance payments and childcare costs</li><li>savings and investments</li><li>assets, like property and vehicles</li></ul><h2 class="govuk-heading-m">When you should not use this service</h2><p class="govuk-body">You should not use this service if:</p><ul class="govuk-list govuk-list--bullet"><li>it's for a certificated check if your client (or their partner) is a self-employed company director - make an application using the Legal Aid Portal</li><li>you are a member of the public – use the <a href="/documents/legal_aid_checker_for_public?referrer=start_index">legal aid checker</a> instead</li></ul><a class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-9" role="button" id="start" href="/new-check">Start now <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" height="19" viewBox="0 0 33 40" role="presentation" focusable="false"><path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"></path></svg></a><hr class="govuk-!-margin-top-9"><p class="govuk-body">Last updated 18 November 2024<span class="govuk-!-margin-left-3"></span><a href="/updates">See all updates</a></p></div><div class="govuk-grid-column-one-third"><aside class="app-related-items" role="complementary"><h2 class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-padding-top-0">Guidance</h2><ul class="govuk-list govuk-!-font-size-16"><li><p><a class="govuk-link govuk-body-m" href="/documents/legal_aid_checker_for_public?referrer=start_index">Legal aid checker for members of the public</a></p></li><li><p><a class="govuk-link govuk-body-m" href="/documents/means_testing_guidance?referrer=start_index">Civil legal aid: means testing guidance</a></p></li></ul></aside></div></div></main>
+{% endblock %}
