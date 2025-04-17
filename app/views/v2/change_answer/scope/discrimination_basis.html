@@ -1,0 +1,88 @@
+{% extends "layouts/question_page_v1.html" %}
+
+ 
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        On what basis has the client been discriminated against?
+      </h1>
+
+      <form class="form" action="/{{ version }}/basis_of_discrimination_answer" method="post">
+        
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+        {{ govukRadios({
+  name: "basisOfDiscrimination",
+  fieldset: {
+    
+  },
+  hint: {
+    text: "Select all that apply"
+  },
+  items: [
+    {
+      value: "Age (the client is 18 or over)",
+      text: "Age (the client is 18 or over)"
+    },
+    {
+      value: "Age (the client is under 18)",
+      text: "Age (the client is under 18)"
+    },
+    {
+      value: "Gender reassignment",
+      text: "Gender reassignment"
+    },
+    {
+      value: "Pregnancy or maternity",
+      text: "Pregnancy or maternity"
+    },
+    {
+      value: "Disability",
+      text: "Disability"
+    },
+    {
+      value: "Being married or in a civil partnership",
+      text: "Being married or in a civil partnership"
+    },
+    {
+      value: "Race",
+      text: "Race"
+    },
+    {
+      value: "Religion",
+      text: "Religion or belief (or lack of belief)"
+    },
+    {
+      value: "Sex",
+      text: "Sex"
+    },
+    {
+      value: "Sexual Orientation",
+      text: "Sexual orientation"
+    },
+    {
+      divider: "or"
+    },
+    {
+      value: "Other",
+      text: "None of the above"
+    }
+  ]
+}) }}
+
+        <div class="govuk-button-group">
+            <button type="submit" class="govuk-button" data-module="govuk-button">
+              Save
+            </button>
+            <a class="govuk-link" onclick="history.back();">Cancel</a>
+          </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

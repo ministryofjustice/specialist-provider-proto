@@ -1,0 +1,68 @@
+{% extends "layouts/question_page_v1.html" %}
+
+ 
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+       Is this case urgent?
+      </h1>
+
+      <form class="form" action="../../cases/accepted/case1/clientdetails" method="post">
+        
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+        
+        {% set urgentHtml %}
+        {{ govukInput({
+          id: "clientUrgent",
+          name: "urgentReason",
+          type: "text",
+          autocomplete: "email",
+          spellcheck: false,
+          classes: "govuk-!-full-width",
+          label: {
+            text: "Why is this case urgent (optional)"
+          }
+        }) }}
+        {% endset -%}
+        
+        
+        {{ govukRadios({
+          name: "urgent",
+          fieldset: {
+            
+          },
+         
+          items: [
+            {
+              value: "Yes",
+              text: "Yes",
+              conditional: {
+                html: urgentHtml
+              }
+            },
+            {
+              value: "No",
+              text: "No"
+              
+            }
+          ]
+        }) }}
+        
+
+        <div class="govuk-button-group">
+            <button type="submit" class="govuk-button" data-module="govuk-button">
+              Save
+            </button>
+            <a class="govuk-link" onclick="history.back();">Cancel</a>
+          </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

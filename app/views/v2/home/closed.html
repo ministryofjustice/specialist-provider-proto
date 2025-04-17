@@ -1,0 +1,154 @@
+{% extends "layouts/v2.html" %}
+<!--Service navigation-->
+{% block header %}
+
+{{ govukHeader({
+  homepageUrl: "#",
+  serviceName: "Manage your civil  cases",
+  serviceUrl: "new.html",
+  classes: "govuk-header--full-width-border",
+  navigation: [
+    {
+      href: "#1",
+      text: "Provider username",
+      active: true
+    },
+    {
+      href: "#2",
+      text: "Sign out"
+    }
+  ]
+}) }}
+
+
+{{ govukServiceNavigation({
+  navigation: [
+    {
+      href: "new.html",
+      text: "Your cases",
+      active: true
+    },
+    {
+      href: "search.html",
+      text: "Search"
+    }
+  ]
+}) }}
+  {% endblock %}
+
+
+{% block content %}
+
+<!--If clase is closed this show banner-->
+
+{% if data['close-case'] %}
+<div class="govuk-notification-banner govuk-notification-banner--success  govuk-!-margin-bottom-6" role="alert"  aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__header">
+    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+      Success
+    </h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+    <p class="govuk-notification-banner__heading">
+      Case for {{ data[caseSelected]['fullName'] }}  closed 
+    </p>
+  </div>
+</div>
+{% endif %}
+
+<!--If clase is rejected show this banner-->
+
+{% if data['reject-case'] %}
+<div class="govuk-notification-banner govuk-notification-banner--success  govuk-!-margin-bottom-6" role="alert"  aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__header">
+    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+      Success
+    </h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+    <p class="govuk-notification-banner__heading">
+      Case for {{ data[caseSelected]['fullName'] }} rejected 
+    </p>
+  </div>
+</div>
+{% endif %}
+
+<!--Header-->
+
+<h1 class="govuk-heading-xl">Your legal aid cases</h1>
+
+
+<!--Subnav-->
+
+    {%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
+
+    {{ mojSubNavigation({
+      label: 'Sub navigation',
+      items: [{
+        text: 'New',
+        href: 'new.html'
+      }, {
+        text: 'Accepted',
+        href: 'accepted.html'
+      }, {
+        text: 'Closed',
+        href: 'closed.html',
+        active: true
+      }]
+    }) }}
+
+<!--Case table - this might need to be changed to nunjucks?-->
+
+    <table class="govuk-table" data-module="moj-sortable-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Name</th>
+          <th scope="col" class="govuk-table__header">Reference</th>
+          <th scope="col" class="govuk-table__header" >Area of law</th>
+          <th scope="col" class="govuk-table__header">Outcome code</th>
+          <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">Date closed</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        {% for case, value in data %}
+          {% if value.caselistOutcomeCode == "CLSP" %}
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="../cases/closed/case1/clientdetails.html" id="{{value.id}}">{{value.fullName}}</a></td>
+              <td class="govuk-table__cell">{{value.caseReference}}</td>
+              <td class="govuk-table__cell">{{value.clientProblem}}</td>
+              <td class="govuk-table__cell" data-sort-value={{value.caselistOutcomeCode}}>{{ value.caselistOutcomeCode }}</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value={{value.caselistClosed}}>{{value.caselistClosed}}</td>
+            </tr>
+          {% endif %} 
+        {% endfor %}
+      </tbody>
+    </table>
+
+
+<!--Pagination-->
+    
+    {% from "govuk/components/pagination/macro.njk" import govukPagination %}
+
+    {{ govukPagination({
+      next: {
+        href: "#"
+      },
+      items: [
+        {
+          number: 1,
+          current: true,
+          href: "#"
+        },
+        {
+          number: 2,
+          href: "#"
+        },
+        {
+          number: 3,
+          href: "#"
+        }
+      ]
+    }) }}
+
+
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends "layouts/client_details_v1.html" %}
+
+<!---Overide tag to say 'new'-->
+
+{% block tag %}
+
+  <div><strong class="govuk-tag govuk-!-margin-bottom-2 govuk-!-margin-top-4">New</strong></div>
+
+{% endblock %}
+
+<!---Overide subnav-->
+
+{% block subnav %}
+
+  {%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
+
+  <nav class="moj-sub-navigation govuk-!-margin-bottom-0" aria-label="Sub navigation">
+
+    <ul class="moj-sub-navigation__list">
+      <li class="moj-sub-navigation__item">
+        <a class="moj-sub-navigation__link" aria-current="page" href="../case1/clientdetails.html">Client details</a>
+      </li>
+  
+      <li class="moj-sub-navigation__item">
+        <a class="moj-sub-navigation__link" href="../case1/scope.html">Scope</a>
+      </li>
+  
+      <li class="moj-sub-navigation__item">
+        <a class="moj-sub-navigation__link" href="../case1/financial_eligibility.html">Financial eligibility</a>
+      </li>
+
+      <li class="moj-sub-navigation__item">
+        <a class="moj-sub-navigation__link"  href="../case1/case_timeline.html">Notes and history</a>
+      </li>
+    </ul>
+    </ul>
+  
+  </nav>
+
+{% endblock %}
+
+<!---Override menu to show all buttons-->
+
+{% block buttons %}
+
+    {% from "govuk/components/button/macro.njk" import govukButton %}
+
+  
+   
+    <div class="govuk-button-group">
+    
+      <a href="../../accepted/case1/clientdetails.html"><button type="submit" class="govuk-button" data-module="govuk-button">
+        Accept case
+      </button></a>
+    
+      <form  action="/{{ version }}/reject-case" method="post">
+        <button type="submit" class="govuk-button  govuk-button--secondary" data-module="govuk-button">
+          Reject case
+        </button>
+        </form>
+
+        <a href="{{version}}../../../../../case_actions/split_areaOfLaw"><button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          Split case
+        </button></a>
+      
+    </div>
+
+
+{% endblock %}

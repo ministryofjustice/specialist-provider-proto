@@ -1,0 +1,133 @@
+{% extends "layouts/timeline_v1.html" %}
+
+{% block subnav %}
+
+  {%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
+
+  <nav class="moj-sub-navigation govuk-!-margin-bottom-0" aria-label="Sub navigation">
+
+    <ul class="moj-sub-navigation__list">
+      <li class="moj-sub-navigation__item">
+        <a class="moj-sub-navigation__link" href="../case1/clientdetails.html">Client details</a>
+      </li>
+  
+      <li class="moj-sub-navigation__item">
+        <a class="moj-sub-navigation__link"  href="../case1/scope.html">Scope</a>
+      </li>
+  
+      <li class="moj-sub-navigation__item">
+        <a class="moj-sub-navigation__link"  href="../case1/financial_eligibility_b.html">Financial eligibility</a>
+      </li>
+
+
+      <li class="moj-sub-navigation__item">
+        <a class="moj-sub-navigation__link" aria-current="page" href="../case1/case_notes.html">Notes</a>
+      </li>
+
+      <li class="moj-sub-navigation__item">
+        <a class="moj-sub-navigation__link"  href="../case1/case_history.html">Case history</a>
+      </li>
+    </ul>
+  
+  </nav>
+
+
+  {% endblock %}
+
+  {% block content %}
+
+<h2 class="govuk-heading-m">Case  notes</h2>
+
+
+<table class="govuk-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header  ">Date</th>
+      <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">User</th>
+     
+ 
+      <th scope="col" class="govuk-table__header ">Update</th>
+    </tr>
+  </thead>
+
+  <!--If addNote=none then no note shows -->
+  <tbody class="govuk-table__body">
+
+    {% if data[caseSelected]['addNote'] == "none" %}
+
+    <p> </p>
+
+    {% else %}
+
+    <!--If addNote has any other text in it then top row is revealed and shows that text. There is currently no way to remove a note. As a prototpye hack you can remove by adding a new note that just says 'none' s -->
+
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">26 Jun 2025 <br>03:23</td>
+      <td class="govuk-table__cell">New user</td>
+      <td class="govuk-table__cell">{{ data[caseSelected]['addNote'] }}</td>
+    </tr>
+
+    {% endif %}
+   
+    
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">7 Jun 2025 <br>01:43pm</td>
+      <td class="govuk-table__cell">Tattina Wolf</td>
+      <td class="govuk-table__cell">The client has a change in circumstances. Back with partner. Partner is unemployed, client assessed to still be eligible.</td>
+    </tr>
+    
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">5 Mar 2025 <br>01:43pm</td>
+      <td class="govuk-table__cell">Call operator</td>
+      <td class="govuk-table__cell">Client believes they are victim of harrassment in the workplace. Client had been subject to bullying when other staff members refused to enter a lift with her. These employees were said to have laughed and pulled faces when Cheryl held the lift door open for them – they walked straight past and waited for another lift to come </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+<form class="form" action="#" method="post">
+
+<div class="govuk-form-group">
+  <h1 class="govuk-label-wrapper">
+    <label class="govuk-label govuk-label--l" for="more-detail">
+      Add note 
+    </label>
+  </h1>
+  <textarea class="govuk-textarea govuk-!-width-two-thirds" id="more-detail" name="addNote" rows="5" aria-describedby="more-detail-hint"></textarea>
+</div>
+
+<button type="submit" class="govuk-button" data-module="govuk-button">
+  Add note
+</button>
+
+</form>
+
+
+{% from "govuk/components/pagination/macro.njk" import govukPagination %}
+
+{{ govukPagination({
+  next: {
+    href: "#"
+  },
+  items: [
+    {
+      number: 1,
+      current: true,
+      href: "#"
+    },
+    {
+      number: 2,
+      href: "#"
+    },
+    {
+      number: 3,
+      href: "#"
+    }
+  ]
+}) }}
+
+  {% endblock %}
+
+ 
+ 

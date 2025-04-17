@@ -1,0 +1,106 @@
+{% extends "layouts/question_page_v1.html" %}
+
+ 
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+       What does your client need help with?
+      </h1>
+
+      <form class="form" action="/{{ version }}/category_of_law_answer" method="post">
+        
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+        {{ govukRadios({
+          name: "clientProblem",
+          fieldset: {
+            
+          },
+          items: [
+            {
+              value: "Debt and housing - loss of home",
+              text: "Debt and housing - loss of home"
+            },
+            {
+              value: "Other housing",
+              text: "Other housing"
+            },
+            {
+              value: "Family",
+              text: "Family"
+            },
+            {
+              value: "Education",
+              text: "Education"
+            },
+            {
+              value: "Discrimination",
+              text: "Discrimination"
+            },
+            {
+              value: "Welfare benefits",
+              text: "Welfare benefits"
+            },
+            {
+              value: "Employment",
+              text: "Employment"
+            },
+            {
+              value: "Consumer",
+              text: "Consumer"
+            },
+            {
+              value: "Claims against public authorities",
+              text: "Claims against public authorities"
+            },
+            {
+              value: "Community Care",
+              text: "Community care"
+            },
+            {
+              value: "Immigration and asylum",
+              text: "Immigration and Asylum"
+            },
+            {
+              value: "Public Law",
+              text: "Public law"
+            },
+            {
+              value: "Clinical negligence",
+              text: "Clinical negligance"
+            },
+            {
+              value: "Mental Health",
+              text: "Mental health"
+            },
+            {
+              value: "Personal injury",
+              text: "Personal injury"
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "Other",
+              text: "None of the above"
+            }
+          ]
+        }) }}
+        
+
+        <div class="govuk-button-group">
+            <button type="submit" class="govuk-button" data-module="govuk-button">
+              Save
+            </button>
+            <a class="govuk-link" onclick="history.back();">Cancel</a>
+          </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

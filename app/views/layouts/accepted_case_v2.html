@@ -1,0 +1,152 @@
+{% extends "layouts/v1.html" %}
+
+{% set bodyClasses = "v1" %}
+{% set version = "v1" %}
+
+{% block stylesheets %}
+  {{ super() }}
+  <link href="/public/sass/additional.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+
+{% block beforeContent %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{{ govukBackLink({
+  text: "Back to all cases",
+  href: "../../../home/new.html"
+}) }}
+
+  <!---If urgent show this banner-->
+  {% if (data[caseSelected]['urgent'] == "Yes") %}
+  <div class="urgent govuk-notification-banner govuk-!-margin-top-2 govuk-!-margin-bottom-2 " role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+    <div class="govuk-notification-banner__header">
+      <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+        Urgent
+      </h2>
+    </div>
+    <div class="govuk-notification-banner__content">
+      <p class="govuk-notification-banner__heading">
+        {{ data[caseSelected]['urgentReason'] }}
+      </p>
+    </div>
+  </div>
+  {% endif %}
+
+  <!--If clase is reopened show this show banner-->
+
+{% if data[caseSelected]['reopen-case'] %}
+<div class="govuk-notification-banner govuk-notification-banner--success  govuk-!-margin-bottom-6" role="alert"  aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__header">
+    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+      Success
+    </h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+    <p class="govuk-notification-banner__heading">
+      Case for {{ data[caseSelected]['fullName'] }} reopened successfully
+    </p>
+  </div>
+</div>
+{% endif %}
+
+  <!---Accepted Tag-->
+
+  {% block tag %}
+
+  <div><strong class="govuk-tag govuk-!-margin-bottom-2 govuk-!-margin-top-4">Accepted</strong></div>
+
+  {% endblock %}
+
+  <!---Name & Case number-->
+  
+  <h1 class="govuk-heading-xl ">
+    <span class="govuk-caption-xl ">{{ data[caseSelected]['caseReference'] }}</span>
+    {{ data[caseSelected]['fullName'] }}
+  </h1>
+
+  <!---Date and entitlement-->
+
+    {% block date %}
+
+     <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Date received: <span class="govuk-body-l">{{ data[caseSelected]['dateRecieved'] }}</span></h2>
+     <h2 class="govuk-heading-m govuk-!-margin-bottom-7">Entitlement number: <span class="govuk-body-l">3000742</span></h2>
+
+    {% endblock %}
+
+  <!---Button menu-->
+
+    {% block buttons %}
+
+    {% from "govuk/components/button/macro.njk" import govukButton %}
+    
+    <div class="moj-button-group moj-button-group--inline govuk-!-static-margin-bottom-6 ">
+
+     {{ govukButton({"text": "Generate legal help form", "classes": "govuk-button--secondary"}) }}
+
+     <div class="moj-button-menu" data-module="moj-button-menu" data-button-text="Manage case">
+
+        <form  action="/{{ version }}/close-case" method="post">
+          <input type="hidden" name="close-case" value="001">
+        <button type="submit" class="govuk-button moj-button-menu__item govuk-button--secondary" data-module="govuk-button">
+          Close case
+        </button>
+        </form>
+
+        <form  action="/{{ version }}/reject-case" method="post">
+        <button type="submit" class="govuk-button moj-button-menu__item govuk-button--secondary" data-module="govuk-button">
+          Reject case
+        </button>
+        </form>
+      
+        <form action="{{ version }}/../../../../case_actions/split_areaOfLaw" method="post">
+        <button type="submit"  class="govuk-button moj-button-menu__item govuk-button--secondary" data-module="govuk-button">
+          Split case
+        </button>
+       </form>
+
+        <form  action="/{{ version }}/feedback-case" method="post">
+        <button type="submit"  class="govuk-button moj-button-menu__item govuk-button--secondary" data-module="govuk-button">
+          Leave case feedback
+        </button>
+        </form>
+      
+      </div>
+    </div>
+        
+    {% endblock %}
+
+  <!---Subnav-->
+
+  {% block subnav %}
+
+  {%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
+
+  <nav class="moj-sub-navigation govuk-!-margin-bottom-0" aria-label="Sub navigation">
+
+    <ul class="moj-sub-navigation__list">
+      <li class="moj-sub-navigation__item">
+        <a class="moj-sub-navigation__link" aria-current="page" href="../case1/clientdetails.html">Client details</a>
+      </li>
+  
+      <li class="moj-sub-navigation__item">
+        <a class="moj-sub-navigation__link" href="../case1/scope.html">Scope</a>
+      </li>
+  
+      <li class="moj-sub-navigation__item">
+        <a class="moj-sub-navigation__link" href="../case1/financial_eligibility_b.html">Financial eligibility</a>
+      </li>
+
+      <li class="moj-sub-navigation__item">
+        <a class="moj-sub-navigation__link"  href="../case1/case_timeline.html">Notes and history</a>
+      </li>
+    </ul>
+    </ul>
+  
+  </nav>
+
+
+  {% endblock %}
+
+{% endblock %}

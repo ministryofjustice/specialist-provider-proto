@@ -1,0 +1,62 @@
+{% extends "layouts/main.html" %}
+
+{% set bodyClasses = "v2" %}
+{% set version = "v2" %}
+
+{% block stylesheets %}
+  {{ super() }}
+  <link href="/public/sass/additional.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+
+
+{% block header %}
+    {{ govukHeader({
+      homepageUrl: "#",
+      serviceName: "Manage your civil cases",
+      serviceUrl: "new.html",
+      classes: "govuk-header--full-width-border",
+      navigation: [
+        {
+          href: "#1",
+          text: "Provider username",
+          active: true
+        },
+        {
+          href: "#2",
+          text: "Sign out"
+        }
+      ]
+    }) }}
+{% endblock %}
+
+
+{% block footer %}
+ {{ govukFooter({
+   meta: {
+     items: [
+     {
+        href: "/v2/home/new",
+        text: "Version 2"
+      },
+       {
+         href: "/privacy",
+         text: "Privacy policy"
+       },
+       {
+         href: "/manage-prototype",
+         text: "Manage your prototype"
+       },
+       {
+         href: "/manage-prototype/clear-data",
+         text: "Clear data"
+       },
+       {
+        href: "/",
+        text: "Index"
+      }
+     ],
+     visuallyHiddenTitle: "Footer links"
+   }
+ }) }}
+ {% endblock %}

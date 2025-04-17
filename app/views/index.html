@@ -4,28 +4,115 @@
 
 {% block content %}
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-three-thirds">
+<main class="govuk-main-wrapper" id="main-content">
+          
 
-    <h1 class="govuk-heading-xl">
-      {{ serviceName }}
-    </h1>
-
-    {% from "govuk/components/tabs/macro.njk" import govukTabs %}
-    {% from "govuk/components/table/macro.njk" import govukTable %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+  
+  
+      <h1 class="govuk-heading-xl">
+        Manage your civil cases
+      </h1>
+  
+      <p class="govuk-body">This is the prototype landing page. You can return here by clicking 'Index' on the footer of each page.</p>
+      
+  
+  <div class="govuk-summary-card">
+    <div class="govuk-summary-card__title-wrapper">
+      
+      <h2 class="govuk-summary-card__title">
+        Version v2
+      </h2>
+      <a class="govuk-button govuk-body govuk-!-margin-bottom-0" data-module="govuk-button" href="/v2/home/new">
+        Start prototype
+      </a>
+    </div>
+    <div class="govuk-summary-card__content">
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Phase
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <strong class="govuk-tag govuk-tag--green">
+              Design
+            </strong>
+   
+          </dd>
+   
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+           Last updated
+  
+          </dt>
+          <dd class="govuk-summary-list__value">
+            17 April 2025
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Summary
+          </dt>
+          <dd class="govuk-summary-list__value">
+  
+            <ul class="govuk-list govuk-list--bullet govuk-body govuk-!-margin-bottom-0">
+      
+  </ul>
     
-    {% set currentHtml %}
-    
-
-    <h3 class="govuk-heading-sm">Version 1. Specialist Provider Interface</h2>
-
-      {{ govukButton({
-        text: "Start now",
-        href: "v1/home/new.html",
-        isStartButton: true
-      }) }}
-    <h4 class="govuk-heading-s">Shortcuts to key views</h2>
-    
+            
+          </dd>
+         </div>
+        
+      </dl>
+  
+      
+    </div>
+  </div>
+      
+  
+  <div class="govuk-summary-card">
+    <div class="govuk-summary-card__title-wrapper">
+      
+      <h2 class="govuk-summary-card__title">
+        Version v1
+      </h2>
+      <a class="govuk-button govuk-body govuk-!-margin-bottom-0" data-module="govuk-button" href="/v1/home/new">
+        Start prototype
+      </a>
+    </div>
+    <div class="govuk-summary-card__content">
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Phase
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <strong class="govuk-tag govuk-tag--yellow">
+              Researched
+            </strong>
+   
+          </dd>
+   
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+           Last updated
+  
+          </dt>
+          <dd class="govuk-summary-list__value">
+            March 2025
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Summary
+          </dt>
+          <dd class="govuk-summary-list__value">
+  
+            
+            <p><strong>Shortcuts</strong></p>
     <p><a href="v1/home/new.html">View all cases</a> </p>
     <p><a href="v1/cases/new/case1/clientdetails.html">New case</a> </p>
     <p><a href="v1/cases/new/case1/financial_eligibility.html">New case - Means test not started</a> </p>
@@ -38,37 +125,30 @@
     <p> Case notes and history</p>
     <p><a href="v1/cases/accepted/case1/case_timeline.html">Accepted case - Case timeline - Design A</a> Case notes and history combined in one tab to form timeline </p>
     <p><a href="v1/cases/accepted/case1/case_notes.html">Accepted case - Case notes - Design B</a> Case notes and history seperate (closer to current CHS) </p>
-    {% endset -%}
+   
     
-    {% set archiveHtml %}
-    <h2 class="govuk-heading-l">Archive</h2>
     
-    {% endset -%}
-    
-    {{ govukTabs({
-      items: [
-        {
-          label: "Current",
-          id: "Current",
-          panel: {
-            html: currentHtml
-          }
-        },
-        {
-          label: "Archive",
-          id: "Archive",
-          panel: {
-            html: archiveHtml
-          }
-        }
-        
-        
-      ]
-    }) }}
-    
-
-    
+  
+           <p><a class="govuk-link" href="/v2/design-history/">View design history<span class="govuk-visually-hidden"> design history</span></a></p>
+          
+          </dd>
+         </div>
+         
+      </dl>
+  
+      
+    </div>
   </div>
-</div>
+      
+  
+
+  
+  
+    </div>
+  </div>
+  
+  
+          </main>
+
 
 {% endblock %}
