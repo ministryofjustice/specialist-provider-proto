@@ -50,24 +50,7 @@
         ]
       }
     },
-    {
-      key: {
-        text: "NI number"
-      },
-      value: {
-        html: data[caseSelected]['niNumber'] 
-      },
-      actions: {
-        items: [
-          {
-            classes: "change",
-            href: "../../../change_answer/client_details/client_nino.html",
-            text: "Change",
-            visuallyHiddenText: "nationality"
-          }
-        ]
-      }
-    },
+   
     {
       key: {
         text: "Date of birth"
@@ -86,25 +69,6 @@
         ]
       }
     },
-    {
-      key: {
-        text: "Media code"
-      },
-      value: {
-        html: "Don't know"
-      },
-      actions: {
-        items: [
-          {
-            classes: "change",
-            href: "#",
-            text: "Change",
-            visuallyHiddenText: "working situation"
-          }
-        ]
-      }
-    },
-
     {
       key: {
         text: "Client is vulnerable"
@@ -149,6 +113,7 @@
       
 
 <!--Contact-->
+
 {% if data[caseSelected]['warning'] == "Yes" %}
 {{ govukWarningText({
   text: "Do not say the call is from Civil Legal Advice",
@@ -163,45 +128,10 @@
     }
   },
   rows: [
+  
     {
       key: {
-        text: "Address"
-      },
-      value: {
-        html: data[caseSelected]['addressLine1'] + ', <br> ' + data[caseSelected]['addressLine2'] + ', <br>'+ data[caseSelected]['town'] + ', <br>' + data[caseSelected]['postcode']
-      },
-      actions: {
-        items: [
-          {
-            classes: "change",
-            href: "#",
-            text: "Change",
-            visuallyHiddenText: "whether details are known"
-          }
-        ]
-      }
-    },
-    {
-      key: {
-        text: "Phone number"
-      },
-      value: {
-        html: data[caseSelected]['phoneNumber'] 
-      },
-      actions: {
-        items: [
-          {
-            classes: "change",
-            href:  "../../../change_answer/contact_details/client_phonenumber.html",
-            text: "Change",
-            visuallyHiddenText: "change phone number"
-          }
-        ]
-      }
-    },
-    {
-      key: {
-        text: "Accessibility"
+        text: "Reasonable adjustments"
       },
       value: {
         html: data[caseSelected]['accessNeeds'] 
@@ -236,20 +166,57 @@
         ]
       }
     },
+   
     {
       key: {
-        text: "Additional information"
+        text: "Phone number"
       },
       value: {
-        html: data[caseSelected]['clientAdditionalInfo'] 
+        html: data[caseSelected]['phoneNumber'] 
       },
       actions: {
         items: [
           {
             classes: "change",
-            href: "../../../change_answer/contact_details/client_additionalinformation.html",
+            href:  "../../../change_answer/contact_details/client_phonenumber.html",
             text: "Change",
-            visuallyHiddenText: "working situation"
+            visuallyHiddenText: "change phone number"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Email address"
+      },
+      value: {
+        html: data[caseSelected]['phoneNumber'] 
+      },
+      actions: {
+        items: [
+          {
+            classes: "change",
+            href:  "../../../change_answer/contact_details/client_phonenumber.html",
+            text: "Change",
+            visuallyHiddenText: "change phone number"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Address"
+      },
+      value: {
+        html: data[caseSelected]['addressLine1'] + ', <br> ' + data[caseSelected]['addressLine2'] + ', <br>'+ data[caseSelected]['town'] + ', <br>' + data[caseSelected]['postcode']
+      },
+      actions: {
+        items: [
+          {
+            classes: "change",
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "whether details are known"
           }
         ]
       }

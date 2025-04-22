@@ -1,2 +1,42 @@
 {% extends "layouts/client_details_v2.html" %}
 
+<!---Override menu to show all buttons-->
+
+{% block buttons %}
+
+
+
+      <div class="govuk-button-group">
+    
+       
+        <a href="#"><button type="submit" class="govuk-button " data-module="govuk-button">
+            Generate legal help form
+          </button></a>
+
+        <form  action="/{{ version }}/reject-case" method="post">
+          <button type="submit" class="govuk-button  govuk-button--secondary" data-module="govuk-button">
+            Reject case
+          </button>
+          </form>
+
+          <a href="{{version}}../../../../../case_actions/split_areaOfLaw"><button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+            Split case
+          </button></a>
+
+          <form  action="/{{ version }}/close-case" method="post">
+            <input type="hidden" name="close-case" value="001">
+          <button type="submit" class="govuk-button  govuk-button--secondary" data-module="govuk-button">
+            Close case
+          </button>
+          </form>
+
+          <form  action="/{{ version }}/feedback-case" method="post">
+            <button type="submit"  class="govuk-button govuk-button--secondary" data-module="govuk-button">
+              Leave feedback
+            </button>
+            </form>
+        
+      </div>
+
+{% endblock %}
+
