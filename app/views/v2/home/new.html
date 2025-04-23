@@ -148,8 +148,8 @@
         <tr class="govuk-table__row">
           <th scope="col" class="govuk-table__header">Name</th>
           <th scope="col" class="govuk-table__header">LAA reference</th>
-          <th scope="col" class="govuk-table__header" >Postcode</th>
-          <th scope="col" class="govuk-table__header" aria-sort="none">Priority</th>
+          <th scope="col" class="govuk-table__header">Postcode</th>
+          <th scope="col" class="govuk-table__header">Date of Birth</th>
          
           <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">Date received</th>
         </tr>
@@ -161,12 +161,13 @@
               <td class="govuk-table__cell"><a href="../cases/new/case1/clientdetails.html" id="{{value.id}}">{{value.fullName}}</a></td>
               <td class="govuk-table__cell">{{value.caseReference}}</td>
               <td class="govuk-table__cell">{{value.postcode}}</td>
-              {% if value.urgent == "Yes" %}
+              <td class="govuk-table__cell">{{value.birthDay}}  {{value.birthMonth}} {{value.birthYear}}</td>
+              <!-- {% if value.urgent == "Yes" %}
                 <td class="govuk-table__cell" data-sort-value={{value.urgent}}><strong class="govuk-tag govuk-tag--red">Urgent</strong></td>
               {% else%}
                 <td class="govuk-table__cell" data-sort-value={{value.urgent}}>{{value.urgent}}</td>
               {% endif %}
-              
+               -->
               <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value={{value.caselistRecieved}}>{{value.caselistRecieved}}</td>
             </tr>
           {% endif %} 
