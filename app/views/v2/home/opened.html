@@ -114,22 +114,21 @@
 
 <!--Heading-->
 
-<h1 class="govuk-heading-xl">New cases</h1>
+<h1 class="govuk-heading-xl">Opened cases</h1>
 
     
 <!--Subnav-->
-
-    {%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
 
     {{ mojSubNavigation({
       label: 'Sub navigation',
       items: [{
         text: 'New',
-        href: 'new.html',
-        active: true
+        href: 'new.html'
+       
       }, {
         text: 'Opened',
-        href: 'opened.html'
+        href: 'opened.html',
+        active: true
       },
       {
         text: 'Accepted',
@@ -175,29 +174,26 @@
       </tbody>
     </table>
     
-<!--Pagination-->
 
-{{ govukPagination({
-  next: {
-    href: "#"
-  },
-  items: [
-    {
-      number: 1,
-      current: true,
-      href: "#"
-    },
-    {
-      number: 2,
-      href: "#"
-    },
-    {
-      number: 3,
-      href: "#"
-    }
-  ]
-}) }}
-
-{% endblock %}
-
+    {{ govukPagination({
+      next: {
+        href: "#"
+      },
+      items: [
+        {
+          number: 1,
+          current: true,
+          href: "#"
+        },
+        {
+          number: 2,
+          href: "#"
+        },
+        {
+          number: 3,
+          href: "#"
+        }
+      ]
+    }) }}
     
+{% endblock %}
