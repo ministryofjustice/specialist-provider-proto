@@ -136,15 +136,22 @@
 
     {%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
 
+    
     {{ mojSubNavigation({
       label: 'Sub navigation',
       items: [{
         text: 'New',
         href: 'new.html'
+       
       }, {
+        text: 'Opened',
+        href: 'opened.html'
+      },
+      {
         text: 'Accepted',
         href: 'accepted.html'
-      }, {
+      },
+       {
         text: 'Closed',
         href: 'closed.html',
         active: true
@@ -158,8 +165,8 @@
         <tr class="govuk-table__row">
           <th scope="col" class="govuk-table__header">Name</th>
           <th scope="col" class="govuk-table__header">Reference</th>
-          <th scope="col" class="govuk-table__header" >Area of law</th>
-          <th scope="col" class="govuk-table__header">Outcome code</th>
+          <th scope="col" class="govuk-table__header" >Postcode</th>
+          <th scope="col" class="govuk-table__header">Date of birth</th>
           <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">Date closed</th>
         </tr>
       </thead>
@@ -169,8 +176,9 @@
             <tr class="govuk-table__row">
               <td class="govuk-table__cell"><a href="../cases/closed/case1/clientdetails.html" id="{{value.id}}">{{value.fullName}}</a></td>
               <td class="govuk-table__cell">{{value.caseReference}}</td>
-              <td class="govuk-table__cell">{{value.clientProblem}}</td>
-              <td class="govuk-table__cell" data-sort-value={{value.caselistOutcomeCode}}>{{ value.caselistOutcomeCode }}</td>
+              <td class="govuk-table__cell">{{value.postcode}}</td>
+              <td class="govuk-table__cell">{{value.birthDay}}  {{value.birthMonth}} {{value.birthYear}}</td>
+            
               <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value={{value.caselistClosed}}>{{value.caselistClosed}}</td>
             </tr>
           {% endif %} 
