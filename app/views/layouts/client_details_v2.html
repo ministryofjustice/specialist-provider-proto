@@ -9,12 +9,12 @@
 
 <!-- Client details-->
 
-{% set urgentHtml %}
+<!-- {% set urgentHtml %}
   {{ data[caseSelected]['urgent'] }}
   {% if data[caseSelected]['urgent'] == "Yes" %}
     <br>{{ data[caseSelected]['urgentReason'] }}
   {% endif %}
-{% endset %}
+{% endset %} -->
 
 {% set clientVulnerableHtml %}
   {{ data[caseSelected]['clientVulnerable'] }}
@@ -114,12 +114,22 @@
 
 <!--Contact-->
 
-{% if data[caseSelected]['warning'] == "Yes" %}
-{{ govukWarningText({
-  text: "Do not say the call is from Civil Legal Advice",
-  iconFallbackText: "Warning"
-}) }}
-{% endif %}
+
+
+{% set phoneValue %}
+  {{ data[caseSelected]['phone'] }}
+  {% if data[caseSelected]['warning'] == "Yes" %}
+  0786930229 
+  {{ govukWarningText({
+    text: "Do not say the call is from Civil Legal Advice",
+    iconFallbackText: "Warning"
+  }) }}
+  
+  {% else %}
+  0786930229
+  {% endif %}
+ 
+{% endset %}
 
 {{ govukSummaryList({
   card: {
@@ -159,7 +169,7 @@
         items: [
           {
             classes: "change",
-            href: "#",
+            href: "../../../change_answer/contact_details/client_language.html",
             text: "Change",
             visuallyHiddenText: "working situation"
           }
@@ -172,13 +182,13 @@
         text: "Phone number"
       },
       value: {
-        html: data[caseSelected]['phoneNumber'] 
+        html: phoneValue
       },
       actions: {
         items: [
           {
             classes: "change",
-            href:  "../../../change_answer/contact_details/client_phonenumber.html",
+            href:  "../../../change_answer/contact_details/client_phone.html",
             text: "Change",
             visuallyHiddenText: "change phone number"
           }
@@ -190,13 +200,13 @@
         text: "Email address"
       },
       value: {
-        html: data[caseSelected]['phoneNumber'] 
+        html: data[caseSelected]['email'] 
       },
       actions: {
         items: [
           {
             classes: "change",
-            href:  "../../../change_answer/contact_details/client_phonenumber.html",
+            href:  "../../../change_answer/contact_details/client_email.html",
             text: "Change",
             visuallyHiddenText: "change phone number"
           }

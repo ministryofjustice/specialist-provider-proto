@@ -146,7 +146,7 @@ router.get('/home/new', function (request, response) {
 //changing details
 router.post('/cases/accepted/case1/clientdetails', function (request, response) {
     // extract data from the form submission (request.body)
-    const { fullName, phoneNumber, addressLine1, addressLine2, postcode, birthDay, birthMonth, birthYear, niNumber, accessNeeds, urgent, clientVulnerable, thirdPartyName, thirdPartyEmail, thirdPartyPhoneNumber, thirdPartyAddressLine1, thirdPartyAddressLine2, thirdPartyTown, thirdPartyCounty, thirdPartyPostcode, thirdPartyRelationshipToClient, thirdPartyPassphrase, thirdPartySpokenToClient, thirdPartyResearch, clientAdditionalInfo, thirdParty, urgentReason, clientVulnerableReason } = request.body;
+    const { fullName, phoneNumber, addressLine1, addressLine2, postcode, birthDay, birthMonth, birthYear, email, niNumber, accessNeeds, urgent, clientVulnerable, thirdPartyName, thirdPartyEmail, thirdPartyPhoneNumber, thirdPartyAddressLine1, thirdPartyAddressLine2, thirdPartyTown, thirdPartyCounty, thirdPartyPostcode, thirdPartyRelationshipToClient, thirdPartyPassphrase, thirdPartySpokenToClient, thirdPartyResearch, clientAdditionalInfo, thirdParty, urgentReason, clientVulnerableReason } = request.body;
 
     // get `caseSelected` variable from cookie
     const caseSelected = request.cookies.cookieValueForCaseSelected;
@@ -166,6 +166,7 @@ router.post('/cases/accepted/case1/clientdetails', function (request, response) 
     updateIfNotEmpty('addressLine1', addressLine1);
     updateIfNotEmpty('addressLine2', addressLine2);
     updateIfNotEmpty('postcode', postcode);
+    updateIfNotEmpty('email', email);
     updateIfNotEmpty('birthDay', birthDay);
     updateIfNotEmpty('birthMonth', birthMonth);
     updateIfNotEmpty('birthYear', birthYear);
