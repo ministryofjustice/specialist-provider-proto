@@ -1,4 +1,4 @@
-{% extends "layouts/timeline_v2.html" %}
+{% extends "layouts/timeline_v1.html" %}
 
 
 {% extends "layouts/financial_eligibility_v1.html" %}
@@ -14,6 +14,7 @@
 <!---Overide subnav-->
 
 {% block subnav %}
+
 
   {%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
 
@@ -63,6 +64,11 @@
           <a href="{{version}}../../../../../case_actions/split_areaOfLaw"><button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
             Split case
           </button></a>
+
+          <a href="{{version}}../../../../../case_actions/case_feedback.html"><button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+            Leave feedback
+          </button></a>
+        
         
       </div>
 

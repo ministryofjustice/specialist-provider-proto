@@ -166,6 +166,7 @@ router.post('/cases/accepted/case1/clientdetails', function (request, response) 
     updateIfNotEmpty('addressLine1', addressLine1);
     updateIfNotEmpty('addressLine2', addressLine2);
     updateIfNotEmpty('postcode', postcode);
+    updateIfNotEmpty('email', email);
     updateIfNotEmpty('birthDay', birthDay);
     updateIfNotEmpty('birthMonth', birthMonth);
     updateIfNotEmpty('birthYear', birthYear);

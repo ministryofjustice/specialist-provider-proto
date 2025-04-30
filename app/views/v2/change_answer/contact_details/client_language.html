@@ -1,0 +1,36 @@
+{% extends "layouts/question_page_v1.html" %}
+
+ 
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Select client's language
+      </h1>
+
+      <form class="form" action="../../cases/accepted/case1/clientdetails" method="post">
+        
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="language">
+            Language
+          </label>
+          <input class="govuk-input govuk-input--width-10 govuk-input--extra-letter-spacing" value="English" id="national-insurance-number" name="language" type="text" spellcheck="false" aria-describedby="national-insurance-number-hint">
+        </div>
+
+       
+
+        <div class="govuk-button-group">
+            <button type="submit" class="govuk-button" data-module="govuk-button">
+              Save
+            </button>
+            <a class="govuk-link" onclick="history.back();">Cancel</a>
+          </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
