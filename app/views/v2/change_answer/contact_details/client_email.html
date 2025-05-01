@@ -6,20 +6,17 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">
-        Your client's email address
-      </h1>
 
       <form class="form" action="../../cases/accepted/case1/clientdetails" method="post">
- 
-          <div class="govuk-form-group">
-            <label class="govuk-label" for="email">
-              Email address
-            </label>
-    
-            <input class="govuk-input" id="email" name="email" type="email" spellcheck="false" aria-describedby="email-hint" autocomplete="email" value="{{ data[caseSelected]['email'] }}">
-          </div>
         
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--l" for="postcode">
+              Client's email address
+            </label>
+          </h1>
+          <input class="govuk-input" id="email" name="email" type="email" spellcheck="false" aria-describedby="email-hint" autocomplete="email" value="{{ data[caseSelected]['email'] }}">
+        </div>
 
         <div class="govuk-button-group">
             <button type="submit" class="govuk-button" data-module="govuk-button">
@@ -29,6 +26,7 @@
           </div>
 
       </form>
+
 
     </div>
   </div>
