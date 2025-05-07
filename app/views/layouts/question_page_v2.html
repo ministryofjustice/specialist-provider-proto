@@ -1,12 +1,7 @@
-{% extends "layouts/main.html" %}
+{% extends "layouts/v1.html" %}
 
-{% set bodyClasses = "v2" %}
+{% set bodyClasses = "v1" %}
 {% set version = "v2" %}
-
-{% block stylesheets %}
-  {{ super() }}
-  <link href="/public/sass/additional.css" rel="stylesheet" type="text/css" />
-{% endblock %}
 
 
 
@@ -101,6 +96,8 @@
 
 {% block beforeContent %}
 
+
+
 {{ govukPhaseBanner({
   tag: {
     text: "Beta"
@@ -108,34 +105,5 @@
   html: 'This is a new service. Help us improve it and <a class="govuk-link" href="#">give your feedback (opens in new tab)</a>.'
 }) }}
 
+<a class="govuk-back-link" onclick="history.back();" >Back</a>
 {% endblock %}
-
-{% block footer %}
- {{ govukFooter({
-   meta: {
-     items: [
-     {
-        href: "/v2/home/new",
-        text: "Version 2"
-      },
-       {
-         href: "/privacy",
-         text: "Privacy policy"
-       },
-       {
-         href: "/manage-prototype",
-         text: "Manage your prototype"
-       },
-       {
-         href: "/manage-prototype/clear-data",
-         text: "Clear data"
-       },
-       {
-        href: "/",
-        text: "Index"
-      }
-     ],
-     visuallyHiddenTitle: "Footer links"
-   }
- }) }}
- {% endblock %}
