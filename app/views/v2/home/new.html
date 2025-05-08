@@ -149,7 +149,7 @@
           <th scope="col" class="govuk-table__header">Name</th>
           <th scope="col" class="govuk-table__header">Case ID</th>
           <th scope="col" class="govuk-table__header">Date of Birth</th>
-          <th scope="col" class="govuk-table__header">Type</th>
+          <th scope="col" class="govuk-table__header">Info</th>
          
           <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">Date received</th>
         </tr>
@@ -167,7 +167,7 @@
                 <td class="govuk-table__cell" data-sort-value={{value.urgent}}>{{value.urgent}}</td>
               {% endif %}
                -->
-               <td class="govuk-table__cell">{{value.refCode}}</td>
+               <td class="govuk-table__cell "><span>{{value.refCode}}</span></td>
               <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value={{value.caselistRecieved}}>{{value.caselistRecieved}}</td>
             </tr>
           {% endif %} 

@@ -114,21 +114,22 @@
 
 <!--Heading-->
 
-<h1 class="govuk-heading-xl">Opened cases</h1>
+<h1 class="govuk-heading-xl">New cases</h1>
 
     
 <!--Subnav-->
+
+    {%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
 
     {{ mojSubNavigation({
       label: 'Sub navigation',
       items: [{
         text: 'New',
-        href: 'new.html'
-       
+        href: 'new.html',
+        active: true
       }, {
         text: 'Opened',
-        href: 'opened.html',
-        active: true
+        href: 'opened.html'
       },
       {
         text: 'Accepted',
@@ -142,61 +143,13 @@
 
 <!--Case table -->
 
-    <table class="govuk-table" data-module="moj-sortable-table">
-      <thead class="govuk-table__head">
-        <tr class="govuk-table__row">
-          <th scope="col" class="govuk-table__header">Name</th>
-          <th scope="col" class="govuk-table__header">Case ID</th>
-          <th scope="col" class="govuk-table__header">Date of Birth</th>
-          <th scope="col" class="govuk-table__header">Info</th>
-          <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">Date modified</th>
-        </tr>
-      </thead>    
-      <tbody class="govuk-table__body">
-        {% for case, value in data %}
-          {% if value.caselistOutcomeCode == "SPOP" %}
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell"><a href="../cases/new/case1/clientdetails.html" id="{{value.id}}">{{value.fullName}}</a></td>
-              <td class="govuk-table__cell">{{value.caseReference}}</td>
-              <td class="govuk-table__cell">{{value.birthDay}}  {{value.birthMonth}} {{value.birthYear}}</td>
-              <!-- {% if value.urgent == "Yes" %}
-                <td class="govuk-table__cell" data-sort-value={{value.urgent}}><strong class="govuk-tag govuk-tag--red">Urgent</strong></td>
-              {% else%}
-                <td class="govuk-table__cell" data-sort-value={{value.urgent}}>{{value.urgent}}</td>
-              {% endif %}
-               -->
-               <td class="govuk-table__cell">{{value.refCode}}</td>
-              <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value={{value.caselistRecieved}}>{{value.caselistRecieved}}</td>
-            </tr>
-          {% endif %} 
-        {% endfor %}
-      </tbody>
-    </table>
+    <p>There are no new cases.</p>
     
+<!--Pagination-->
 
-    <nav class="moj-pagination" aria-label="Pagination navigation">
-      <ul class="moj-pagination__list">
-        <li class="govuk-pagination__item govuk-pagination__item--current">
-          <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 1">
-            1
-          </a>
-        </li>
-        <li class="govuk-pagination__item">
-          <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 2">2</a>
-        </li>
-        
-         <li class="govuk-pagination__item  govuk-pagination__next">
-          <a class="govuk-link govuk-pagination__link" href="#" rel="next">
-          <span class="govuk-pagination__link-title">
-            Next<span class="govuk-visually-hidden"> page</span>
-          </span>
-          <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
-            <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
-          </svg>
-        </a>
-        </li>
-      </ul>
-    
-      <p class="moj-pagination__results">Showing <b>1</b> to <b>20</b> of <b>23</b> items</p>
-    </nav>
+
+
+
 {% endblock %}
+
+    
