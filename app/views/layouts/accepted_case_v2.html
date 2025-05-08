@@ -59,6 +59,15 @@
 </div>
 {% endif %}
 
+  
+
+  <!---Name & Case number-->
+  
+  <h1 class="govuk-heading-xl  govuk-!-margin-top-6 govuk-!-margin-bottom-2">
+    <span class="govuk-caption-xl ">{{ data[caseSelected]['caseReference'] }}</span>
+    {{ data[caseSelected]['fullName'] }}
+  </h1>
+
   <!---Accepted Tag-->
 
   {% block tag %}
@@ -66,13 +75,6 @@
   <div><strong class="govuk-tag govuk-!-margin-bottom-2 govuk-!-margin-top-4">Accepted</strong></div>
 
   {% endblock %}
-
-  <!---Name & Case number-->
-  
-  <h1 class="govuk-heading-xl ">
-    <span class="govuk-caption-xl ">{{ data[caseSelected]['caseReference'] }}</span>
-    {{ data[caseSelected]['fullName'] }}
-  </h1>
 
   <!---Date and entitlement-->
 

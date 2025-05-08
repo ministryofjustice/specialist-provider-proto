@@ -151,7 +151,7 @@ module.exports = [
     'dateRecieved': '21 January 2025',
     'dateClosed': '22 February 2025',
     'lastModified': '7',
-    'caseStatus': 'New',
+    'caseStatus': 'Opened',
     'fullName': 'Ramona Zoro',
     'birthDay': '11',
     'birthMonth': 'Nov',

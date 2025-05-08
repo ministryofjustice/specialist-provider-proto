@@ -154,7 +154,7 @@
       </thead>    
       <tbody class="govuk-table__body">
         {% for case, value in data %}
-          {% if value.caselistOutcomeCode == "SPOP" %}
+        {% if value.caseStatus == "Opened" %}
             <tr class="govuk-table__row">
               <td class="govuk-table__cell"><a href="../cases/new/case1/clientdetails.html" id="{{value.id}}">{{value.fullName}}</a></td>
               <td class="govuk-table__cell">{{value.caseReference}}</td>
