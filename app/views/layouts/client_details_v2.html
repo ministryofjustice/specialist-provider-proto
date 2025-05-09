@@ -131,6 +131,16 @@
  
 {% endset %}
 
+{% set passphraseValue %}
+  
+  {% if data[caseSelected]['thirdPartySpokenToClient'] == "yes" %}
+  Yes, {{data[caseSelected]['thirdPartyPassphrase']}}
+  {% else %}
+  No, {{data[caseSelected]['reasonNotSpoken']}}
+  {% endif %}
+ 
+{% endset %}
+
 {{ govukSummaryList({
   card: {
     title: {
@@ -307,23 +317,7 @@
         text: "Passphrase"
       },
       value: {
-        html: data[caseSelected]['thirdPartyPassphrase'] 
-      }
-    },
-    {
-      key: {
-        text: "Advisor spoken to client?"
-      },
-      value: {
-        html: data[caseSelected]['thirdPartySpokenToClient'] 
-      }
-    },
-    {
-      key: {
-        text: "Contactable for research"
-      },
-      value: {
-        html: data[caseSelected]['thirdPartyResearch'] 
+        html: passphraseValue
       }
     }
   ]
@@ -345,3 +339,4 @@
 
 
   {% endblock %}
+

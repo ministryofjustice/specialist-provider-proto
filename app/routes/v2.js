@@ -23,6 +23,17 @@ router.use((request, response, next) => {
     next();
 });
 
+//Thirdparty Route
+router.post('/thirdparty_answer', function (request, response) {
+
+    var passphrase = request.session.data['thirdPartySpokenToClient']
+    if (passphrase == "yes") {
+        response.redirect('/' + version + '/cases/new/case1/clientdetails')
+    } else {
+        response.redirect('/' + version + '/change_answer/client_details/client_thirdparty_nopassphrase.html')
+    }
+})
+
 //Scope (Discrimination) Routes
 router.post('/category_of_law_answer', function (request, response) {
 
@@ -146,7 +157,7 @@ router.get('/home/new', function (request, response) {
 //changing details
 router.post('/cases/accepted/case1/clientdetails', function (request, response) {
     // extract data from the form submission (request.body)
-    const { fullName, phoneNumber, addressLine1, addressLine2, postcode, birthDay, birthMonth, birthYear, email, refCode, niNumber, accessNeeds, urgent, clientVulnerable, thirdPartyName, thirdPartyEmail, thirdPartyPhoneNumber, thirdPartyAddressLine1, thirdPartyAddressLine2, thirdPartyTown, thirdPartyCounty, thirdPartyPostcode, thirdPartyRelationshipToClient, thirdPartyPassphrase, thirdPartySpokenToClient, thirdPartyResearch, clientAdditionalInfo, thirdParty, urgentReason, clientVulnerableReason } = request.body;
+    const { fullName, phoneNumber, addressLine1, addressLine2, postcode, birthDay, birthMonth, birthYear, email, refCode, niNumber, accessNeeds, urgent, clientVulnerable, thirdPartyName, thirdPartyEmail, thirdPartyPhoneNumber, thirdPartyAddressLine1, thirdPartyAddressLine2, thirdPartyTown, thirdPartyCounty, thirdPartyPostcode, thirdPartyRelationshipToClient, thirdPartyPassphrase, thirdPartySpokenToClient, reasonNotSpoken, thirdPartyResearch, clientAdditionalInfo, thirdParty, urgentReason, clientVulnerableReason } = request.body;
 
     // get `caseSelected` variable from cookie
     const caseSelected = request.cookies.cookieValueForCaseSelected;
@@ -182,6 +193,8 @@ router.post('/cases/accepted/case1/clientdetails', function (request, response) 
     updateIfNotEmpty('thirdPartyPostcode', thirdPartyPostcode);
     updateIfNotEmpty('thirdPartyPassphrase', thirdPartyPassphrase);
     updateIfNotEmpty('thirdPartyResearch', thirdPartyResearch);
+    updateIfNotEmpty('reasonNotSpoken', reasonNotSpoken);
+    updateIfNotEmpty('thirdPartySpokenToClient', thirdPartySpokenToClient);
     updateIfNotEmpty('clientAdditionalInfo', clientAdditionalInfo);
     updateIfNotEmpty('thirdParty', thirdParty);
     updateIfNotEmpty('urgentReason', urgentReason);

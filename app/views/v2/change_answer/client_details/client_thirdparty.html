@@ -10,7 +10,7 @@
        Add a third party contact
       </h1>
 
-      <form class="form" action="../../cases/accepted/case1/clientdetails" method="post">
+      <form class="form" action="/{{ version }}/thirdparty_answer" method="post">
 
         {% from "govuk/components/input/macro.njk" import govukInput %}
 
@@ -94,7 +94,7 @@
           value: data[caseSelected]['thirdPartyRelationshipToClient'],
           fieldset: {
             legend: {
-              text: "Relationship to client",
+              text: "Relationship to client (optional)",
               classes: "govuk-fieldset__legend--m"
             }
           },
@@ -124,79 +124,43 @@
 
         <!-- Passphrase -->
         
-        {{ govukInput({
+        <!-- {{ govukInput({
           label: {
             text: "Passphrase",
             classes: "govuk-label--m"
           },
           name: "thirdPartyPassphrase",
           value: data[caseSelected]['thirdPartyPassphrase']
-        }) }}
+        }) }} -->
 
         <!--Advisor spoken to client?-->
 
-        {% from "govuk/components/radios/macro.njk" import govukRadios %}
         
-
-          {{ govukRadios({
-          name: "thirdPartySpokenToClient",
-          value: data[caseSelected]['thirdPartySpokenToClient'],
-          fieldset: {
-            legend: {
-              text: "Advisor spoken to client?",
-              classes: "govuk-fieldset__legend--m"
+        {{ govukRadios({
+          "name": "thirdPartySpokenToClient",
+          "fieldset": {
+            "legend": {
+              "text": "Has the client set up a passphrase?",
+              "isPageHeading": true,
+              "classes": "govuk-fieldset__legend--m"
             }
           },
-          items: [
+          "items": [
             {
-              value: "Yes",
-              text: "Yes"
+              "value": "yes",
+              "text": "Yes",
+              "conditional": {
+                "html": "<div class=\"govuk-form-group\">\n          <label class=\"govuk-label\" for=\"passphrase\">\n            Passphrase\n          </label>\n          <input class=\"govuk-input govuk-!-width-one-third\" id=\"passphrase\" name=\"thirdPartyPassphrase\" type=\"text\">\n        </div>"
+              }
             },
             {
-              value: "No, child or patient",
-              text: "No, child or patient"
-            },
-            {
-              value: "No, subject to power of attorney",
-              text: "No, subject to power of attorney"
-            },
-            {
-              value: "No, cannot communicate via the telephone due to disability",
-              text: "No, cannot communicate via the telephone due to disability"
-            },
-            {
-              value: "No, cannot communicate via the telephone, due to a language requirement",
-              text: "No, cannot communicate via the telephone, due to a language requirement"
-            },
-            {
-              value: "No, other",
-              text: "No, other"
+              "value": "no",
+              "text": "No"
             }
           ]
         }) }}
-
-        <!--Contactable for research?-->
-
-          {{ govukRadios({
-          name: "thirdPartyResearch",
-          value: data[caseSelected]['thirdPartyResearch'],
-          fieldset: {
-            legend: {
-              text: "Third party is contactable for research?",
-              classes: "govuk-fieldset__legend--m"
-            }
-          },
-          items: [
-            {
-              value: "Yes",
-              text: "Yes"
-            },
-            {
-              value: "No",
-              text: "No"
-            }
-          ]
-        }) }}
+                
+        
 
        <!--Submit form-->
 
