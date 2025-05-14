@@ -89,13 +89,3 @@
     font-size: 1rem;
   }
 }
-
-.header-navigation-link {
-  border-left: 1px solid white;
-  padding-left: 20px;
-  }
-
-  /* Making the account navigation smaller */
-  .moj-header__navigation-item {
-    font-size: 1rem;
-  }
