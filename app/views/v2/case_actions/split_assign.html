@@ -1,4 +1,4 @@
-{% extends "layouts/question_page_v1.html" %}
+{% extends "layouts/question_page_v2.html" %}
 
  
 {% block content %}
@@ -13,7 +13,7 @@
       </h1>
     
 
-      <form class="form" action="/{{ version }}/split_case" method="post">
+      <form class="form" action="/{{ version }}/split_type" method="post">
 
         <!--radios-->
         
@@ -29,11 +29,11 @@
           },
           items: [
             {
-              value: "[Provider name]",
+              value: "splitSelf",
               text: "[Provider name]"
             },
             {
-              value: "To operator for reassignment",
+              value: "splitOperator",
               text: "To operator for reassignment"
             }
           ]

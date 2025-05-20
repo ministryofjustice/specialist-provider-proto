@@ -58,10 +58,9 @@
 .blueerror{
   border-left: 5px solid 	#1d70b8;
 }
-
+/* 
 .moj-header {
   background-color: #1d70b8;
-
   border-bottom: 0;
 }
 
@@ -71,6 +70,6 @@
   }
 
 /* Making the account navigation smaller */
-.moj-header__navigation-item {
+/* .moj-header__navigation-item {
   font-size: 1rem;
-}
+} */ */

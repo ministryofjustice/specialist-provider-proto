@@ -2,7 +2,7 @@
   "serviceName": "Manage your civil cases",
   "plugins": {
     "govuk-frontend": {
-      "rebrand": true
+      "rebrand": false
     }
   }
 }

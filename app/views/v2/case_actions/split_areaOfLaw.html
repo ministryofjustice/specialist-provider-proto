@@ -1,4 +1,4 @@
-{% extends "layouts/question_page_v1.html" %}
+{% extends "layouts/question_page_v2.html" %}
 
  
 {% block content %}
@@ -12,7 +12,9 @@
        Split case
       </h1>
       
-      <form class="form" action="split_matterType1" method="post">
+     
+        <form class="form" action="/{{ version }}/split_case" method="post">
+
         
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
 

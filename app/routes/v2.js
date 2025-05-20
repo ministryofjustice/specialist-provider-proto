@@ -145,6 +145,16 @@ router.post('/split_case', function (request, response) {
     response.redirect('/' + version + '/home/new')
 })
 
+router.post('/split_type', function (request, response) {
+
+    var passphrase = request.session.data['splitAreaOfLaw']
+    if (passphrase == "splitSelf") {
+        response.redirect('/' + version + '/case_actions/split_matterType1')
+    } else {
+        response.redirect('/' + version + '/case_actions/split_areaOfLaw')
+    }
+})
+
 router.get('/home/new', function (request, response) {
 
     if (request.session.data['split-case']) {
