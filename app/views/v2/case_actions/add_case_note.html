@@ -7,7 +7,7 @@
 
 <h1 class="govuk-heading-xl ">
     <span class="govuk-caption-xl ">{{ data[caseSelected]['fullName'] }}</span>
-   Reopen case
+   Add case note
   </h1>
 
 
@@ -15,21 +15,21 @@
 {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
 
 {{ govukTextarea({
-  name: "reopenReason",
+  name: "addNote",
   id: "more-detail",
   classes: "govuk-!-width-two-thirds",
   label: {
-    text: "Reason for reopening case"
+    text: ""
   }
 }) }}
 
-<form class="form" action="/{{ version }}/reopen_case" method="post">
+<form class="form" action="../cases/new/case1/case_timeline" method="post">
 
 
 <div class="govuk-button-group">
   <input type="hidden" name="reopen-case" value="001">
     <button type="submit" class="govuk-button" data-module="govuk-button">
-      Continue
+      Save
     </button>
     <a class="govuk-link" onclick="history.back();">Cancel</a>
   </div>

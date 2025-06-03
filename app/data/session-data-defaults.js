@@ -212,7 +212,7 @@ module.exports = [
     'country': 'United Kingdom',
     'town': 'Cocoyasi Village',
     'postcode': 'OP9 876',
-    'refCode': 'Existing client',
+    'refCode': 'Manually allocated',
     'phoneNumber': '07777 333444',
     'accessNeeds': 'None',
     'language': 'English',

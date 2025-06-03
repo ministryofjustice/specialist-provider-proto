@@ -42,18 +42,13 @@
 
   {% block content %}
 
-<h2 class="govuk-heading-m">Case  notes</h2>
+<h2 class="govuk-heading-m">Notes and history</h2>
 
 
 
-<form class="form" action="#" method="post">
+<!-- <form class="form" action="#" method="post">
 
   <div class="govuk-form-group">
-    <!-- <h1 class="govuk-label-wrapper">
-      <label class="govuk-label govuk-label--l" for="more-detail">
-        Case notes
-      </label>
-    </h1> -->
     <textarea class="govuk-textarea govuk-!-width-two-thirds" id="more-detail" name="addNote" rows="5" aria-describedby="more-detail-hint"></textarea>
   </div>
   
@@ -61,7 +56,19 @@
     Add note
   </button>
   
+  </form> -->
+
+  <form class="form" action="../../../case_actions/add_case_note" method="post">
+
+
+  <button type="submit" class="govuk-button" data-module="govuk-button">
+    Add note
+  </button>
+  
   </form>
+
+  <h2 class="govuk-heading-m">Filter</h2>
+
 
 
 <table class="govuk-table">
@@ -97,9 +104,12 @@
       <td class="govuk-table__cell">[Specialist provider name]</td>
       <td class="govuk-table__cell"><strong>Case closed</strong><br><strong class="govuk-tag govuk-tag--blue govuk-!-margin-top-1"> CLSP </strong></td>
     </tr> -->
+
+
+    
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">7 Jun 2025 <br>01:43pm</td>
-      <td class="govuk-table__cell">[Specialist provider name]</td>
+      <td class="govuk-table__cell">Firstname Lastname (Provider)</td>
       <td class="govuk-table__cell"><strong>Note added</strong><br>
         OR 10/12/2024: Case Taken on Provisionally.<br>
 Scope - Cl happy to continue.<br>
@@ -176,40 +186,48 @@ OR adv intro via email and WP via Adobe Sign - cl happy with this.
     </tr>
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">7 Jun 2025 <br>01:43pm</td>
-      <td class="govuk-table__cell">[Specialist provider name]</td>
-      <td class="govuk-table__cell"><strong>Means test changed</strong><br>Does client have a partner changed to 'yes'</td>
+      <td class="govuk-table__cell">Firstname Lastname (Provider)</td>
+      <td class="govuk-table__cell"><strong>Means test changed</strong><br><details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            View changes
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+Placeholder text        </div>
+      </details></td>
     </tr>
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">7 Jun 2025 <br>01:43pm</td>
-      <td class="govuk-table__cell">[Specialist provider name]</td>
+      <td class="govuk-table__cell">Firstname Lastname (Provider)</td>
       <td class="govuk-table__cell"><strong>Means test completed</strong><br>Client determined to be financially eligible</td>
     </tr>
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">7 Mar 2025 <br>11:02am</td>
-      <td class="govuk-table__cell">[Specialist provider name]</td>
-      <td class="govuk-table__cell"><strong>Case accepted</strong><br><strong class="govuk-tag govuk-tag--blue govuk-!-margin-top-1"> SPOP </strong><br></td>
+      <td class="govuk-table__cell">Firstname Lastname (Provider)</td>
+      <td class="govuk-table__cell"><strong>Case accepted</strong><br></td>
       </td>
     </tr>
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">7 Mar 2025 <br>11:01am</td>
-      <td class="govuk-table__cell">Call Operator</td>
-      <td class="govuk-table__cell"><strong>Client requires callback</strong><br>Client phone number: 01234 598202<br><strong class="govuk-tag govuk-tag--blue govuk-!-margin-top-1"> CBSP </strong></td>
+      <td class="govuk-table__cell">Firstname Lastname (Operator)</td>
+      <td class="govuk-table__cell"><strong>Client requires callback</strong><br></td>
     </tr>
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">5 Mar 2025 <br>09:00</td>
-      <td class="govuk-table__cell">Call Operator</td>
-      <td class="govuk-table__cell"><strong>Case assigned to [SP firm name]</strong><br><strong class="govuk-tag govuk-tag--blue govuk-!-margin-top-1"> REFSP </strong></td>
+      <td class="govuk-table__cell">Firstname Lastname (Operator)</td>
+      <td class="govuk-table__cell"><strong>Case assigned to [SP firm name]</strong></td>
       
     </tr>
     <tr class="govuk-table__row"> 
       <td class="govuk-table__cell">5 Mar 2025 <br>09:00</td>
-      <td class="govuk-table__cell">Call Operator</td>
+      <td class="govuk-table__cell">Firstname Lastname (Operator)</td>
       <td class="govuk-table__cell"><strong>Scope diagnosis created</strong><br> Category of law: Discrimination</td>
       
     </tr>
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">5 Mar 2025 <br>09:00</td>
-      <td class="govuk-table__cell">Call Operator</td>
+      <td class="govuk-table__cell">Firstname Lastname (Operator)</td>
       <td class="govuk-table__cell"><strong>Case created</strong></td>
       
     </tr>
