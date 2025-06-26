@@ -10,7 +10,7 @@
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <h1 class="govuk-fieldset__heading">
-              Is the client safe to call?
+              Does your client need an interpreter?
             </h1>
           </legend>
           <div class="govuk-radios" data-module="govuk-radios">
@@ -23,40 +23,12 @@
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio" value="scotland">
               <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
-               No
+                No
               </label>
             </div>
-           
+          </div>
         </fieldset>
       </div>
-
-      <form class="form" action="../../cases/accepted/case1/clientdetails" method="post">
-
-        {{ govukInput({
-          label: {
-            text: "Phone number",
-            classes: "govuk-label--m"
-          },
-          name: "phoneNumber",
-          classes: "govuk-!-width-one-third",
-          value: data[caseSelected]['phoneNumber'] 
-        }) }}
-
-        {{ govukWarningText({
-          text: "Do not say the call is from Civil Legal Advice",
-          iconFallbackText: "Warning"
-        }) }}
-
-
-        <div class="govuk-button-group">
-            <button type="submit" class="govuk-button" data-module="govuk-button">
-              Save
-            </button>
-            <a class="govuk-link" onclick="history.back();">Cancel</a>
-          </div>
-
-      </form>
-
     </div>
   </div>
 
