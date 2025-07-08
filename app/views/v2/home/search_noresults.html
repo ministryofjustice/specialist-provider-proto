@@ -165,58 +165,10 @@
 
  <!--Search results table-->  
 
-    <div style="display:none" id="resultsTable">
-      <h3 class="govuk-heading-m">7 search results</h3>
-      <table class="govuk-table" data-module="moj-sortable-table">
-        <thead class="govuk-table__head">
-          <tr class="govuk-table__row">
-            <th scope="col" class="govuk-table__header">Name</th>
-            <th scope="col" class="govuk-table__header">Case ID</th>
-            <th scope="col" class="govuk-table__header" >Phone number</th>
-            <th scope="col" class="govuk-table__header">Date of birth</th>
-            <th scope="col" class="govuk-table__header">Status</th>
 
-            <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">Last modified</th>
-          </tr>
-        </thead>
-        <tbody class="govuk-table__body">
-          {% for case, value in data %}
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell"><a href="../cases/accepted/case1/clientdetails.html" id="{{value.id}}">{{value.fullName}}</a></td>
-              <td class="govuk-table__cell">{{value.caseReference}}</td>
-              <td class="govuk-table__cell">{{value.phoneNumber}}</td>
-              <td class="govuk-table__cell">{{value.birthDay}}  {{value.birthMonth}} {{value.birthYear}}</td>
-            
-              <td class="govuk-table__cell">{{value.caseStatus}}</td>
-              <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value={{value.caselistLastModified}}>{{value.dateRecieved}}</td>
-            </tr>
-          {% endfor %}
-        </tbody>
-      </table>
+      <h3 class="govuk-heading-m">There are no results that match the search criteria</h3>
+      
 
-      {% from "govuk/components/pagination/macro.njk" import govukPagination %}
-
-{{ govukPagination({
-  next: {
-    href: "#"
-  },
-  items: [
-    {
-      number: 1,
-      current: true,
-      href: "#"
-    },
-    {
-      number: 2,
-      href: "#"
-    },
-    {
-      number: 3,
-      href: "#"
-    }
-  ]
-}) }}
-    </div>
 
 <!--on click of search button show results table-->
 
