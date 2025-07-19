@@ -10,6 +10,6 @@
     "cookie-parser": "^1.4.7",
     "govuk-frontend": "^5.10.0",
     "govuk-prototype-kit": "13.16.2",
-    "node": "^23.8.0"
+    "node": "^23.11.1"
   }
 }
